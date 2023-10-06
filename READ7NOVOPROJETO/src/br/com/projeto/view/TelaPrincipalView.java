@@ -67,7 +67,7 @@ public class TelaPrincipalView extends JFrame {
 		l4.setBounds(1085, 185, 234, 206);
 		lblLogo = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\LogoTela.png"));
 		manual2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\Manual.png"));
-		con2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Config.png"));
+		con2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\Config.png"));
 		sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\Sair.png"));
 		getContentPane().setLayout(null);
 
@@ -390,11 +390,12 @@ public class TelaPrincipalView extends JFrame {
 		lblRomance.setBounds(876, 409, 56, 30);
 		getContentPane().add(lblRomance);
 
-		JLabel lblFiccao = new JLabel("Romance");
+		/*JLabel lblFiccao = new JLabel("Romance");
 		lblFiccao.setFont(new Font("Segoe UI Variable", Font.PLAIN, 20));
 		lblFiccao.setBounds(1160, 409, 93, 30);
-		getContentPane().add(lblFiccao);
+		getContentPane().add(lblFiccao);*/
 
 		setVisible(true);
+		
 	}
 }

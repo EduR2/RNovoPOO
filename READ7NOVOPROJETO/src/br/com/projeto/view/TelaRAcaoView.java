@@ -58,7 +58,6 @@ public class TelaRAcaoView extends JFrame {
 	private DefaultTableModel tableModel;
 	private JTable table;
 	private JPanel panel_2;
-	private JLabel lblNewLabel;
 
 	public TelaRAcaoView() {
 		inicializaComponentes();
@@ -91,7 +90,7 @@ public class TelaRAcaoView extends JFrame {
 		search = new ImageIcon("Imagens/Lupa.png");
 		sair = new JLabel(i);
 		image2 = new JLabel(i2);
-		livro1 = new JLabel(book1);
+		livro1 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\acao.png"));
 		image3 = new JLabel(i3);
 		p = new JPanel();
 		
@@ -101,7 +100,7 @@ public class TelaRAcaoView extends JFrame {
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
 		sair.setBounds(1400, 0, 130, 113);
-		livro1.setBounds(150, 10, 100, 90);
+		livro1.setBounds(236, 10, 100, 90);
 		p.add(image2);
 		
 		table = new JTable();
@@ -177,10 +176,6 @@ public class TelaRAcaoView extends JFrame {
 		panel_2.setBackground(new Color(255, 128, 0));
 		panel_2.setBounds(600, 186, 237, 4);
 		getContentPane().add(panel_2);
-		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(173, 57, 45, 13);
-		getContentPane().add(lblNewLabel);
 
 		sair.addMouseListener(new MouseListener() {
 			@Override
