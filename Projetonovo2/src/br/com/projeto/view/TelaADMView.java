@@ -254,9 +254,14 @@ public class TelaADMView extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				try {
+				String url = "jdbc:mysql://localhost:3306/BD";
+				Connection conexao = DriverManager.getConnection(url, "root", "root");
 				EdicaoTextoADMView view = new EdicaoTextoADMView();
+				AdicaoTextosController controle = new AdicaoTextosController(view, conexao);
 				view.setVisible(true);
 				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				}catch(SQLException sqle) {}
 			}
 
 			@Override
