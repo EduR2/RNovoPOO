@@ -12,12 +12,12 @@ import br.com.projeto.model.vo.GenerosVO;
 import br.com.projeto.model.vo.TextosVO;
 
 public class EdicaoTextoDAO {
-	private String url = "jdbc:mysql://localhost:3306/BD";
+	
 	public List<TextosVO> buscarTextosGen(String classi) {
 		List<TextosVO> txt = new ArrayList<>();
 		 try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
-	    	 String sql = "SELECT texto, Classificação_texto FROM Textos WHERE Classificação_texto = ?";
+	    	 Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/BD", "root", "root");
+	    	 String sql = "SELECT texto, Classificação_texto FROM Texto WHERE Classificação_texto = ?";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 statement.setString(1, classi);
     		 ResultSet resultado = statement.executeQuery();
@@ -33,6 +33,8 @@ public class EdicaoTextoDAO {
 	        return null;
 	    }
 		 return txt;
+		 
+		 
 	}
 
 }

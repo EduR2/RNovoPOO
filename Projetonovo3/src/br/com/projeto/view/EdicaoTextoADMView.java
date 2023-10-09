@@ -29,6 +29,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.projeto.controller.EdicaoADMController;
@@ -42,7 +43,7 @@ import javax.swing.JComboBox;
 import javax.swing.JToggleButton;
 
 public class EdicaoTextoADMView extends JFrame {
-	private JLabel image2, image3, txt1, sair, salvar, livro1, livro2, livro3;
+	private JLabel image2, image3, txt1, sair, livro1, livro2, livro3;
 	private JPanel p, p1, p2;
 	private JButton b, btnSalvar, btnLer, btnLimpar, btnTxt1;
 	private Container container;
@@ -94,7 +95,6 @@ public class EdicaoTextoADMView extends JFrame {
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		sair = new JLabel(i);
-		salvar = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Salvar.png"));
 		livro1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
 		livro2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
 		livro3 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
@@ -108,11 +108,10 @@ public class EdicaoTextoADMView extends JFrame {
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
 		sair.setBounds(1400, 0, 130, 113);
-		salvar.setBounds(1393, 298, 130, 102);
-		livro1.setBounds(36, 186, 100, 102);
-		livro2.setBounds(36, 298, 100, 102);
-		livro3.setBounds(36, 410, 100, 102);
-		pane.setBounds(509, 212, 717, 433);
+		livro1.setBounds(285, 269, 100, 102);
+		livro2.setBounds(243, 311, 100, 102);
+		livro3.setBounds(257, 269, 100, 102);
+		pane.setBounds(509, 212, 717, 174);
 		p.add(image2);
 		
 		table = new JTable();
@@ -148,7 +147,6 @@ public class EdicaoTextoADMView extends JFrame {
 		text.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		senha.setFont(fonte1);
 		getContentPane().add(sair);
-		getContentPane().add(salvar);
 		getContentPane().add(livro1);
 		getContentPane().add(livro2);
 		getContentPane().add(livro3);
@@ -167,15 +165,17 @@ public class EdicaoTextoADMView extends JFrame {
 		livro1.setToolTipText("Texto 1");
 		livro2.setToolTipText("Texto 2");
 		livro3.setToolTipText("Texto 3");
-		salvar.setToolTipText("Salvar");
 		
 		comboBox = new JComboBox();
-		comboBox.setBounds(36, 139, 100, 37);
+		comboBox.setFont(new Font("Segoe UI Variable", Font.PLAIN, 17));
+		comboBox.setBounds(270, 207, 100, 37);
+		comboBox.setBackground(new Color(230, 228, 242));
 		comboBox.addItem("Ação");
 		comboBox.addItem("Terror");
 		comboBox.addItem("Ficção");
 		comboBox.addItem("Romance");
-		//String item = (String) comboBox.getSelectedItem();
+		String item = (String) comboBox.getSelectedItem();
+		System.out.println ("Genero selecionado: " +getGen());
 		getContentPane().add(comboBox);
 		
 		sair.addMouseListener(new MouseListener() {
@@ -237,11 +237,7 @@ public class EdicaoTextoADMView extends JFrame {
 			tableModel.addRow(new Object[] {textos.getTexto(), textos.getClassificação()});
 		}
 	}
-
-	public void addBtnSalvar(MouseListener salvarListener) {
-		salvar.addMouseListener(salvarListener);
-	}
-
+	
 	public void mensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem);
 	}
