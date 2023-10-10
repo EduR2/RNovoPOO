@@ -122,24 +122,24 @@ public class EdicaoTextoADMView extends JFrame {
 		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
 		pane.setViewportView(table);
 		
-	/*	table.addMouseListener(new MouseAdapter() {
+		table.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount()==1) {
 					try {
 					int linha = table.getSelectedRow();
-					String Nome = (String) table.getValueAt(linha, 0);
-					String Senha = (String) table.getValueAt(linha, 1);
-					TelaAcaodeADMView view = new TelaAcaodeADMView(Nome, Senha);
+					String Resumo = (String) table.getValueAt(linha, 0);
+					//String Senha = (String) table.getValueAt(linha, 1);
+					TelaEdicaodeTextoADMView view = new TelaEdicaodeTextoADMView(Resumo);
+					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection (url, "root", "root");
-					ExclusaoADMVController control = new ExclusaoADMVController(view, conexao);
-					EdicaoADMController control2 = new EdicaoADMController(view, conexao);
+					//EdicaoADMController control2 = new EdicaoADMController(view, conexao);
 					view.setVisible(true);
 					}catch(SQLException sqle) {}
 				}
-				
+			 
 			}   
-		});*/
+		});
 
 		btnLogin.setBackground(Color.BLUE);
 		btnLogin.setForeground(Color.WHITE);

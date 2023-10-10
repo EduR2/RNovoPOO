@@ -56,7 +56,6 @@ import br.com.projeto.model.dao.UsuariosCadastrosDAO;
 	   	@Override
 			public void actionPerformed(ActionEvent e) {
 	   		String gen = view.getGen();
-	   		JOptionPane.showMessageDialog(null, gen);
 			List<TextosVO> txts = txtDAO.buscarTextosGen(gen);
 			view.tabela(txts);
 				
