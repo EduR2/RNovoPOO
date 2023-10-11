@@ -76,12 +76,12 @@ public class TelaEdicaodeTextoADMView extends JFrame {
 		getContentPane().add(lblNovoTexto);
 		
 		salvar = new JLabel("");
-		salvar.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Salvar.png"));
+		salvar.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Salvar.png"));
 		salvar.setBounds(1204, 617, 83, 97);
 		getContentPane().add(salvar);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("");
-		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Borracha.png"));
+		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Borracha.png"));
 		lblNewLabel_1_1.setBounds(1327, 617, 83, 97);
 		getContentPane().add(lblNewLabel_1_1);
 

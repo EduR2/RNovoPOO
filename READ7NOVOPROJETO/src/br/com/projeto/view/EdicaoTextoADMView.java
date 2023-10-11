@@ -34,6 +34,7 @@ import javax.swing.table.DefaultTableModel;
 
 import br.com.projeto.controller.EdicaoADMController;
 import br.com.projeto.controller.ExclusaoADMVController;
+import br.com.projeto.controller.TapSong;
 import br.com.projeto.model.vo.LoginVO;
 import br.com.projeto.model.vo.TextosVO;
 
@@ -95,9 +96,9 @@ public class EdicaoTextoADMView extends JFrame {
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		sair = new JLabel(i);
-		livro1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
-		livro2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
-		livro3 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
+		livro1 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
+		livro2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
+		livro3 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
 		image2 = new JLabel(i2);
 		image3 = new JLabel(i3);
 		p = new JPanel();
@@ -181,6 +182,7 @@ public class EdicaoTextoADMView extends JFrame {
 		sair.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				TapSong.getSong();
 				dispose();
 
 			}
