@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Timer;
 
 import javax.swing.JOptionPane;
 
@@ -27,6 +28,9 @@ import br.com.projeto.model.bo.GenerosBO;
 public class GenerosController {
 	private AcaoView view;
 	private AcaoDAO acDAO;
+	private int index;
+	private static final int DELAY = 100;
+	
 	public GenerosController(AcaoView view, Connection conexao) {
 		this.view = view;
 		this.acDAO = new AcaoDAO();
@@ -116,14 +120,17 @@ public class GenerosController {
 		}
 	}
 	class listener3 implements MouseListener {
+		
+		private int index;
+		private static final int DELAY = 100;
+		private String texto;
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ResultSet resultado = acDAO.Leitura3();
+			this.index = 0;
 			try {
 				if (resultado.next()) {
-					String texto = resultado.getNString("texto");
-					view.setTexto(texto);
-					view.setClassificacao("Ação");
+					this.texto = resultado.getNString("texto");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -131,6 +138,24 @@ public class GenerosController {
 			}
 		}		
 		
+		private void exibirProximaLetra() {
+			if (index < texto.length()) {
+				char letra = texto.charAt(index);
+				view.setTexto(texto);
+				view.setClassificacao("Ação");
+				index++;
+				
+				  // Agendar a próxima letra após o atraso DELAY
+	            ActionListener taskPerformer = new ActionListener() {
+	                public void actionPerformed(ActionEvent evt) {
+	                    exibirProximaLetra();
+	                }
+	            };
+
+	            // Criar um Timer com DELAY milissegundos
+	            new javax.swing.Timer(DELAY, taskPerformer).start();
+			}
+		}
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
@@ -202,4 +227,5 @@ public class GenerosController {
 			
 		}
 	}
+	
 }

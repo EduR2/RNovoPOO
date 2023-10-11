@@ -86,6 +86,21 @@ public class TelaEdicaodeTextoADMView extends JFrame {
 		borracha.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Borracha.png"));
 		borracha.setBounds(1327, 617, 83, 97);
 		getContentPane().add(borracha);
+		
+		JLabel salvar_1 = new JLabel();
+		salvar_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
+		salvar_1.setBounds(71, 635, 83, 97);
+		getContentPane().add(salvar_1);
+		
+		JLabel salvar_2 = new JLabel();
+		salvar_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
+		salvar_2.setBounds(115, 635, 83, 97);
+		getContentPane().add(salvar_2);
+		
+		JLabel salvar_3 = new JLabel();
+		salvar_3.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
+		salvar_3.setBounds(164, 635, 83, 97);
+		getContentPane().add(salvar_3);
 		borracha.addMouseListener(new MouseListener() {
 
 			@Override
