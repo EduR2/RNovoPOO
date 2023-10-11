@@ -41,6 +41,7 @@ import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JToggleButton;
+import br.com.projeto.controller.AtualizaçãoNovoTextoADM;
 
 public class EdicaoTextoADMView extends JFrame {
 	private JLabel image2, image3, txt1, sair, livro1, livro2, livro3;
@@ -133,7 +134,7 @@ public class EdicaoTextoADMView extends JFrame {
 					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection (url, "root", "root");
-					//EdicaoADMController control2 = new EdicaoADMController(view, conexao);
+					AtualizaçãoNovoTextoADM atlzNewTxt = new AtualizaçãoNovoTextoADM(view, conexao);
 					view.setVisible(true);
 					}catch(SQLException sqle) {}
 				}
