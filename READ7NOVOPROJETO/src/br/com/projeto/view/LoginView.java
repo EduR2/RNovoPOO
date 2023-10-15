@@ -196,4 +196,5 @@ public class LoginView extends JFrame {
 	public void addBtnLembrarSenha(ActionListener lembraListener) {
 		btnLembrarSenha.addActionListener(lembraListener);
 	}
+	//teste
 }
