@@ -34,6 +34,7 @@ public class TelaEdicaodeTextoADMView extends JFrame {
 
 		textArea = new JTextArea();
 		textArea.setText(Texto);
+		textArea.setOpaque(false);
 		textArea.setFont(new Font("Segoe UI Variable",Font.BOLD,20));textArea.setLineWrap(true);
 		pane1.setViewportView(textArea);
 
@@ -44,19 +45,6 @@ public class TelaEdicaodeTextoADMView extends JFrame {
 
 		JPanel panel_1 = new JPanel();panel_1.setBackground(new Color(255,128,64));panel_1.setBounds(0,131,1540,2);
 		getContentPane().add(panel_1);
-		
-		/*JTextArea textArea_1 = new JTextArea();
-		textArea_1.setText(titulo);
-		textArea_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
-		textArea_1.setBounds(69, 45, 252, 57);
-		getContentPane().add(textArea_1);*/
-		
-		//textArea_1.setOpaque(false);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 128, 0));
-		panel.setBounds(69, 75, 252, 5);
-		getContentPane().add(panel);
 		
 		JScrollPane pane1_1 = new JScrollPane();
 		pane1_1.setBounds(820, 235, 590, 365);
