@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import br.com.projeto.controller.TapSong;
+import br.com.projeto.controller.TapSong2;
+
 public class TelaBemVindoView extends JFrame {
 	private ImageIcon image, image2;
 	private JLabel i, i2;
@@ -16,6 +19,8 @@ public class TelaBemVindoView extends JFrame {
 		inicializarComponentes();
 	}
 	public void inicializarComponentes() {
+		
+		TapSong2.getSong();
 		setBounds(487, 185, 585, 500);
 		setUndecorated(true);
 		setBackground(Color.ORANGE);
@@ -26,6 +31,8 @@ public class TelaBemVindoView extends JFrame {
 		i.setBackground(new Color(230, 228, 242));
 		getContentPane().add(i);
 		setVisible(true);
+		
+		
 		}
 
 }

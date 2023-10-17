@@ -32,7 +32,7 @@ public class ExclusaoView extends JFrame {
 		setBounds(487, 185, 744, 571);
 		getContentPane().setLayout(null);
 		
-		exclusao = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\1530578.png"));
+		exclusao = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\1530578.png"));
 		exclusao.setToolTipText("Pesquisar Resumo");
 		exclusao.setBounds(547, 171, 100, 102);
 		getContentPane().add(exclusao);
@@ -46,7 +46,7 @@ public class ExclusaoView extends JFrame {
 		textArea.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		pane1.setViewportView(textArea);
 		
-		JLabel sair2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Sair.png"));
+		JLabel sair2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\Sair.png"));
 		sair2.setBounds(590, 8, 130, 113);
 		getContentPane().add(sair2);
 		sair2.addMouseListener(new MouseListener() {
