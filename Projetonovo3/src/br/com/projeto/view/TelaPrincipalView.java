@@ -293,7 +293,7 @@ public class TelaPrincipalView extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ConfiguracoesView view = new ConfiguracoesView(nome);
-				ConfigSong.getSong();
+				TapSong.getSong();
 				view.setVisible(true);
 				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
@@ -329,8 +329,8 @@ public class TelaPrincipalView extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-				SaidaSong.getSong();
-				Thread.sleep(3000);
+				TapSong.getSong();
+				Thread.sleep(2000);
 				System.exit(0);
 				}catch(Exception exceptione) {}
 
