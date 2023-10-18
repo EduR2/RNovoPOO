@@ -26,6 +26,7 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 
 import br.com.projeto.controller.GenerosController;
+import br.com.projeto.controller.ManualUserController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
@@ -104,11 +105,11 @@ public class TelaPrincipalView extends JFrame {
 		panel_6.setBackground(new Color(255, 128, 64));
 		getContentPane().add(panel_6);
 
-		sair2.setBounds(47, 279, 66, 83);
+		sair2.setBounds(47, 383, 66, 83);
 		sair2.setToolTipText("Sair");
-		con2.setBounds(47, 186, 66, 83);
+		con2.setBounds(47, 223, 66, 83);
 		con2.setToolTipText("Configurações");
-		manual2.setBounds(47, 93, 66, 83);
+		manual2.setBounds(47, 130, 66, 83);
 		manual2.setToolTipText("Seus Resumos");
 		lblLogo.setBounds(198, 93, 74, 77);
 		getContentPane().add(lblLogo);
@@ -412,14 +413,53 @@ public class TelaPrincipalView extends JFrame {
 		lblFiccao.setBounds(1160, 409, 93, 30);
 		getContentPane().add(lblFiccao);
 		
+		JLabel Manual = new JLabel("");
+		Manual.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\manual3.png"));
+		Manual.setBounds(33, 297, 103, 89);
+		getContentPane().add(Manual);
 		
-		
-				
-		
-		//ee
-		
+		Manual.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+				TapSong.getSong();	
+				ManuaUserView view2 = new ManuaUserView();
+				String url = "jdbc:mysql://localhost:3306/BD";
+				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+				ManualUserController controller = new ManualUserController();
+				view2.setVisible(true);
+				view2.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				}catch(SQLException sqle) {}
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				setForeground(Color.ORANGE);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				setForeground(Color.ORANGE);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+	}
 }
-}
+
 
 
 	         
