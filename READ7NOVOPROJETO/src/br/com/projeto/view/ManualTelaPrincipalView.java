@@ -1,23 +1,17 @@
 package br.com.projeto.view;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,22 +20,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.BorderFactory;
-import javax.swing.Icon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
 
-import br.com.projeto.controller.AcaoRController;
 import br.com.projeto.controller.TapSong;
 import br.com.projeto.model.vo.GenerosVO;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
 
-public class TelaRAcaoView extends JFrame {
-
+public class ManualTelaPrincipalView extends JFrame {
+	
+	
 	private JLabel image2, image3, txt1, sair, livro1;
 	private JPanel p, p1, p2;
 	private JButton b, btnSalvar, btnLer, btnLimpar, btnTxt1;
@@ -50,17 +41,13 @@ public class TelaRAcaoView extends JFrame {
 	private Font fonte = new Font("Verdana", Font.BOLD, 20);
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
-	private JScrollPane pane;
 	private JPasswordField senha;
 	private JButton btnLogin, btnCriarCadastro;
 	private String texto;
-	private JTextField txtAutor;
 	private JLabel l1;
 	private DefaultTableModel tableModel;
-	private JTable table;
-	private JPanel panel_2;
 
-	public TelaRAcaoView() {
+	public ManualTelaPrincipalView() {
 		inicializaComponentes();
 	}
 
@@ -77,7 +64,6 @@ public class TelaRAcaoView extends JFrame {
 		btnLimpar = new JButton("Limpar");
 		btnTxt1 = new JButton("Texto 1");
 		senha = new JPasswordField("Senha");
-		pane = new JScrollPane();
 		btnLogin = new JButton("Login");
 		btnCriarCadastro = new JButton("Criar");
 		txt1 = new JLabel("Não possui cadastro?");
@@ -94,8 +80,6 @@ public class TelaRAcaoView extends JFrame {
 		livro1 = new JLabel(book1);
 		image3 = new JLabel(i3);
 		p = new JPanel();
-		
-		pane.setBounds(509, 212, 717, 433);
 		senha.setBounds(597, 395, 350, 45);
 		image3.setBounds(575, 65, 390, 320);
 		txt1.setBounds(740, 537, 125, 20);
@@ -103,34 +87,7 @@ public class TelaRAcaoView extends JFrame {
 		sair.setBounds(1400, 0, 130, 113);
 		livro1.setBounds(152, 0, 100, 102);
 		p.add(image2);
-		
-		table = new JTable();
 		tableModel = new DefaultTableModel(new Object[] {"E-mail", "Título", "Resumo", "Classificação"}, 0);
-		table.setModel(tableModel);
-		table.setBounds(538, 221, 558, 433);
-		table.setBackground(new Color(230, 228, 242));
-		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
-		pane.setViewportView(table);
-		table.addMouseListener(new MouseAdapter() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount()==1) {
-					try {
-					int linha = table.getSelectedRow();
-					String Email = (String) table.getValueAt(linha, 0);
-					String Título = (String) table.getValueAt(linha, 1);
-					String Resumo = (String) table.getValueAt(linha, 2);
-					String Classificação = (String) table.getValueAt(linha, 3);
-					String url = "jdbc:mysql://localhost:3306/BD";
-					TelaLeituraView view = new TelaLeituraView(Título, Resumo);
-					Connection conexao = DriverManager.getConnection(url, "root", "root");
-					view.setVisible(true);
-	       			}catch(SQLException SQLe) {}
-				}
-				
-			}
-		});
 		
 		btnLogin.setBackground(Color.BLUE);
 		btnLogin.setForeground(Color.WHITE);
@@ -138,7 +95,6 @@ public class TelaRAcaoView extends JFrame {
 		senha.setFont(fonte1);
 		getContentPane().add(sair);
 		getContentPane().add(livro1);
-		getContentPane().add(pane);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 128, 64));
@@ -150,17 +106,7 @@ public class TelaRAcaoView extends JFrame {
 		panel_1.setBounds(-10, 110, 1550, 2);
 		getContentPane().add(panel_1);
 
-		txtAutor = new JTextField();
-		txtAutor.setHorizontalAlignment(SwingConstants.LEFT);
-		txtAutor.setForeground(new Color(0, 0, 0));
-		txtAutor.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		txtAutor.setColumns(10);
-		txtAutor.setBounds(600, 140, 238, 50);
-		txtAutor.setOpaque(false);
-		txtAutor.setBorder(BorderFactory.createEmptyBorder());
-		getContentPane().add(txtAutor);
-
-		JLabel lblNewLabel_1 = new JLabel("Resumos");
+		JLabel lblNewLabel_1 = new JLabel("Guia- Tela Principal");
 		lblNewLabel_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 27));
 		lblNewLabel_1.setBounds(430, 10, 519, 90);
 		getContentPane().add(lblNewLabel_1);
@@ -174,10 +120,10 @@ public class TelaRAcaoView extends JFrame {
 		l1_1.setBounds(102, 267, 234, 213);
 		getContentPane().add(l1_1);
 		
-		panel_2 = new JPanel();
-		panel_2.setBackground(new Color(255, 128, 0));
-		panel_2.setBounds(600, 186, 237, 4);
-		getContentPane().add(panel_2);
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\principmanual.png"));
+		lblNewLabel.setBounds(442, 132, 1046, 577);
+		getContentPane().add(lblNewLabel);
 
 		sair.addMouseListener(new MouseListener() {
 			@Override
@@ -226,20 +172,7 @@ public class TelaRAcaoView extends JFrame {
 		}
 	}
 
-	public String getAutor() {
-		return txtAutor.getText();
-	}
-	public void addBtnPegaTxtGeral(MouseListener listener) {
-		l1.addMouseListener(listener);
-	}
 	
-	public void addtxtAutor (DocumentListener listener) {
-		txtAutor.getDocument().addDocumentListener(listener);
-	}
-
-	public void mensagem(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
-	}
 
 	public void mostrarMensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem, "Erro ao logar", JOptionPane.ERROR_MESSAGE);
