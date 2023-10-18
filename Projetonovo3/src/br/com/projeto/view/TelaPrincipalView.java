@@ -23,7 +23,9 @@ import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
 import br.com.projeto.controller.SaidaSong;
 import br.com.projeto.controller.TapSong;
+import br.com.projeto.controller.AberturaSong;
 import br.com.projeto.controller.AcaoRController;
+import br.com.projeto.controller.ManualUserController;
 import br.com.projeto.controller.ConfigSong;
 import br.com.projeto.model.dao.AcaoRDAO;
 import br.com.projeto.model.vo.*;
@@ -107,9 +109,9 @@ public class TelaPrincipalView extends JFrame {
 		panel_6.setBackground(new Color(255, 128, 64));
 		getContentPane().add(panel_6);
 
-		sair2.setBounds(47, 279, 66, 83);
+		sair2.setBounds(47, 378, 66, 83);
 		sair2.setToolTipText("Sair");
-		con2.setBounds(47, 186, 66, 83);
+		con2.setBounds(47, 285, 66, 83);
 		con2.setToolTipText("Configurações");
 		manual2.setBounds(47, 93, 66, 83);
 		manual2.setToolTipText("Seus Resumos");
@@ -330,7 +332,7 @@ public class TelaPrincipalView extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 				TapSong.getSong();
-				Thread.sleep(2000);
+				Thread.sleep(1500);
 				System.exit(0);
 				}catch(Exception exceptione) {}
 
@@ -422,6 +424,50 @@ public class TelaPrincipalView extends JFrame {
 		lblFiccao.setFont(new Font("Segoe UI Variable", Font.PLAIN, 20));
 		lblFiccao.setBounds(1160, 409, 93, 30);
 		getContentPane().add(lblFiccao);
+		
+		JLabel Manual = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\6719332 (1).png"));
+		Manual.setToolTipText("Manual do Usuário");
+		Manual.setBounds(47, 186, 66, 83);
+		getContentPane().add(Manual);
+		Manual.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+				TapSong.getSong();	
+				ManualUserView view2 = new ManualUserView();
+				String url = "jdbc:mysql://localhost:3306/BD";
+				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+				ManualUserController controller = new ManualUserController();
+				view2.setVisible(true);
+				view2.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				}catch(SQLException sqle) {}
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				setForeground(Color.ORANGE);
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				setForeground(Color.ORANGE);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
 
 		setVisible(true);
 	}
