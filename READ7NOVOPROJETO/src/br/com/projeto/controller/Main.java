@@ -8,6 +8,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 import br.com.projeto.view.*;
 public class Main {
@@ -24,10 +25,16 @@ public class Main {
 			view.setResizable(false);
 			view.setVisible(true);
 			}catch (Exception e) {}
+		    
+		       
+		
+	
 		
 		
-
+		
 	
 	}
+
+	
 }
 

@@ -49,11 +49,11 @@ public class ConfiguracoesView extends JFrame{
 			fundocon = new ImageIcon("Imagens/FundoCon.png");
 			excluir = new ImageIcon("Imagens/Excluir.png");
 			lápis = new ImageIcon("Imagens/Lápis.png");
-			lblLogo = new JLabel(logo);
-			sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\Sair.png"));
-			log = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\read.png"));
-			del = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\1530578.png"));
-			pencil = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\novopencil.png"));
+			lblLogo = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\LogoTela.png"));
+			sair2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\Sair.png"));
+			log = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\read.png"));
+			del = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\1530578.png"));
+			pencil = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\novopencil.png"));
 			getContentPane().setLayout(null);
 
 			JPanel panel_4 = new JPanel();
