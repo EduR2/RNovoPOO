@@ -26,6 +26,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 
 public class RomanceView extends JFrame {
@@ -50,6 +51,7 @@ public class RomanceView extends JFrame {
 	private JLabel info;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	public RomanceView() {
 		inicializaComponentes();
@@ -69,10 +71,16 @@ public class RomanceView extends JFrame {
 		btnLimpar = new JButton("Limpar");
 		btnTxt1 = new JButton("Texto 1");
 		nome = new JTextArea();
+		nome.setBackground(new Color(250, 250, 250));
+		nome.setBorder(BorderFactory.createEmptyBorder());
 		text = new JTextArea();
+		text.setBackground(new Color(250, 250, 250));
 		senha = new JPasswordField("Senha");
 		pane = new JScrollPane(nome);
+		pane.setBackground(new Color(250, 250, 250));
 		pane1 = new JScrollPane(text);
+		pane1.setBackground(getForeground());
+		//pane.setBackground(new Color(219,219,219));
 		btnLogin = new JButton("Login");
 		btnCriarCadastro = new JButton("Criar");
 		txt1 = new JLabel("Não possui cadastro?");
@@ -86,17 +94,17 @@ public class RomanceView extends JFrame {
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		sair = new JLabel(i);
-		salvar = new JLabel(save);
-		limpar = new JLabel(clean);
+		salvar = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Salvar.png"));
+		limpar = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Borracha.png"));
 		livro1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
-		livro2 = new JLabel(book2);
-		livro3 = new JLabel(book3);
+		livro2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\livro2.png"));
+		livro3 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\livro3.png"));
 		image2 = new JLabel(i2);
 		image3 = new JLabel(i3);
 		p = new JPanel();
 
-		pane.setBounds(825, 217, 558, 433);
-		pane1.setBounds(189, 188, 551, 462);
+		pane.setBounds(869, 217, 558, 418);
+		pane1.setBounds(175, 173, 558, 462);
 		nome.setLineWrap(true);
 		text.setLineWrap(true);
 		senha.setBounds(597, 395, 350, 45);
@@ -104,8 +112,8 @@ public class RomanceView extends JFrame {
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
 		sair.setBounds(1400, 0, 130, 113);
-		salvar.setBounds(1384, 217, 130, 102);
-		limpar.setBounds(1384, 329, 130, 102);
+		salvar.setBounds(1424, 287, 130, 102);
+		limpar.setBounds(1424, 399, 130, 102);
 		livro1.setBounds(21, 187, 100, 102);
 		livro2.setBounds(21, 299, 100, 102);
 		livro3.setBounds(21, 411, 100, 102);
@@ -117,6 +125,21 @@ public class RomanceView extends JFrame {
 		nome.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		text.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		senha.setFont(fonte1);
+		
+		JPanel panel_1_1_1 = new JPanel();
+		panel_1_1_1.setBackground(new Color(255, 128, 64));
+		panel_1_1_1.setBounds(1318, 202, 107, 5);
+		getContentPane().add(panel_1_1_1);
+		
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setBackground(new Color(255, 128, 64));
+		panel_1_1.setBounds(1094, 202, 218, 5);
+		getContentPane().add(panel_1_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 128, 64));
+		panel_1.setBounds(869, 202, 218, 5);
+		getContentPane().add(panel_1);
 		getContentPane().add(sair);
 		getContentPane().add(salvar);
 		getContentPane().add(limpar);
@@ -135,7 +158,9 @@ public class RomanceView extends JFrame {
 		txtA.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
 		txtA.setText("Título");
 		txtA.setForeground(Color.LIGHT_GRAY);
-		txtA.setBounds(825, 157, 218, 50);
+		txtA.setBounds(869, 157, 218, 50);
+		txtA.setOpaque(false);
+		txtA.setBorder(BorderFactory.createEmptyBorder());
 		getContentPane().add(txtA);
 		txtA.setColumns(10);
 
@@ -144,7 +169,9 @@ public class RomanceView extends JFrame {
 		txtAutor.setText("Autor (Seu e-mail)");
 		txtAutor.setForeground(Color.LIGHT_GRAY);
 		txtAutor.setColumns(10);
-		txtAutor.setBounds(1050, 157, 218, 50);
+		txtAutor.setBounds(1094, 157, 218, 50);
+		txtAutor.setOpaque(false);
+		txtAutor.setBorder(BorderFactory.createEmptyBorder());
 		getContentPane().add(txtAutor);
 		
 		livro1.setToolTipText("Texto 1");
@@ -156,20 +183,27 @@ public class RomanceView extends JFrame {
 		classi = new JTextField("");
 		classi.setForeground(Color.BLACK);
 		classi.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		classi.setBounds(1274, 157, 107, 50);
+		classi.setBounds(1318, 157, 107, 50);
+		classi.setOpaque(false);
+		classi.setBorder(BorderFactory.createEmptyBorder());
 		getContentPane().add(classi);
 		classi.setColumns(10);
 		
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-18 08501.png"));
-		lblNewLabel.setBounds(146, 122, 642, 555);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\Downloads\\Captura de tela 2023-10-19 08260.png"));
+		lblNewLabel.setBounds(131, 135, 651, 536);
 		getContentPane().add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("Leia");
 		lblNewLabel_1.setBackground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 27));
-		lblNewLabel_1.setBounds(189, 133, 282, 45);
+		lblNewLabel_1.setBounds(143, 84, 282, 45);
 		getContentPane().add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\Downloads\\Captura de tela 2023-10-19 08202 (1).png"));
+		lblNewLabel_2.setBounds(834, 135, 706, 536);
+		getContentPane().add(lblNewLabel_2);
 		
 		txtA.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {

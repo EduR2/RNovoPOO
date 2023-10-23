@@ -65,7 +65,7 @@ public class TelaPrincipalView extends JFrame {
 		Con1 = new ImageIcon("Imagens/Config.png");
 		sair1 = new ImageIcon("Imagens/Sair.png");
 		l1 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\acao.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\acao.png"));
 		l1.setBounds(205, 186, 234, 213);
 		l2 = new JLabel(
 				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Terror.png"));
