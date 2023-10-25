@@ -190,7 +190,7 @@ public class TerrorView extends JFrame {
 		classi.setColumns(10);
 		
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\Downloads\\Captura de tela 2023-10-19 08260.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem.png"));
 		lblNewLabel.setBounds(131, 135, 651, 536);
 		getContentPane().add(lblNewLabel);
 		
@@ -201,7 +201,7 @@ public class TerrorView extends JFrame {
 		getContentPane().add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\Downloads\\Captura de tela 2023-10-19 08202 (1).png"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem2.png"));
 		lblNewLabel_2.setBounds(834, 135, 706, 536);
 		getContentPane().add(lblNewLabel_2);
 		

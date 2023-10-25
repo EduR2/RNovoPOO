@@ -49,18 +49,19 @@ public class TelaEdicaoResumoView extends JFrame {
 		getContentPane().add(salvar_1);
 
 		JScrollPane pane1 = new JScrollPane();
-		pane1.setBounds(69,235,590,365);
+		pane1.setBounds(65,235,590,365);
+		pane1.setBackground(new Color(250, 250, 250));
         getContentPane().add(pane1);
 
 		textArea = new JTextArea();
 		textArea.setText(resumo);
-		textArea.setOpaque(false);
+		textArea.setBackground(new Color(250, 250, 250));
 		textArea.setFont(new Font("Segoe UI Variable",Font.BOLD,20));textArea.setLineWrap(true);
 		pane1.setViewportView(textArea);
 
 		JLabel sair2 = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Sair.png"));
-		        sair2.setBounds(1410,486,130,113);
+		        sair2.setBounds(1420,487,130,113);
 				getContentPane().add(sair2);
 
 		JPanel panel_1 = new JPanel();panel_1.setBackground(new Color(255,128,64));panel_1.setBounds(0,131,1540,2);
@@ -80,7 +81,7 @@ public class TelaEdicaoResumoView extends JFrame {
 		getContentPane().add(panel);
 		
 		JScrollPane pane1_1 = new JScrollPane();
-		pane1_1.setBounds(820, 235, 590, 365);
+		pane1_1.setBounds(810, 235, 590, 365);
 		getContentPane().add(pane1_1);
 		
 		textArea_1 = new JTextArea();
@@ -100,12 +101,12 @@ public class TelaEdicaoResumoView extends JFrame {
 		
 		salvar = new JLabel();
 		salvar.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Salvar.png"));
-		salvar.setBounds(1436, 256, 83, 97);
+		salvar.setBounds(1446, 257, 83, 97);
 		getContentPane().add(salvar);
 		
 		JLabel borracha = new JLabel("");
 		borracha.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\Borracha.png"));
-		borracha.setBounds(1436, 379, 83, 97);
+		borracha.setBounds(1446, 380, 83, 97);
 		getContentPane().add(borracha);
 		
 		titulo_old = new JTextArea();
@@ -125,6 +126,16 @@ public class TelaEdicaoResumoView extends JFrame {
 		titulo_novo.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
 		titulo_novo.setBounds(1158, 177, 252, 33);
 		getContentPane().add(titulo_novo);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem.png"));
+		lblNewLabel_1.setBounds(33, 155, 651, 536);
+		getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("");
+		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem.png"));
+		lblNewLabel_1_1.setBounds(779, 155, 710, 536);
+		getContentPane().add(lblNewLabel_1_1);
 		borracha.addMouseListener(new MouseListener() {
 
 			@Override

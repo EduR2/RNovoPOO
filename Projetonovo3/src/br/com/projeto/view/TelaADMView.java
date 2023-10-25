@@ -86,7 +86,7 @@ public class TelaADMView extends JFrame {
 
 		JLabel Resumos = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 160935.png"));
-		Resumos.setBounds(134, 161, 322, 300);
+		Resumos.setBounds(133, 105, 322, 300);
 		getContentPane().add(Resumos);
 		Resumos.addMouseListener(new MouseListener() {
 
@@ -136,7 +136,7 @@ public class TelaADMView extends JFrame {
 
 		JLabel l1 = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 152752.png"));
-		l1.setBounds(477, 161, 322, 300);
+		l1.setBounds(476, 105, 322, 300);
 		getContentPane().add(l1);
 
 		l1.addMouseListener(new MouseListener() {
@@ -184,11 +184,25 @@ public class TelaADMView extends JFrame {
 
 		});
 
-		JLabel Sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 164626.png"));
-		Sair.setBounds(1181, 161, 333, 300);
+		JLabel Sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-25 08113 (1).png"));
+		Sair.setBounds(1178, 102, 333, 300);
 		getContentPane().add(Sair);
 
-		Sair.addMouseListener(new MouseListener() {
+		
+		JLabel Add = new JLabel(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 154100.png"));
+		Add.setBounds(853, 114, 291, 292);
+		getContentPane().add(Add);
+		
+		JLabel lblNewLabel = new JLabel("Bem Vindo, ADM!");
+		lblNewLabel.setFont(new Font("Segoe UI Variable", Font.PLAIN, 25));
+		lblNewLabel.setBounds(134, 26, 215, 54);
+		getContentPane().add(lblNewLabel);
+		
+		JLabel Sair_1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 164626.png"));
+		Sair_1.setBounds(122, 444, 333, 300);
+		getContentPane().add(Sair_1);
+		Sair_1.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -223,15 +237,6 @@ public class TelaADMView extends JFrame {
 
 		});
 
-		JLabel Add = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 154100.png"));
-		Add.setBounds(854, 170, 291, 292);
-		getContentPane().add(Add);
-		
-		JLabel lblNewLabel = new JLabel("Bem Vindo, ADM!");
-		lblNewLabel.setFont(new Font("Segoe UI Variable", Font.PLAIN, 25));
-		lblNewLabel.setBounds(134, 26, 215, 54);
-		getContentPane().add(lblNewLabel);
 
 		Add.addMouseListener(new MouseListener() {
 
