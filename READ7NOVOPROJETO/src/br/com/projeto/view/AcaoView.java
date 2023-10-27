@@ -3,6 +3,7 @@ package br.com.projeto.view;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -70,6 +72,7 @@ public class AcaoView extends JFrame {
 		btnLimpar = new JButton("Limpar");
 		btnTxt1 = new JButton("Texto 1");
 		nome = new JTextArea();
+		nome.setText("tipo-   fonte");
 		text = new JTextArea();
 		senha = new JPasswordField("Senha");
 		pane = new JScrollPane(nome);
@@ -116,6 +119,11 @@ public class AcaoView extends JFrame {
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(fonte);
 		nome.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
+		
+		
+		
+		
+		
 		text.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		senha.setFont(fonte1);
 		getContentPane().add(sair);
@@ -171,6 +179,12 @@ public class AcaoView extends JFrame {
 		classi.setBounds(1274, 157, 107, 50);
 		getContentPane().add(classi);
 		classi.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane(nome);
+		scrollPane.setBounds(1420, 150, 83, 50);
+		getContentPane().add(scrollPane);
+		
+		
 		
 		txtA.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
@@ -320,5 +334,36 @@ public class AcaoView extends JFrame {
 
 	public void mostrarMensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem, "Erro ao logar", JOptionPane.ERROR_MESSAGE);
-	}
+	
+
+	
+	
+	String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+    final JComboBox<String> fontComboBox = new JComboBox<>(fontNames);
+
+    fontComboBox.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String selectedFont = (String) fontComboBox.getSelectedItem();
+            Font currentFont = nome.getFont();
+            nome.setFont(new Font(selectedFont, currentFont.getStyle(), currentFont.getSize()));
+        }
+    });
 }
+}
+
+    
+    
+    
+    
+	
+	
+	
+	
+	
+
+
+
+
+
+

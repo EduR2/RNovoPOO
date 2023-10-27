@@ -110,6 +110,15 @@ public class TelaADMView extends JFrame {
 		lblUsuariosCadastrados.setBounds(455, 373, 191, 51);
 		getContentPane().add(lblUsuariosCadastrados);
 		
+		JLabel Resumos = new JLabel(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 160935.png"));
+		Resumos.setBounds(134, 161, 322, 300);
+		Resumos.setBounds(133, 105, 322, 300);
+		getContentPane().add(Resumos);
+		
+		
+		
+		
 		l1.addMouseListener(new MouseListener() {
 
 			@Override
