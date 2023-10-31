@@ -34,7 +34,6 @@ import javax.swing.table.DefaultTableModel;
 
 import br.com.projeto.controller.EdicaoADMController;
 import br.com.projeto.controller.ExclusaoADMVController;
-import br.com.projeto.controller.TapSong;
 import br.com.projeto.model.vo.LoginVO;
 import br.com.projeto.model.vo.TextosVO;
 
@@ -42,6 +41,7 @@ import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JToggleButton;
+import br.com.projeto.controller.AtualizaçãoNovoTextoADM;
 
 public class EdicaoTextoADMView extends JFrame {
 	private JLabel image2, image3, txt1, sair, livro1, livro2, livro3;
@@ -71,6 +71,7 @@ public class EdicaoTextoADMView extends JFrame {
 		setTitle("Read7");
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
+		setUndecorated(true);
 		getContentPane().setBackground(new Color(230, 228, 242));
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
 		UIManager.put("ToolTip.font", fontetip);
@@ -96,9 +97,9 @@ public class EdicaoTextoADMView extends JFrame {
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		sair = new JLabel(i);
-		livro1 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
-		livro2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
-		livro3 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
+		livro1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
+		livro2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
+		livro3 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
 		image2 = new JLabel(i2);
 		image3 = new JLabel(i3);
 		p = new JPanel();
@@ -114,7 +115,7 @@ public class EdicaoTextoADMView extends JFrame {
 		livro3.setBounds(257, 269, 100, 102);
 		pane.setBounds(509, 212, 717, 174);
 		p.add(image2);
-		
+
 		table = new JTable();
 		tableModel = new DefaultTableModel(new Object[] {"Texto", "Classificação"}, 0);
 		table.setModel(tableModel);
@@ -122,7 +123,7 @@ public class EdicaoTextoADMView extends JFrame {
 		table.setBackground(new Color(230, 228, 242));
 		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
 		pane.setViewportView(table);
-		
+
 		table.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount()==1) {
@@ -134,11 +135,11 @@ public class EdicaoTextoADMView extends JFrame {
 					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection (url, "root", "root");
-					//EdicaoADMController control2 = new EdicaoADMController(view, conexao);
+					AtualizaçãoNovoTextoADM atlzNewTxt = new AtualizaçãoNovoTextoADM(view, conexao);
 					view.setVisible(true);
 					}catch(SQLException sqle) {}
 				}
-			 
+
 			}   
 		});
 
@@ -162,11 +163,11 @@ public class EdicaoTextoADMView extends JFrame {
 		panel_1.setBackground(new Color(255, 128, 64));
 		panel_1.setBounds(-10, 110, 1540, 2);
 		getContentPane().add(panel_1);
-		
+
 		livro1.setToolTipText("Texto 1");
 		livro2.setToolTipText("Texto 2");
 		livro3.setToolTipText("Texto 3");
-		
+
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Segoe UI Variable", Font.PLAIN, 17));
 		comboBox.setBounds(270, 207, 100, 37);
@@ -178,11 +179,10 @@ public class EdicaoTextoADMView extends JFrame {
 		String item = (String) comboBox.getSelectedItem();
 		System.out.println ("Genero selecionado: " +getGen());
 		getContentPane().add(comboBox);
-		
+
 		sair.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TapSong.getSong();
 				dispose();
 
 			}
@@ -239,7 +239,7 @@ public class EdicaoTextoADMView extends JFrame {
 			tableModel.addRow(new Object[] {textos.getTexto(), textos.getClassificação()});
 		}
 	}
-	
+
 	public void mensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem);
 	}

@@ -124,4 +124,12 @@ public class TelaEdicaodeTextoADMView extends JFrame {
 	public void addBtnSalvar(MouseListener listener) {
 		salvar.addMouseListener(listener);
 	}
+	public Type getNewTexto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void mensagem(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }
