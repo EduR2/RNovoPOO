@@ -39,6 +39,8 @@ public class EstatisticaView extends JFrame {
 	private ImageIcon i1, i2, i3, i4, logo, manual1, Con1, sair1, inf;
 	private JLabel lblLogo, acao, sair2, info;
 	private Container container;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	public EstatisticaView(String nome) {
 		super();
@@ -90,10 +92,6 @@ public class EstatisticaView extends JFrame {
 		lblLogo.setBounds(43, 79, 74, 77);
 		getContentPane().add(lblLogo);
 		getContentPane().add(sair2);
-
-		JLabel l2_1 = new JLabel((Icon) null);
-		l2_1.setBounds(774, 186, 234, 213);
-		getContentPane().add(l2_1);
 		sair2.addMouseListener(new MouseListener() {
 
 			@Override
@@ -127,24 +125,30 @@ public class EstatisticaView extends JFrame {
 
 		});
 		
-		JLabel lblNewLabel = new JLabel("Livros Lidos");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		lblNewLabel.setForeground(new Color(255, 128, 64));
-		lblNewLabel.setBounds(253, 108, 132, 48);
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\imrprimi.png"));
+		lblNewLabel_3.setBounds(344, 453, 60, 60);
+		getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\estatiGeral.png"));
+		lblNewLabel.setBounds(208, -46, 1071, 697);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(282, 161, 45, 13);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\textoestatis.png"));
+		lblNewLabel_1.setBounds(186, 38, 376, 435);
 		getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(282, 198, 45, 13);
-		getContentPane().add(lblNewLabel_2);
+		textField = new JTextField();
+		textField.setBounds(344, 140, 146, 19);
+		getContentPane().add(textField);
+		textField.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\imrprimi.png"));
-		lblNewLabel_3.setBounds(367, 524, 60, 60);
-		getContentPane().add(lblNewLabel_3);
+		textField_1 = new JTextField();
+		textField_1.setBounds(364, 190, 126, 26);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
 	}
 }
 

@@ -65,15 +65,15 @@ public class TelaPrincipalView extends JFrame {
 		Con1 = new ImageIcon("Imagens/Config.png");
 		sair1 = new ImageIcon("Imagens/Sair.png");
 		Gêneros = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 08523.png"));
+				new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\generos.png"));
 		Gêneros.setBounds(199, 102, 322, 300);
-		lblLogo = new JLabel(new ImageIcon("C:\\Users\\pwneg\\Downloads\\LogoJO.png"));
+		lblLogo = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\LogoJO.png"));
 		manual2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\RESUMOS2.png"));
+				new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\resumos.png"));
 		con2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\CONFIGNOVO.png"));
+				new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\conf2.png"));
 		sair2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SAIRNOVO.png"));
+				new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\sair2.png"));
 		getContentPane().setLayout(null);
 
 		JPanel panel_4 = new JPanel();
@@ -270,7 +270,7 @@ public class TelaPrincipalView extends JFrame {
 
 		});
 
-		JLabel Manual = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 09000.png"));
+		JLabel Manual = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Imagens\\Capturas de tela\\manual2.png"));
 		Manual.setToolTipText("Manual do Usuário");
 		Manual.setBounds(970, 83, 322, 333);
 		getContentPane().add(Manual);
