@@ -61,8 +61,8 @@ public class CadastroView extends JFrame {
          i3 = new ImageIcon ("Imagens/read.png");
     	 image3 = new JLabel(i3);
     	 container = getContentPane();
-    	 
-    	 
+
+
     	 txt1.setBounds(100, 85, 350, 45);
     	 email.setBounds(117, 140, 350, 45);
          nome.setBounds(117, 210, 350, 45);
@@ -70,7 +70,7 @@ public class CadastroView extends JFrame {
          btnCadastrar.setBounds(215, 340, 152, 45);
          btnVoltar.setBounds(230, 390, 120, 27);
          image3.setBounds(95, -60, 390, 320);
-         
+
          btnCadastrar.setFont(fonte);
          btnVoltar.setFont(fonte2);
          nome.setFont(fonte1);
@@ -83,15 +83,15 @@ public class CadastroView extends JFrame {
          nome.setForeground(Color.WHITE);
          senha.setForeground(Color.WHITE);
          email.setForeground(Color.WHITE);
-         
+
          panel_1 = new JPanel();
          panel_1.setBounds(100, 242, 350, 2);
          getContentPane().add(panel_1);
-         
+
          panel = new JPanel();
          panel.setBounds(100, 172, 350, 2);
          getContentPane().add(panel);
-         
+
          panel_2 = new JPanel();
          panel_2.setBounds(100, 312, 350, 2);
          getContentPane().add(panel_2);
@@ -168,6 +168,6 @@ public class CadastroView extends JFrame {
 	public void addBtnCadastrar(ActionListener cadListener) {
 		btnCadastrar.addActionListener(cadListener);
 	}
-	
+
 
 }

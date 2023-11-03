@@ -9,7 +9,7 @@ public class ConexaoDAO {
 	private final String DBNAME = "BD";
 	private final String URL = "jdbc:mysql://localhost:3306/BD";
 	private final String LOGIN = "root";
-	private final String SENHA = "Hr102206";
+	private final String SENHA = "root";
 
 	/**
 	 * * metodo que faz conexao com o banco de dados retorna true se houve *

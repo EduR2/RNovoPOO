@@ -29,7 +29,7 @@ public class ExclusaoView extends JFrame {
 		setBounds(487, 185, 744, 571);
 		getContentPane().setLayout(null);
 
-		exclusao = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\1530578.png"));
+		exclusao = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\1530578.png"));
 		exclusao.setToolTipText("Pesquisar Resumo");
 		exclusao.setBounds(547, 171, 100, 102);
 		getContentPane().add(exclusao);

@@ -1,6 +1,5 @@
 package br.com.projeto.model.dao;
 
-import java.awt.Window.Type;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +12,7 @@ import br.com.projeto.model.vo.GenerosVO;
 import br.com.projeto.model.vo.TextosVO;
 
 public class EdicaoTextoDAO {
-	
+
 	public List<TextosVO> buscarTextosGen(String classi) {
 		List<TextosVO> txt = new ArrayList<>();
 		 try {
@@ -34,8 +33,8 @@ public class EdicaoTextoDAO {
 	        return null;
 	    }
 		 return txt;
-		 
-		 
+
+
 	}
 
 }

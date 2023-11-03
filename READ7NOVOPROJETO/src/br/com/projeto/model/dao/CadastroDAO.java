@@ -12,7 +12,7 @@ public class CadastroDAO {
 	private String url = "jdbc:mysql://localhost:3306/BD";
 	public boolean novocad (CadastroVO novologin) {
 		try {
-			Connection conexao = DriverManager.getConnection (url, "root", "Hr102206");
+			Connection conexao = DriverManager.getConnection (url, "root", "root");
 			String sql = "INSERT INTO Usuarios (nome, senha, email) VALUE (?, ?, ?)";
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setString(1, novologin.getNome());

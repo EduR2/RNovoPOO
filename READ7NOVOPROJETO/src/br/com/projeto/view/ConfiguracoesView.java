@@ -19,7 +19,6 @@ import br.com.projeto.controller.GenerosController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
-import br.com.projeto.controller.TapSong;
 import br.com.projeto.controller.ExclusaoController;
 import br.com.projeto.controller.DataConfigController;
 
@@ -33,6 +32,7 @@ public class ConfiguracoesView extends JFrame{
 		public ConfiguracoesView(String nome) {
 			this.nome = nome;
 			this.login = login;
+			//setUndecorated(true);
 			JLabel lblNewLabel = new JLabel("Configurações");
 			lblNewLabel.setForeground(new Color(0, 0, 0));
 			lblNewLabel.setFont(new Font("Segoe UI Variable", Font.PLAIN, 19));
@@ -40,7 +40,7 @@ public class ConfiguracoesView extends JFrame{
 			getContentPane().add(lblNewLabel);
 			setBounds(0, 0, 1900, 1080);
 			container = getContentPane();
-			getContentPane().setBackground(new Color(230, 228, 242));
+			getContentPane().setBackground(new Color(255, 255, 255));
 			logo = new ImageIcon("Imagens/LogoTela.png");
 			i1 = new ImageIcon("Imagens/read.png");
 			manual1 = new ImageIcon("Imagens/Manual.png");
@@ -49,11 +49,11 @@ public class ConfiguracoesView extends JFrame{
 			fundocon = new ImageIcon("Imagens/FundoCon.png");
 			excluir = new ImageIcon("Imagens/Excluir.png");
 			lápis = new ImageIcon("Imagens/Lápis.png");
-			lblLogo = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\LogoTela.png"));
-			sair2 = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\Sair.png"));
-			log = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\read.png"));
-			del = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\1530578.png"));
-			pencil = new JLabel(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\ProjetoREAD7NOVO\\ProjetoREAD7\\Imagens\\novopencil.png"));
+			lblLogo = new JLabel(logo);
+			sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\Sair.png"));
+			log = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\read.png"));
+			del = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\1530578.png"));
+			pencil = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\novopencil.png"));
 			getContentPane().setLayout(null);
 
 			JPanel panel_4 = new JPanel();
@@ -85,36 +85,35 @@ public class ConfiguracoesView extends JFrame{
 			log.setBounds(196, 189, 206, 183);
 			del.setBounds(47, 213, 76, 83);
 			pencil.setBounds(47, 321, 76, 83);
-		     
+
 			Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
 			UIManager.put("ToolTip.font", fontetip);
 			UIManager.put("ToolTip.background", (new Color(230, 228, 242)));
 			sair2.setToolTipText("Voltar para a tela principal");
 			del.setToolTipText("Exclusão de conta");
 			pencil.setToolTipText("Alteração de seus dados");
-		
+
 			getContentPane().add(lblLogo);
 			getContentPane().add(sair2);
 			getContentPane().add(log);
 			getContentPane().add(del);
 			getContentPane().add(pencil);
-			
+
 			JLabel l2_1 = new JLabel((Icon) null);
 			l2_1.setBounds(774, 186, 234, 213);
 			getContentPane().add(l2_1);
-			
+
 			String log = nome;
 			JLabel lblNewLabel_1 = new JLabel(log);
 			lblNewLabel_1.setForeground(new Color(0, 0, 0));
 			lblNewLabel_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 33));
 			lblNewLabel_1.setBounds(413, 251, 533, 63);
 			getContentPane().add(lblNewLabel_1);
-			
+
 			sair2.addMouseListener(new MouseListener() {
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					TapSong.getSong();
 					dispose();
 
 				}
@@ -146,9 +145,7 @@ public class ConfiguracoesView extends JFrame{
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
 					try {
-					TapSong.getSong();
 					String url = "jdbc:mysql://localhost:3306/READ7NOVO";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					ExclusaoView view = new ExclusaoView();
@@ -162,34 +159,33 @@ public class ConfiguracoesView extends JFrame{
 				@Override
 				public void mousePressed(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 				@Override
 				public void mouseExited(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
-				
+
 			});
 			pencil.addMouseListener(new MouseListener() {
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					try {
-					TapSong.getSong();
 					String url = "jdbc:mysql://localhost:3306/READ7NOVO";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					DataConfigView view = new DataConfigView();
@@ -197,33 +193,33 @@ public class ConfiguracoesView extends JFrame{
 					view.setVisible(true);
 					view.setResizable(false);
 					}catch(SQLException sqle) {}
-					
+
 				}
 
 				@Override
 				public void mousePressed(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 				@Override
 				public void mouseExited(MouseEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
-				
+
 			});
 			setVisible(true);
 		}

@@ -18,8 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import br.com.projeto.controller.TapSong;
-
 public class DataConfigView extends JFrame {
 	private JLabel image2, image3, image4, fundoLogin, sair2;
 	private JPanel p;
@@ -57,12 +55,12 @@ public class DataConfigView extends JFrame {
 		sair2 = new JLabel(sair1);
 		p = new JPanel();
 		container = getContentPane();
-		
+
 		txtNovoLogin = new JTextField("Novo Login");
 		txtNovoLogin.setForeground(Color.LIGHT_GRAY);
 		txtNovoLogin.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		txtNovoLogin.setBounds(108, 252, 350, 45);
-		
+
 		txtNovaSenha = new JTextField("Nova Senha");
 		txtNovaSenha.setForeground(Color.LIGHT_GRAY);
 		txtNovaSenha.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
@@ -87,12 +85,12 @@ public class DataConfigView extends JFrame {
 		getContentPane().add(image3);
 		getContentPane().add(sair2);
 		getContentPane().add(fundoLogin);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(230, 228, 242));
 		panel.setBounds(0, 0, 571, 97);
 		getContentPane().add(panel);
-		
+
 		nome.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (nome.getText().equals("E-mail")) {
@@ -100,7 +98,7 @@ public class DataConfigView extends JFrame {
 					nome.setForeground(Color.black);
 				}
 			}
-			
+
 
 			public void focusLost(FocusEvent e) {
 				if (nome.getText().isEmpty()) {
@@ -116,7 +114,7 @@ public class DataConfigView extends JFrame {
 					txtNovoLogin.setForeground(Color.black);
 				}
 			}
-			
+
 
 			public void focusLost(FocusEvent e) {
 				if (txtNovoLogin.getText().isEmpty()) {
@@ -132,7 +130,7 @@ public class DataConfigView extends JFrame {
 					txtNovaSenha.setForeground(Color.black);
 				}
 			}
-			
+
 
 			public void focusLost(FocusEvent e) {
 				if (txtNovaSenha.getText().isEmpty()) {
@@ -145,7 +143,6 @@ public class DataConfigView extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TapSong.getSong();
 				dispose();
 
 			}

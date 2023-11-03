@@ -13,7 +13,7 @@ public class ADMDAO {
 	private String url = "jdbc:mysql://localhost:3306/BD";
 	public boolean removecad (ADMVO removeLogin) {
 		try {
-			Connection conexao = DriverManager.getConnection (url, "root", "Hr102206");
+			Connection conexao = DriverManager.getConnection (url, "root", "root");
 			String sql = "DELETE FROM Usuarios WHERE email = ?";
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setString(1, removeLogin.getEmail());
@@ -25,7 +25,7 @@ public class ADMDAO {
 	}
 	public boolean removecad2 (ADMVO removeLogin) {
 		try {
-			Connection conexao = DriverManager.getConnection (url, "root", "Hr102206");
+			Connection conexao = DriverManager.getConnection (url, "root", "root");
 			String sql = "DELETE FROM Resumos WHERE emailAutor = ?";
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setString(1, removeLogin.getEmail());

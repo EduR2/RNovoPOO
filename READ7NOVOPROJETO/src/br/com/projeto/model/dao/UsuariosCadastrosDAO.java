@@ -17,7 +17,7 @@ public class UsuariosCadastrosDAO {
 	public List<LoginVO> buscaUsuarios() {
 		List<LoginVO> usuarios = new ArrayList<>();
 		 try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT nome, senha, email FROM Usuarios";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();

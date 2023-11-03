@@ -3,6 +3,7 @@ package br.com.projeto.view;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -28,6 +29,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
+import javax.swing.JComboBox;
 
 public class AcaoView extends JFrame {
 	private JLabel image2, image3, txt1, sair, salvar, limpar, livro1, livro2, livro3;
@@ -190,7 +192,7 @@ public class AcaoView extends JFrame {
 		getContentPane().add(classi);
 		classi.setColumns(10);
 
-		lblNewLabel = new JLabel("New label");
+		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem.png"));
 		lblNewLabel.setBounds(131, 135, 651, 536);
 		getContentPane().add(lblNewLabel);
@@ -205,6 +207,34 @@ public class AcaoView extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem2.png"));
 		lblNewLabel_2.setBounds(834, 135, 706, 536);
 		getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Fonte");
+		lblNewLabel_3.setForeground(new Color(255, 128, 64));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(1300, 116, 53, 31);
+		getContentPane().add(lblNewLabel_3);
+		
+		
+		
+		//combobox que permite a mudança de fonte
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(1351, 123, 39, 24);
+		getContentPane().add(comboBox);
+		
+		String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        for (String fontName : fontNames) {
+            comboBox.addItem(fontName);
+        }
+
+		
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedFont = (String) comboBox.getSelectedItem();
+                Font currentFont = nome.getFont();
+                nome.setFont(new Font(selectedFont, currentFont.getStyle(), currentFont.getSize()));
+            }
+        });
 
 		txtA.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {

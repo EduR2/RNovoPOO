@@ -47,7 +47,7 @@ import br.com.projeto.model.dao.UsuariosCadastrosDAO;
 			this.userDAO = new UsuariosCadastrosDAO();
 			view.addTxtListener(new listener3());
 		}
-		
+
 		class listener3 implements DocumentListener {
 
 			@Override
@@ -55,7 +55,7 @@ import br.com.projeto.model.dao.UsuariosCadastrosDAO;
 				String email = view.getAutor();
 				List<LoginVO> usuarios = userDAO.buscaUsuariosEmail(email);
 				view.tabela(usuarios);
-				
+
 			}
 
 			@Override
@@ -71,9 +71,9 @@ import br.com.projeto.model.dao.UsuariosCadastrosDAO;
 				String email = view.getAutor();
 				List<LoginVO> usuarios = userDAO.buscaUsuariosEmail(email);
 				view.tabela(usuarios);
-				
+
 			}
 
-		
+
 		}
 	}

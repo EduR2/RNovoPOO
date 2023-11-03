@@ -16,6 +16,6 @@ public class TextoADMBO {
 	}
 
 	public boolean textoAtualizado(TextosVO texto) {
-		return UpdateDAO.insereNewTexto(texto.getTexto(), texto.getTexto());
+		return UpdateDAO.insereNewTexto(texto.getTexto(), texto.getNovoTexto());
 	}
 }

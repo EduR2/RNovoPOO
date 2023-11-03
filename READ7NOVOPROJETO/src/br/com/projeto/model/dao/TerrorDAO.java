@@ -35,7 +35,7 @@ public class TerrorDAO {
 	}
 	public ResultSet Leitura3() {
 	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
 	    	 String sql = "SELECT texto FROM Text WHERE ID_TEXTO = 6";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();
@@ -46,13 +46,13 @@ public class TerrorDAO {
 	}
 	public boolean InserirTerror(GenerosVO inserirAcao) {
 		try {
-			Connection conexao = DriverManager.getConnection (url, "root", "root");
-			String sql = "INSERT INTO Genero(ID_GENERO, emailAutor, Título, Resumo) VALUES (?, ?, ?, ?)";
+			Connection conexao = DriverManager.getConnection (url, "root", "Hr102206");
+			String sql = "INSERT INTO Resumos(emailAutor, Título, TextoUsuario, Classificação_resumo) VALUES (?, ?, ?, ?)";
 			PreparedStatement statement = conexao.prepareStatement(sql);
-			statement.setString(1, inserirAcao.getId());
-			statement.setString(2, inserirAcao.getAutor());
-			statement.setString(3, inserirAcao.getTitulo());
-			statement.setString(4, inserirAcao.getTexto());
+			statement.setString(1, inserirAcao.getAutor());
+			statement.setString(2, inserirAcao.getTitulo());
+			statement.setString(3, inserirAcao.getTexto());
+			statement.setString(4, inserirAcao.getClassificao());
 			int rowsAffected = statement.executeUpdate();
 	            return rowsAffected > 0;
 	        } catch (SQLException e) {
@@ -60,3 +60,5 @@ public class TerrorDAO {
 	        }
 	}
 }
+
+ 

@@ -23,11 +23,10 @@ public class AtualizaçãoNovoTextoADM{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			Type texto = view.getType();
+			Type texto = view.getNewTexto();
 			Type newTexto = view.getNewTexto();
 			TextosVO newtxtVO = new TextosVO();
-			newtxtVO.setTexto(texto);
-			newtxtVO.setTexto(newTexto);
+
 			boolean alterado = txtBO.textoAtualizado(newtxtVO);
 			if (alterado == true) {
 				view.mensagem("Texto alterado");

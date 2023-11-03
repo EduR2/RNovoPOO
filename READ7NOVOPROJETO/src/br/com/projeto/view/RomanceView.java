@@ -3,6 +3,7 @@ package br.com.projeto.view;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -51,6 +53,7 @@ public class RomanceView extends JFrame {
 	private JLabel livro1_2;
 	private JTextField classi;
 	private JLabel info;
+	private JLabel lblNewLabel_1;
 
 	public RomanceView() {
 		inicializaComponentes();
@@ -187,6 +190,37 @@ public class RomanceView extends JFrame {
 				}
 			}
 		});
+		
+		
+		//combobox que permite a mudança de fonte
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(1351, 123, 39, 24);
+		getContentPane().add(comboBox);
+		
+		lblNewLabel_1 = new JLabel("Fonte");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setForeground(new Color(255, 128, 64));
+		lblNewLabel_1.setBounds(1296, 122, 45, 25);
+		getContentPane().add(lblNewLabel_1);
+		
+		String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        for (String fontName : fontNames) {
+            comboBox.addItem(fontName);
+        }
+
+		
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedFont = (String) comboBox.getSelectedItem();
+                Font currentFont = nome.getFont();
+                nome.setFont(new Font(selectedFont, currentFont.getStyle(), currentFont.getSize()));
+            }
+        });
+		
+		
+		
+		
 		txtAutor.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent g) {
 				if (txtAutor.getText().equals("Autor (Seu e-mail)")) {

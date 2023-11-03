@@ -29,22 +29,22 @@ public class GenerosView extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel l1 = new JLabel("New label");
-		l1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\acao.png"));
+		l1.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\acao.png"));
 		l1.setBounds(21, 10, 218, 205);
 		getContentPane().add(l1);
 
 		JLabel l2 = new JLabel("New label");
-		l2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Terror.png"));
+		l2.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\Terror.png"));
 		l2.setBounds(266, 10, 218, 205);
 		getContentPane().add(l2);
 
 		JLabel l3 = new JLabel("New label");
-		l3.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Ficção.png"));
+		l3.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\Ficção.png"));
 		l3.setBounds(509, 10, 218, 205);
 		getContentPane().add(l3);
 
 		JLabel l4 = new JLabel("New label");
-		l4.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Romance.png"));
+		l4.setIcon(new ImageIcon("C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\READ7\\READ7NOVOPROJETO\\Imagens\\Romance.png"));
 		l4.setBounds(752, 10, 218, 205);
 		getContentPane().add(l4);
 
@@ -56,7 +56,7 @@ public class GenerosView extends JFrame {
 				TapSong.getSong();
 				AcaoView view = new AcaoView();
 				String url = "jdbc:mysql://localhost:3306/BD";
-				Connection conexao = DriverManager.getConnection(url, "root", "root");
+				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
 				GenerosController controller = new GenerosController(view, conexao);
 				view.setVisible(true);
 				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -95,7 +95,7 @@ public class GenerosView extends JFrame {
 				TapSong.getSong();	
 				TerrorView view = new TerrorView();
 				String url = "jdbc:mysql://localhost:3306/BD";
-				Connection conexao = DriverManager.getConnection(url, "root", "root");
+				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
 				TerrorController controller = new TerrorController(view, conexao);
 				view.setVisible(true);
 				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -134,7 +134,7 @@ public class GenerosView extends JFrame {
 				TapSong.getSong();	
 				FiccaoView view = new FiccaoView();
 				String url = "jdbc:mysql://localhost:3306/BD";
-				Connection conexao = DriverManager.getConnection(url, "root", "root");
+				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
 				FiccaoController controller = new FiccaoController(view, conexao);
 				view.setVisible(true);
 				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -173,7 +173,7 @@ public class GenerosView extends JFrame {
 				TapSong.getSong();	
 				RomanceView view = new RomanceView();
 				String url = "jdbc:mysql://localhost:3306/BD";
-				Connection conexao = DriverManager.getConnection(url, "root", "root");
+				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
 				RomanceController controller = new RomanceController(view, conexao);
 				view.setVisible(true);
 				view.setExtendedState(JFrame.MAXIMIZED_BOTH);

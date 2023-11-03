@@ -14,7 +14,7 @@ public class RomanceDAO {
 
 	public ResultSet Leitura() {
 	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT texto FROM Texto WHERE ID_TEXTO = 10";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();
@@ -25,7 +25,7 @@ public class RomanceDAO {
 	}
 	public ResultSet Leitura2() {
 	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT texto FROM Texto WHERE ID_TEXTO = 11";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();
@@ -49,12 +49,12 @@ public class RomanceDAO {
 	public boolean InserirRomance(GenerosVO inserirAcao) {
 		try {
 			Connection conexao = DriverManager.getConnection (url, "root", "root");
-			String sql = "INSERT INTO Genero(ID_GENERO, emailAutor, Título, Resumo) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO Resumos(emailAutor, Título, TextoUsuario, Classificação_resumo) VALUES (?, ?, ?, ?)";
 			PreparedStatement statement = conexao.prepareStatement(sql);
-			statement.setString(1, inserirAcao.getId());
-			statement.setString(2, inserirAcao.getAutor());
-			statement.setString(3, inserirAcao.getTitulo());
-			statement.setString(4, inserirAcao.getTexto());
+			statement.setString(1, inserirAcao.getAutor());
+			statement.setString(2, inserirAcao.getTitulo());
+			statement.setString(3, inserirAcao.getTexto());
+			statement.setString(4, inserirAcao.getClassificao());
 			int rowsAffected = statement.executeUpdate();
 	            return rowsAffected > 0;
 	        } catch (SQLException e) {

@@ -5,6 +5,13 @@ import java.awt.Window.Type;
 public class TextosVO {
 	private String classificação;
 	private Type texto;
+	private Type novoTexto;
+	public Type getNovoTexto() {
+		return novoTexto;
+	}
+	public void setNovoTexto(Type newTexto) {
+		this.novoTexto = newTexto;
+	}
 	public String getClassificação() {
 		return classificação;
 	}
@@ -14,12 +21,8 @@ public class TextosVO {
 	public Type getTexto() {
 		return texto;
 	}
-	public void setTexto(Type newTexto) {
-		this.texto = newTexto;
-	}
-	public void setTexto(String coluna1) {
-		// TODO Auto-generated method stub
-		
+	public void setTexto(Type texto2) {
+		this.texto = texto2;
 	}
 
 }

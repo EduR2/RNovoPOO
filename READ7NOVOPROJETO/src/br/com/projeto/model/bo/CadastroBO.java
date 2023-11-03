@@ -12,4 +12,3 @@ public class CadastroBO{
 		return cadastroDAO.novocad(novologin);
 	}
 }
-

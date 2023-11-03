@@ -16,7 +16,7 @@ public class LembraSenhaDAO {
 	private Connection conexao;
 	public boolean alterarSenha (LembrarSenhaVO lembraVO) {
 		try{
-			conexao = DriverManager.getConnection (url, "root", "Hr102206");
+			conexao = DriverManager.getConnection (url, "root", "root");
 			String sql = "UPDATE Usuarios SET nome = ?, senha = ? WHERE email = ?";
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setString(1, lembraVO.getNome());
@@ -30,7 +30,7 @@ public class LembraSenhaDAO {
 	}
 	public boolean alterarSenha2 (LembrarSenhaVO lembraVO) {
 		try{
-			conexao = DriverManager.getConnection (url, "root", "Hr102206");
+			conexao = DriverManager.getConnection (url, "root", "root");
 			String sql = "UPDATE Resumos SET email = ?";
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setString(1, lembraVO.getEmail());

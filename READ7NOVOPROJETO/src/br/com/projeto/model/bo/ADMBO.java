@@ -17,4 +17,3 @@ public class ADMBO{
 		return admDAO.removecad2(removelogin2);
 	}
 }
-

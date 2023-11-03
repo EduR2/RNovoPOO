@@ -56,29 +56,29 @@ public class FiccaoController {
 				e1.printStackTrace();			
 			}
 		}		
-		
+
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 	class listener2 implements MouseListener {
@@ -96,29 +96,29 @@ public class FiccaoController {
 				e1.printStackTrace();
 			}
 		}		
-		
+
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 	class listener3 implements MouseListener {
@@ -136,29 +136,29 @@ public class FiccaoController {
 				e1.printStackTrace();
 			}
 		}		
-		
+
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 	class salvarListener implements MouseListener{
@@ -173,7 +173,7 @@ public class FiccaoController {
 			acaoVO.setTitulo(titulo);
 			acaoVO.setAutor(autor);
 			acaoVO.setTexto(texto);
-			acaoVO.setId(classi);
+			acaoVO.setClassificao(classi);
 			GenerosBO acaoBO = new GenerosBO();
 			boolean inserido = acaoBO.InserirAcao(acaoVO);
 			if(inserido) {
@@ -181,31 +181,31 @@ public class FiccaoController {
 			}else {
 				view.mensagem("Texto não inserido");
 			}
-			
+
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
 }

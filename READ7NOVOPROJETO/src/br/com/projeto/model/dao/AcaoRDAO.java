@@ -15,7 +15,7 @@ public class AcaoRDAO {
 	public List<GenerosVO> buscarGeneros() {
 		List<GenerosVO> resumos = new ArrayList<>();
 		 try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT emailAutor, Título, TextoUsuario, Classificação_resumo FROM Resumos";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();
@@ -36,11 +36,11 @@ public class AcaoRDAO {
 	    }
 		 return resumos;
 	}
-	
+
 	public List<GenerosVO> buscarGenerosEmail(String email) {
 		List<GenerosVO> resumos = new ArrayList<>();
 		 try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT emailAutor, Título, TextoUsuario, Classificação_resumo FROM Resumos WHERE emailAutor LIKE ?";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 statement.setString(1, email+"%");

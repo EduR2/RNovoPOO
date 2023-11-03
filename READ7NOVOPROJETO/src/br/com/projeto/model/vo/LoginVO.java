@@ -26,4 +26,3 @@ package br.com.projeto.model.vo;
 			this.senha = senha;
 		}
 	}
-

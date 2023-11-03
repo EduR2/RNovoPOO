@@ -14,7 +14,7 @@ public class FiccaoDAO {
 	private String url = "jdbc:mysql://localhost:3306/BD";
 	public ResultSet Leitura() {
 	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT texto FROM Texto WHERE ID_TEXTO = 7";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();
@@ -25,7 +25,7 @@ public class FiccaoDAO {
 	}
 	public ResultSet Leitura2() {
 	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
+	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT texto FROM Texto WHERE ID_TEXTO = 8";
     		 PreparedStatement statement = conexao.prepareStatement(sql);
     		 ResultSet resultado = statement.executeQuery();
@@ -45,15 +45,16 @@ public class FiccaoDAO {
 	        return null;
 	    }
 	}
-	
+
 	public boolean InserirFiccao(GenerosVO inserirAcao) {
 		try {
 			Connection conexao = DriverManager.getConnection (url, "root", "root");
-			String sql = "INSERT INTO Ficcao(autor, titulo, Resumo) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO Resumos(emailAutor, Título, TextoUsuario, Classificação_resumo) VALUES (?, ?, ?, ?)";
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setString(1, inserirAcao.getAutor());
 			statement.setString(2, inserirAcao.getTitulo());
 			statement.setString(3, inserirAcao.getTexto());
+			statement.setString(4, inserirAcao.getClassificao());
 			int rowsAffected = statement.executeUpdate();
 	            return rowsAffected > 0;
 	        } catch (SQLException e) {

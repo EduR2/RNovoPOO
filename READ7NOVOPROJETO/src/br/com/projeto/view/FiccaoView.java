@@ -3,6 +3,7 @@ package br.com.projeto.view;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -52,6 +54,7 @@ public class FiccaoView extends JFrame {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
 
 	public FiccaoView() {
 		inicializaComponentes();
@@ -200,11 +203,42 @@ public class FiccaoView extends JFrame {
 		lblNewLabel_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 27));
 		lblNewLabel_1.setBounds(143, 84, 282, 45);
 		getContentPane().add(lblNewLabel_1);
+		
+		
+		
+		//combobox que permite a mudança de fonte
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(1351, 123, 39, 24);
+		getContentPane().add(comboBox);
+		
+		String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        for (String fontName : fontNames) {
+            comboBox.addItem(fontName);
+        }
+
+		
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedFont = (String) comboBox.getSelectedItem();
+                Font currentFont = nome.getFont();
+                nome.setFont(new Font(selectedFont, currentFont.getStyle(), currentFont.getSize()));
+            }
+        });
+
+		
+		
 
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Imagem2.png"));
 		lblNewLabel_2.setBounds(834, 135, 706, 536);
 		getContentPane().add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Fonte");
+		lblNewLabel_3.setForeground(new Color(255, 128, 64));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(1301, 127, 49, 20);
+		getContentPane().add(lblNewLabel_3);
 
 		txtA.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
