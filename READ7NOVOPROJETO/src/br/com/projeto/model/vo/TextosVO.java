@@ -4,7 +4,7 @@ import java.awt.Window.Type;
 
 public class TextosVO {
 	private String classificação;
-	private Type texto;
+	private String texto;
 	private Type novoTexto;
 	public Type getNovoTexto() {
 		return novoTexto;
@@ -18,11 +18,11 @@ public class TextosVO {
 	public void setClassificação(String classificação) {
 		this.classificação = classificação;
 	}
-	public Type getTexto() {
+	public String getTexto() {
 		return texto;
 	}
-	public void setTexto(Type texto2) {
-		this.texto = texto2;
+	public void setTexto(String coluna1) {
+		this.texto = coluna1;
 	}
 
 }
