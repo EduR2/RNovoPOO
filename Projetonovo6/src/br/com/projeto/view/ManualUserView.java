@@ -18,7 +18,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
-import br.com.projeto.controller.ManualTelaPrincipalController;
 import br.com.projeto.controller.ManualTextosController;
 import br.com.projeto.controller.RomanceController;
 import br.com.projeto.controller.TapSong;
@@ -188,7 +187,6 @@ public class ManualUserView extends JFrame {
 					ManualTelaPrincipalView v2 = new ManualTelaPrincipalView();
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
-					ManualTelaPrincipalController controller = new ManualTelaPrincipalController();
 					v2.setVisible(true);
 					v2.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					}catch(SQLException sqle) {}

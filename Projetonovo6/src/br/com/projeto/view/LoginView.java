@@ -27,7 +27,7 @@ import br.com.projeto.model.vo.LoginVO;
 import javax.swing.JCheckBox;
 
 public class LoginView extends JFrame {
-	private JLabel image2, image3, image4;
+	private JLabel image2, image3, image4, CriarConta, AlterarDados, Sair, Entrar;
 	private JPanel p;
 	private Container container;
 	private ImageIcon i1, i2, i3, i4, i5;
@@ -40,13 +40,14 @@ public class LoginView extends JFrame {
 	private JOptionPane JO;
 	private JPanel panel;
 	private JPanel panel_1;
-
+	private ImageIcon read7;
 	public LoginView() {
 		inicializaComponentes();
 	}
 
 	public void inicializaComponentes() {
-		
+		read7 = new ImageIcon("Imagens/Lápis.png");
+		setIconImage(read7.getImage());
 		setBounds(487, 185, 585, 571);
 		setTitle("Read7");
 		getContentPane().setBackground(new Color(247, 157, 51));
@@ -71,13 +72,13 @@ public class LoginView extends JFrame {
 		p = new JPanel();
 		container = getContentPane();
 
-		nome.setBounds(108, 214, 350, 45);
-		senha.setBounds(108, 294, 350, 45);
-		btnLogin.setBounds(211, 359, 145, 45);
+		nome.setBounds(108, 194, 350, 45);
+		senha.setBounds(108, 274, 350, 45);
+		btnLogin.setBounds(386, 166, 145, 45);
 		btnCriarCadastro.setBounds(96, 437, 120, 27);
 		btnLembrarSenha.setBounds(222, 437, 120, 27);
 		btnfechar.setBounds(348, 437, 120, 27);
-		image3.setBounds(178, 49, 204, 167);
+		image3.setBounds(178, 10, 204, 167);
 		//p.add(image2);
 
 		btnLogin.setBackground(Color.BLUE);
@@ -97,23 +98,40 @@ public class LoginView extends JFrame {
 		btnfechar.setBackground(new Color(227, 227, 227));
 		nome.setForeground(Color.WHITE);
 		senha.setForeground(Color.WHITE);
+		
+		Entrar = new JLabel("");
+		Entrar.setBounds(222, 336, 130, 34);
+		getContentPane().add(Entrar);
+		
+		AlterarDados = new JLabel("");
+		AlterarDados.setBounds(222, 396, 137, 34);
+		getContentPane().add(AlterarDados);
+		
+		Sair = new JLabel("");
+		Sair.setBounds(368, 396, 137, 34);
+		getContentPane().add(Sair);
+		
+		CriarConta = new JLabel("");
+		CriarConta.setBounds(70, 396, 137, 34);
+		getContentPane().add(CriarConta);
 		getContentPane().add(nome);
 		getContentPane().add(senha);
-		getContentPane().add(btnCriarCadastro);
-		getContentPane().add(btnLembrarSenha);
-		getContentPane().add(btnfechar);
-		getContentPane().add(btnLogin);
 		getContentPane().add(image3);
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(104, 257, 354, 2);
+		panel.setBounds(104, 237, 354, 2);
 		getContentPane().add(panel);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(104, 336, 354, 2);
+		panel_1.setBounds(104, 316, 354, 2);
 		getContentPane().add(panel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\LoginTela.png"));
+		lblNewLabel.setBounds(-11, 0, 582, 534);
+		getContentPane().add(lblNewLabel);
 		//getContentPane().add(p);
 		nome.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
@@ -146,11 +164,12 @@ public class LoginView extends JFrame {
 				}
 			}
 		});
-		btnfechar.addMouseListener(new MouseListener() {
+		Sair.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
 				btnfechar.setBackground(Color.red);
 				btnfechar.setForeground(Color.white);
 			}
+			
 
 			public void mousePressed(MouseEvent e) {
 				btnfechar.setBackground(Color.LIGHT_GRAY);
@@ -184,16 +203,16 @@ public class LoginView extends JFrame {
 	public void mensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem, "Erro ao logar", JOptionPane.ERROR_MESSAGE);
 	}
-
-	public void addBtnLoginListener(ActionListener logListener) {
-		btnLogin.addActionListener(logListener);
+	
+	public void addBtnLoginListener(MouseListener logListener) {
+		Entrar.addMouseListener(logListener);
 	}
 
-	public void addBtnCriarCadastro(ActionListener cadListener) {
-		btnCriarCadastro.addActionListener(cadListener);
+	public void addBtnCriarCadastro(MouseListener cadListener) {
+		CriarConta.addMouseListener(cadListener);
 	}
 
-	public void addBtnLembrarSenha(ActionListener lembraListener) {
-		btnLembrarSenha.addActionListener(lembraListener);
+	public void addBtnLembrarSenha(MouseListener lembraListener) {
+		AlterarDados.addMouseListener(lembraListener);
 	}
 }

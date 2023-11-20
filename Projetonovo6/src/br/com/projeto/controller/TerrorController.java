@@ -1,20 +1,25 @@
 package br.com.projeto.controller;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import br.com.projeto.controller.CadastroController.cadListener;
-import br.com.projeto.controller.GenerosController.listener;
-import br.com.projeto.controller.GenerosController.listener2;
-import br.com.projeto.controller.GenerosController.listener3;
-import br.com.projeto.controller.GenerosController.salvarListener;
+import br.com.projeto.controller.AcaoController.salvarListener;
 import br.com.projeto.model.bo.CadastroBO;
 import br.com.projeto.model.dao.AcaoDAO;
 import br.com.projeto.model.dao.TerrorDAO;
@@ -32,6 +37,7 @@ import br.com.projeto.model.bo.GenerosBO;
 public class TerrorController {
 	private TerrorView view;
 	private AcaoDAO acDAO;
+
 	public TerrorController(TerrorView view, Connection conexao) {
 		this.view = view;
 		this.acDAO = new AcaoDAO();
@@ -43,43 +49,47 @@ public class TerrorController {
 
 	class listener implements MouseListener {
 		public void mouseClicked(MouseEvent e) {
-			ResultSet resultado = acDAO.Leitura();
 			try {
-				if (resultado.next()) {
-					String texto = resultado.getNString("texto");
-					view.setTexto(texto);
-					view.setClassificacao("Terror");
+				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\O Alienista.pdf";
+				if (Desktop.isDesktopSupported()) {
+					Desktop desktop = Desktop.getDesktop();
+					File file = new File(caminhoArq);
+					if (file.exists()) {
+						desktop.open(file);
+					} else {
+						System.out.println("O arquivo não existe");
+					}
 				}
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();			
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(null, "ERRO");
 			}
-		}		
-		
+		}
+
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
+
 	class listener2 implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -87,39 +97,39 @@ public class TerrorController {
 			try {
 				if (resultado.next()) {
 					String texto = resultado.getNString("texto");
-					view.setTexto(texto);
 					view.setClassificacao("Terror");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}		
-		
+		}
+
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
+
 	class listener3 implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -127,40 +137,40 @@ public class TerrorController {
 			try {
 				if (resultado.next()) {
 					String texto = resultado.getNString("texto");
-					view.setTexto(texto);
 					view.setClassificacao("Terror");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}		
-		
+		}
+
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
-	class salvarListener implements MouseListener{
+
+	class salvarListener implements MouseListener {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -175,36 +185,55 @@ public class TerrorController {
 			acaoVO.setClassificao(classi);
 			GenerosBO acaoBO = new GenerosBO();
 			boolean inserido = acaoBO.InserirAcao(acaoVO);
-			if(inserido) {
+			if (inserido) {
 				view.mensagem("Texto inserido");
-			}else {
+				generatePDF("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\'" + titulo + "'", "Autor: " + autor + "\n",
+						"------------------------------------------------------------------------------------------------------------------------------\nResumo:\n",
+						texto);
+			} else {
 				view.mensagem("Texto não inserido");
 			}
-			
+
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
+
+	public static void generatePDF(String fileName, String content, String content2, String content3) {
+		Document document = new Document();
+		try {
+			PdfWriter.getInstance(document, new FileOutputStream(fileName));
+			document.open();
+			document.add(new Paragraph(content));
+			document.add(new Paragraph(content2));
+			document.add(new Paragraph(content3));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			document.close();
+		}
+	}
+
 }

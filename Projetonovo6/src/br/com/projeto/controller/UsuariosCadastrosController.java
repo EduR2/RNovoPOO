@@ -27,10 +27,10 @@ import br.com.projeto.model.vo.LoginVO;
 import br.com.projeto.view.CadastroView;
 import br.com.projeto.view.LembrarSenhaView;
 import br.com.projeto.view.TelaADMView;
-import br.com.projeto.view.TelaRAcaoView;
+import br.com.projeto.view.PesquisaResumos;
 import br.com.projeto.view.UsuariosCadastrosView;
 import br.com.projeto.model.vo.ADMVO;
-import br.com.projeto.model.dao.AcaoRDAO;
+import br.com.projeto.model.dao.PesquisaResumosDAO;
 import br.com.projeto.model.dao.ConexaoDAO;
 import br.com.projeto.model.dao.UsuariosCadastrosDAO;
 	public class UsuariosCadastrosController {

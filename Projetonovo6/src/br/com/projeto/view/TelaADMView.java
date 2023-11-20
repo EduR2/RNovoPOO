@@ -27,7 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.projeto.model.bo.LoginBO;
-import br.com.projeto.model.dao.AcaoRDAO;
+import br.com.projeto.model.dao.PesquisaResumosDAO;
 import br.com.projeto.model.dao.EstastísticasDAO;
 import br.com.projeto.model.vo.GenerosVO;
 import br.com.projeto.model.vo.LoginVO;
@@ -101,7 +101,7 @@ public class TelaADMView extends JFrame {
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					TabelaControllerReadResumoADM controle = new TabelaControllerReadResumoADM(view, conexao);
-					AcaoRDAO acrDAO = new AcaoRDAO();
+					PesquisaResumosDAO acrDAO = new PesquisaResumosDAO();
 					List<GenerosVO> buscaResumo = acrDAO.buscarGeneros();
 					view.tabela(buscaResumo);
 					view.setVisible(true);

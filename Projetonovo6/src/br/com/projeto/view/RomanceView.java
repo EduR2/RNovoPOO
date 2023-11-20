@@ -44,13 +44,13 @@ public class RomanceView extends JFrame {
 	private Font fonte = new Font("Verdana", Font.BOLD, 20);
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
-	private JTextArea nome;
+	private JTextArea resumo;
 	private JScrollPane pane;
 	private JPasswordField senha;
 	private JButton btnLogin, btnCriarCadastro;
 	private String texto;
-	private JTextField txtA;
-	private JTextField txtAutor;
+	private JTextField título;
+	private JTextField emailAutor;
 	private JLabel livro1_1;
 	private JLabel livro1_2;
 	private JTextField classi;
@@ -79,14 +79,13 @@ public class RomanceView extends JFrame {
 		btnLer = new JButton("Ler");
 		btnLimpar = new JButton("Limpar");
 		btnTxt1 = new JButton("Texto 1");
-		nome = new JTextArea();
-		nome.setLineWrap(true);
-		nome.setBorder(BorderFactory.createEmptyBorder());
+		resumo = new JTextArea();
+		resumo.setLineWrap(true);
+		resumo.setBorder(BorderFactory.createEmptyBorder());
 		senha = new JPasswordField("Senha");
-		pane = new JScrollPane(nome);
+		pane = new JScrollPane(resumo);
 		pane.setBorder(BorderFactory.createEmptyBorder());
 		pane.setBackground(new Color(250, 250, 250));
-		//pane.setBackground(new Color(219,219,219));
 		btnLogin = new JButton("Login");
 		btnCriarCadastro = new JButton("Criar");
 		txt1 = new JLabel("Não possui cadastro?");
@@ -125,7 +124,7 @@ public class RomanceView extends JFrame {
 		btnLogin.setBackground(Color.BLUE);
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(fonte);
-		nome.setFont(new Font("Segoe UI Variable", Font.PLAIN, 20));
+		resumo.setFont(new Font("Segoe UI Variable", Font.PLAIN, 20));
 		senha.setFont(fonte1);
 		
 		JPanel panel_1 = new JPanel();
@@ -160,25 +159,25 @@ public class RomanceView extends JFrame {
 		panel.setBounds(119, 46, 2, 720);
 		getContentPane().add(panel);
 
-		txtA = new JTextField();
-		txtA.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		txtA.setText("Título");
-		txtA.setForeground(Color.LIGHT_GRAY);
-		txtA.setBounds(220, 96, 177, 39);
-		txtA.setOpaque(false);
-		txtA.setBorder(BorderFactory.createEmptyBorder());
-		getContentPane().add(txtA);
-		txtA.setColumns(10);
+		título = new JTextField();
+		título.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		título.setText("Título");
+		título.setForeground(Color.LIGHT_GRAY);
+		título.setBounds(220, 96, 177, 39);
+		título.setOpaque(false);
+		título.setBorder(BorderFactory.createEmptyBorder());
+		getContentPane().add(título);
+		título.setColumns(10);
 
-		txtAutor = new JTextField();
-		txtAutor.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		txtAutor.setText("Autor (Seu e-mail)");
-		txtAutor.setForeground(Color.LIGHT_GRAY);
-		txtAutor.setColumns(10);
-		txtAutor.setBounds(437, 93, 177, 45);
-		txtAutor.setOpaque(false);
-		txtAutor.setBorder(BorderFactory.createEmptyBorder());
-		getContentPane().add(txtAutor);
+		emailAutor = new JTextField();
+		emailAutor.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		emailAutor.setText("Autor (Seu e-mail)");
+		emailAutor.setForeground(Color.LIGHT_GRAY);
+		emailAutor.setColumns(10);
+		emailAutor.setBounds(437, 93, 177, 45);
+		emailAutor.setOpaque(false);
+		emailAutor.setBorder(BorderFactory.createEmptyBorder());
+		getContentPane().add(emailAutor);
 		
 		livro1.setToolTipText("Texto 1");
 		livro2.setToolTipText("Texto 2");
@@ -197,38 +196,38 @@ public class RomanceView extends JFrame {
 		
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-08 090106.png"));
-		lblNewLabel_2.setBounds(205, 150, 1253, 519);
+		lblNewLabel_2.setBounds(205, 150, 1158, 519);
 		getContentPane().add(lblNewLabel_2);
 	
 		
-		txtA.addFocusListener(new FocusListener() {
+		título.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
-				if (txtA.getText().equals("Título")) {
-					txtA.setText("");
-					txtA.setForeground(Color.black);
+				if (título.getText().equals("Título")) {
+					título.setText("");
+					título.setForeground(Color.black);
 				}
 			}
 
 			public void focusLost(FocusEvent e) {
-				if (txtA.getText().isEmpty()) {
-					txtA.setText("Título");
-					txtA.setForeground(Color.LIGHT_GRAY);
+				if (título.getText().isEmpty()) {
+					título.setText("Título");
+					título.setForeground(Color.LIGHT_GRAY);
 				}
 			}
 		});
-		txtAutor.addFocusListener(new FocusListener() {
+		emailAutor.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent g) {
-				if (txtAutor.getText().equals("Autor (Seu e-mail)")) {
-					txtAutor.setText("");
-					txtAutor.setForeground(Color.black);
+				if (emailAutor.getText().equals("Autor (Seu e-mail)")) {
+					emailAutor.setText("");
+					emailAutor.setForeground(Color.black);
 				}
 
 			}
 
 			public void focusLost(FocusEvent e) {
-				if (txtAutor.getText().isEmpty()) {
-					txtAutor.setText("Autor (Seu e-mail)");
-					txtAutor.setForeground(Color.LIGHT_GRAY);
+				if (emailAutor.getText().isEmpty()) {
+					emailAutor.setText("Autor (Seu e-mail)");
+					emailAutor.setForeground(Color.LIGHT_GRAY);
 				}
 			}
 		});
@@ -268,7 +267,7 @@ public class RomanceView extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				nome.setText("");
+				resumo.setText("");
 
 			}
 
@@ -373,31 +372,27 @@ public class RomanceView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedFont = (String) comboBox.getSelectedItem();
-                Font currentFont = nome.getFont();
-                nome.setFont(new Font(selectedFont, currentFont.getStyle(), currentFont.getSize()));
+                Font currentFont = resumo.getFont();
+                resumo.setFont(new Font(selectedFont, currentFont.getStyle(), currentFont.getSize()));
             }
         });
 	}
 
 	public String getTitulo() {
-		return txtA.getText();
+		return título.getText();
 	}
 
 	public String getTexto() {
-		return nome.getText();
+		return resumo.getText();
 	}
 
 	public String getAutor() {
-		return txtAutor.getText();
+		return emailAutor.getText();
 	}
 	
 	public String getClassificacao() {
 		return classi.getText();
 	}
-
-	/*public void setTexto(String texto) {
-		text.setText(texto);
-	}*/
 	
 	public void setClassificacao(String classif) {
 		classi.setText(classif);
@@ -426,3 +421,4 @@ public class RomanceView extends JFrame {
 		JOptionPane.showMessageDialog(null, mensagem, "Erro ao logar", JOptionPane.ERROR_MESSAGE);
 	}
 }
+

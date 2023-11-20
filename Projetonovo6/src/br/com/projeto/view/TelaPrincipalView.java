@@ -17,19 +17,19 @@ import javax.swing.*;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 
-import br.com.projeto.controller.GenerosController;
+import br.com.projeto.controller.AcaoController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
 import br.com.projeto.controller.SaidaSong;
 import br.com.projeto.controller.TapSong;
 import br.com.projeto.controller.AberturaSong;
-import br.com.projeto.controller.AcaoRController;
+import br.com.projeto.controller.PesquisaResumosController;
 import br.com.projeto.controller.ManualUserController;
 import br.com.projeto.controller.DataConfigController;
 import br.com.projeto.controller.ExclusaoController;
 import br.com.projeto.controller.ConfigSong;
-import br.com.projeto.model.dao.AcaoRDAO;
+import br.com.projeto.model.dao.PesquisaResumosDAO;
 import br.com.projeto.model.vo.*;
 
 public class TelaPrincipalView extends JFrame {
@@ -230,11 +230,11 @@ public class TelaPrincipalView extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					TapSong.getSong();
-					TelaRAcaoView view = new TelaRAcaoView();
+					PesquisaResumos view = new PesquisaResumos();
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
-					AcaoRController controle = new AcaoRController(view, conexao);
-					AcaoRDAO acrDAO = new AcaoRDAO();
+					PesquisaResumosController controle = new PesquisaResumosController(view, conexao);
+					PesquisaResumosDAO acrDAO = new PesquisaResumosDAO();
 					List<GenerosVO> buscaResumo = acrDAO.buscarGeneros();
 					view.tabela(buscaResumo);
 					view.setVisible(true);

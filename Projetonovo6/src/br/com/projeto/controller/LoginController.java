@@ -2,6 +2,8 @@ package br.com.projeto.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,7 +18,7 @@ public class LoginController {
 	private LoginView view;
 	private LoginVO vo;
 	private LoginBO loginBO;
-	String url = "jdbc:mysql://localhost:3306/BD";
+	private String url = "jdbc:mysql://localhost:3306/BD";
 
 	public LoginController(LoginView view, Connection conexao) {
 		this.view = view;
@@ -26,8 +28,10 @@ public class LoginController {
 		view.addBtnLembrarSenha(new lembraListener());
 	}
 
-	class logListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
+	class logListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
 			String nome = view.getNome();
 			String senha = view.getSenha();
 			LoginVO login = new LoginVO();
@@ -62,10 +66,37 @@ public class LoginController {
 				view.mensagem("Nome ou senha incorretos");
 			}
 		}
-	}
 
-	class cadListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+			
+		}
+
+	class cadListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
 			try {
 				Connection conexao = DriverManager.getConnection(url, "root", "root");
 				CadastroView cad = new CadastroView();
@@ -75,18 +106,71 @@ public class LoginController {
 			} catch (SQLException e3) {
 			}
 		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+			
 	}
 
-	class lembraListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
+	class lembraListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
 			try {
 				Connection conexao = DriverManager.getConnection(url, "root", "root");
 				LembrarSenhaView leb = new LembrarSenhaView();
 				LembrarSenhaController lembra = new LembrarSenhaController(leb, conexao);
 				leb.setVisible(true);
 				leb.setResizable(false);
-			} catch (SQLException e2) {
-			}
+			} catch (SQLException e2) {}
+			
+			
 		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 }

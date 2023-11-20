@@ -15,25 +15,22 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-
-import br.com.projeto.controller.GenerosController.listener;
-import br.com.projeto.controller.GenerosController.salvarListener;
 import br.com.projeto.model.dao.AcaoDAO;
-import br.com.projeto.model.dao.AcaoRDAO;
+import br.com.projeto.model.dao.PesquisaResumosDAO;
 import br.com.projeto.model.dao.ConexaoDAO;
 import br.com.projeto.model.vo.GenerosVO;
-import br.com.projeto.view.TelaRAcaoView;
+import br.com.projeto.view.PesquisaResumos;
 import br.com.projeto.view.AcaoView;
 import br.com.projeto.view.ResumosReadADMView;
 
 public class TabelaControllerReadResumoADM {
 	private ResumosReadADMView view;
-	private AcaoRDAO acrDAO;
+	private PesquisaResumosDAO acrDAO;
 	private ConexaoDAO conexao;
 
 	public TabelaControllerReadResumoADM(ResumosReadADMView view, Connection conexao) {
 		this.view = view;
-		this.acrDAO = new AcaoRDAO();
+		this.acrDAO = new PesquisaResumosDAO();
 		view.addtxtAutor(new listener3());
 	}
 		class listener3 implements DocumentListener{

@@ -12,7 +12,7 @@ import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import br.com.projeto.controller.GenerosController;
+import br.com.projeto.controller.AcaoController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
@@ -64,7 +64,7 @@ public class GenerosView extends JFrame {
 					AcaoView view = new AcaoView();
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
-					GenerosController controller = new GenerosController(view, conexao);
+					AcaoController controller = new AcaoController(view, conexao);
 					view.setVisible(true);
 					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				} catch (SQLException sqle) {

@@ -18,7 +18,7 @@ import javax.swing.*;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 
-import br.com.projeto.controller.GenerosController;
+import br.com.projeto.controller.AcaoController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
@@ -131,7 +131,7 @@ public class ConfiguracoesView extends JFrame {
 			JLabel lblNewLabel_1 = new JLabel(log);
 			lblNewLabel_1.setForeground(new Color(0, 0, 0));
 			lblNewLabel_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 33));
-			lblNewLabel_1.setBounds(1169, 338, 184, 63);
+			lblNewLabel_1.setBounds(1197, 339, 184, 63);
 			getContentPane().add(lblNewLabel_1);
 			
 			JLabel Usuários = new JLabel("");

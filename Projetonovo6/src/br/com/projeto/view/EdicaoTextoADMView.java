@@ -37,6 +37,7 @@ import br.com.projeto.controller.ExclusaoADMVController;
 import br.com.projeto.model.vo.LoginVO;
 import br.com.projeto.model.vo.TextosVO;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -44,7 +45,7 @@ import javax.swing.JToggleButton;
 import br.com.projeto.controller.AtualizaçãoNovoTextoADM;
 
 public class EdicaoTextoADMView extends JFrame {
-	private JLabel image2, image3, txt1, sair, livro1, livro2, livro3;
+	private JLabel image2, image3, txt1, sair;
 	private JPanel p, p1, p2;
 	private JButton b, btnSalvar, btnLer, btnLimpar, btnTxt1;
 	private Container container;
@@ -72,7 +73,7 @@ public class EdicaoTextoADMView extends JFrame {
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
 		//setUndecorated(true);
-		getContentPane().setBackground(new Color(230, 228, 242));
+		getContentPane().setBackground(new Color(255, 255, 255));
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
 		UIManager.put("ToolTip.font", fontetip);
 		UIManager.put("ToolTip.background", (new Color(230, 228, 242)));
@@ -84,6 +85,8 @@ public class EdicaoTextoADMView extends JFrame {
 		text = new JTextArea();
 		senha = new JPasswordField("Senha");
 		pane = new JScrollPane();
+		pane.setBackground(new Color(225, 225, 225));
+		pane.setBorder(BorderFactory.createEmptyBorder());
 		btnLogin = new JButton("Login");
 		btnCriarCadastro = new JButton("Criar");
 		txt1 = new JLabel("Não possui cadastro?");
@@ -97,9 +100,6 @@ public class EdicaoTextoADMView extends JFrame {
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		sair = new JLabel(i);
-		livro1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro1.png"));
-		livro2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro2.png"));
-		livro3 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\livro3.png"));
 		image2 = new JLabel(i2);
 		image3 = new JLabel(i3);
 		p = new JPanel();
@@ -109,18 +109,15 @@ public class EdicaoTextoADMView extends JFrame {
 		image3.setBounds(575, 65, 390, 320);
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
-		sair.setBounds(1400, 0, 130, 113);
-		livro1.setBounds(285, 269, 100, 102);
-		livro2.setBounds(243, 311, 100, 102);
-		livro3.setBounds(257, 269, 100, 102);
-		pane.setBounds(509, 212, 717, 174);
+		sair.setBounds(1413, 331, 130, 113);
+		pane.setBounds(580, 106, 823, 623);
 		p.add(image2);
 		
 		table = new JTable();
 		tableModel = new DefaultTableModel(new Object[] {"Texto", "Classificação"}, 0);
 		table.setModel(tableModel);
 		table.setBounds(538, 221, 558, 433);
-		table.setBackground(new Color(230, 228, 242));
+		table.setBackground(new Color(225, 225, 225));
 		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
 		pane.setViewportView(table);
 		
@@ -149,29 +146,12 @@ public class EdicaoTextoADMView extends JFrame {
 		text.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		senha.setFont(fonte1);
 		getContentPane().add(sair);
-		getContentPane().add(livro1);
-		getContentPane().add(livro2);
-		getContentPane().add(livro3);
 		getContentPane().add(pane);
-
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 128, 64));
-		panel.setBounds(174, 0, 2, 845);
-		getContentPane().add(panel);
-
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 128, 64));
-		panel_1.setBounds(-10, 110, 1540, 2);
-		getContentPane().add(panel_1);
-		
-		livro1.setToolTipText("Texto 1");
-		livro2.setToolTipText("Texto 2");
-		livro3.setToolTipText("Texto 3");
 		
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Segoe UI Variable", Font.PLAIN, 17));
-		comboBox.setBounds(270, 207, 100, 37);
-		comboBox.setBackground(new Color(230, 228, 242));
+		comboBox.setBounds(171, 207, 100, 37);
+		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.addItem("Ação");
 		comboBox.addItem("Terror");
 		comboBox.addItem("Ficção");
@@ -179,6 +159,36 @@ public class EdicaoTextoADMView extends JFrame {
 		String item = (String) comboBox.getSelectedItem();
 		System.out.println ("Genero selecionado: " +getGen());
 		getContentPane().add(comboBox);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-14 153554.png"));
+		lblNewLabel.setBounds(543, 66, 909, 721);
+		getContentPane().add(lblNewLabel);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 128, 64));
+		panel.setBounds(112, 67, 2, 720);
+		getContentPane().add(panel);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(92, 225, 230));
+		panel_3.setBounds(1425, 22, 27, 24);
+		getContentPane().add(panel_3);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(56, 182, 255));
+		panel_4.setBounds(1452, 22, 27, 24);
+		getContentPane().add(panel_4);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(255, 49, 49));
+		panel_5.setBounds(1478, 22, 27, 24);
+		getContentPane().add(panel_5);
+		
+		JLabel Generos = new JLabel("");
+		Generos.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-14 162359.png"));
+		Generos.setBounds(171, 153, 310, 498);
+		getContentPane().add(Generos);
 		
 		sair.addMouseListener(new MouseListener() {
 			@Override
@@ -223,15 +233,6 @@ public class EdicaoTextoADMView extends JFrame {
 	}
 	public void addBtnTxtListener(ActionListener listener) {
 		comboBox.addActionListener(listener);
-	}
-	public void addBtnPegaTxt(MouseListener listener) {
-		livro1.addMouseListener(listener);
-	}
-	public void addBtnPegaTxt2(MouseListener listener) {
-		livro2.addMouseListener(listener);
-	}
-	public void addBtnPegaTxt3(MouseListener listener) {
-		livro3.addMouseListener(listener);
 	}
 	public void tabela(List<TextosVO> texto) {
 		tableModel.setRowCount(0);

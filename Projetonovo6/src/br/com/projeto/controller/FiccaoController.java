@@ -4,17 +4,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import br.com.projeto.controller.CadastroController.cadListener;
-import br.com.projeto.controller.GenerosController.listener;
-import br.com.projeto.controller.GenerosController.listener2;
-import br.com.projeto.controller.GenerosController.listener3;
-import br.com.projeto.controller.GenerosController.salvarListener;
 import br.com.projeto.model.bo.CadastroBO;
 import br.com.projeto.model.dao.AcaoDAO;
 import br.com.projeto.model.dao.TerrorDAO;
@@ -178,6 +179,7 @@ public class FiccaoController {
 			boolean inserido = acaoBO.InserirAcao(acaoVO);
 			if(inserido) {
 				view.mensagem("Texto inserido");
+				generatePDF("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\'"+titulo+"'", "Autor: "+autor+"\n", "------------------------------------------------------------------------------------------------------------------------------\nResumo:\n", texto);
 			}else {
 				view.mensagem("Texto não inserido");
 			}
@@ -208,4 +210,19 @@ public class FiccaoController {
 			
 		}
 	}
+	public static void generatePDF(String fileName, String content, String content2, String content3) {
+		Document document = new Document();
+		try {
+			PdfWriter.getInstance(document, new FileOutputStream(fileName));
+			document.open();
+			document.add(new Paragraph(content));
+			document.add(new Paragraph(content2));
+			document.add(new Paragraph(content3));
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally	{
+			document.close();
+		}
+	}
+	
 }

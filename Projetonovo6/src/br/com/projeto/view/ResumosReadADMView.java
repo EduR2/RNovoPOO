@@ -34,7 +34,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.event.DocumentListener;
 
-import br.com.projeto.controller.AcaoRController;
+import br.com.projeto.controller.PesquisaResumosController;
 import br.com.projeto.controller.EdiçãoResumosController;
 import br.com.projeto.model.vo.GenerosVO;
 import javax.swing.table.DefaultTableModel;
@@ -120,7 +120,7 @@ public class ResumosReadADMView extends JFrame {
 					String Resumo = (String) table.getValueAt(linha, 2);
 					String Classificação = (String) table.getValueAt(linha, 3);
 					String url = "jdbc:mysql://localhost:3306/BD";
-					TelaLeituraView view = new TelaLeituraView(Título, Resumo);
+					TelaLeituraView view = new TelaLeituraView(Título, Resumo, Email);
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					view.setVisible(true);
 	       			}catch(SQLException SQLe) {}
