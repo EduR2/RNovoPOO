@@ -16,6 +16,7 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -47,7 +48,7 @@ public class TelaADMView extends JFrame {
 	private Font fonte3 = new Font("Calibri", Font.BOLD, 40);
 	private Font fonte4 = new Font("Calibri", Font.BOLD, 12);
 	private String contaCad;
-	private JLabel Estatisticas;
+	private JLabel Estatisticas, Add;
 
 	public TelaADMView() {
 		getContentPane().setForeground(new Color(255, 255, 255));
@@ -55,6 +56,8 @@ public class TelaADMView extends JFrame {
 	}
 
 	public void inicializaComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setTitle("Acesso ADM");
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -74,7 +77,6 @@ public class TelaADMView extends JFrame {
 		p2.setBounds(0, 130, 500, 5);
 		p3.setBounds(920, 200, 500, 350);
 		p.add(image2);
-		// p3.add(image2);
 		p2.setBackground(Color.black);
 
 		JPanel panel = new JPanel();
@@ -201,7 +203,6 @@ public class TelaADMView extends JFrame {
 				int numResum = estDAO.EstatisticasResumos();
 				EstatisticasView view = new EstatisticasView(numUsers, numResum);
 				view.setVisible(true);
-				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
 			}
 
 			@Override
@@ -230,7 +231,7 @@ public class TelaADMView extends JFrame {
 
 		});
 
-		JLabel Add = new JLabel(new ImageIcon(
+		Add = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 154100.png"));
 		Add.setBounds(832, 113, 291, 292);
 		getContentPane().add(Add);
@@ -324,48 +325,6 @@ public class TelaADMView extends JFrame {
 			}
 
 		});
-
-		Add.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					TapSong.getSong();
-					String url = "jdbc:mysql://localhost:3306/BD";
-					Connection conexao = DriverManager.getConnection(url, "root", "root");
-					EdicaoTextoADMView view = new EdicaoTextoADMView();
-					EdicaoTxtReadADMController controle = new EdicaoTxtReadADMController(view, conexao);
-					view.setVisible(true);
-					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
-				} catch (SQLException sqle) {
-				}
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
 	}
 
 	public void mensagem(String mensagem) {
@@ -379,4 +338,9 @@ public class TelaADMView extends JFrame {
 	public void addBtnEstatisticas(MouseListener listener) {
 		Estatisticas.addMouseListener(listener);
 	}
+	public void addBtnAdicionaLivrosOuTextos(MouseListener listener) {
+		Add.addMouseListener(listener);
+	}
+	
+	
 }

@@ -42,7 +42,6 @@ import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JToggleButton;
-import br.com.projeto.controller.AtualizaçãoNovoTextoADM;
 
 public class EdicaoTextoADMView extends JFrame {
 	private JLabel image2, image3, txt1, sair;
@@ -54,7 +53,6 @@ public class EdicaoTextoADMView extends JFrame {
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
 	private JTextArea text;
-	private JScrollPane pane;
 	private JPasswordField senha;
 	private JButton btnLogin, btnCriarCadastro;
 	private String texto;
@@ -62,13 +60,13 @@ public class EdicaoTextoADMView extends JFrame {
 	private JLabel livro1_2;
 	private JLabel info;
 	private DefaultTableModel tableModel;
-	private JTable table;
-	JComboBox comboBox;
 	public EdicaoTextoADMView() {
 		inicializaComponentes();
 	}
 
 	public void inicializaComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setTitle("Read7");
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
@@ -84,9 +82,6 @@ public class EdicaoTextoADMView extends JFrame {
 		btnTxt1 = new JButton("Texto 1");
 		text = new JTextArea();
 		senha = new JPasswordField("Senha");
-		pane = new JScrollPane();
-		pane.setBackground(new Color(225, 225, 225));
-		pane.setBorder(BorderFactory.createEmptyBorder());
 		btnLogin = new JButton("Login");
 		btnCriarCadastro = new JButton("Criar");
 		txt1 = new JLabel("Não possui cadastro?");
@@ -110,35 +105,8 @@ public class EdicaoTextoADMView extends JFrame {
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
 		sair.setBounds(1413, 331, 130, 113);
-		pane.setBounds(580, 106, 823, 623);
 		p.add(image2);
-		
-		table = new JTable();
 		tableModel = new DefaultTableModel(new Object[] {"Texto", "Classificação"}, 0);
-		table.setModel(tableModel);
-		table.setBounds(538, 221, 558, 433);
-		table.setBackground(new Color(225, 225, 225));
-		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
-		pane.setViewportView(table);
-		
-		table.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount()==1) {
-					try {
-					int linha = table.getSelectedRow();
-					String Resumo = (String) table.getValueAt(linha, 0);
-					//String Senha = (String) table.getValueAt(linha, 1);
-					TelaEdicaodeTextoADMView view = new TelaEdicaodeTextoADMView(Resumo);
-					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
-					String url = "jdbc:mysql://localhost:3306/BD";
-					Connection conexao = DriverManager.getConnection (url, "root", "root");
-					AtualizaçãoNovoTextoADM atlzNewTxt = new AtualizaçãoNovoTextoADM(view, conexao);
-					view.setVisible(true);
-					}catch(SQLException sqle) {}
-				}
-			 
-			}   
-		});
 
 		btnLogin.setBackground(Color.BLUE);
 		btnLogin.setForeground(Color.WHITE);
@@ -146,24 +114,7 @@ public class EdicaoTextoADMView extends JFrame {
 		text.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		senha.setFont(fonte1);
 		getContentPane().add(sair);
-		getContentPane().add(pane);
-		
-		comboBox = new JComboBox();
-		comboBox.setFont(new Font("Segoe UI Variable", Font.PLAIN, 17));
-		comboBox.setBounds(171, 207, 100, 37);
-		comboBox.setBackground(new Color(255, 255, 255));
-		comboBox.addItem("Ação");
-		comboBox.addItem("Terror");
-		comboBox.addItem("Ficção");
-		comboBox.addItem("Romance");
-		String item = (String) comboBox.getSelectedItem();
-		System.out.println ("Genero selecionado: " +getGen());
-		getContentPane().add(comboBox);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-14 153554.png"));
-		lblNewLabel.setBounds(543, 66, 909, 721);
-		getContentPane().add(lblNewLabel);
+		//System.out.println ("Genero selecionado: " +getGen());
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 128, 64));
@@ -184,11 +135,6 @@ public class EdicaoTextoADMView extends JFrame {
 		panel_5.setBackground(new Color(255, 49, 49));
 		panel_5.setBounds(1478, 22, 27, 24);
 		getContentPane().add(panel_5);
-		
-		JLabel Generos = new JLabel("");
-		Generos.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-14 162359.png"));
-		Generos.setBounds(171, 153, 310, 498);
-		getContentPane().add(Generos);
 		
 		sair.addMouseListener(new MouseListener() {
 			@Override
@@ -228,12 +174,11 @@ public class EdicaoTextoADMView extends JFrame {
 	public void setTexto(String texto) {
 		text.setText(texto);
 	}
-	public String getGen() {
-		return (String) comboBox.getSelectedItem();
+	/*public String getGen() {
 	}
 	public void addBtnTxtListener(ActionListener listener) {
 		comboBox.addActionListener(listener);
-	}
+	}*/
 	public void tabela(List<TextosVO> texto) {
 		tableModel.setRowCount(0);
 		for(TextosVO textos: texto) {

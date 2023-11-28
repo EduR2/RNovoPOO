@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 
+import javax.swing.text.PlainDocument;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -40,13 +41,12 @@ public class LoginView extends JFrame {
 	private JOptionPane JO;
 	private JPanel panel;
 	private JPanel panel_1;
-	private ImageIcon read7;
 	public LoginView() {
 		inicializaComponentes();
 	}
 
 	public void inicializaComponentes() {
-		read7 = new ImageIcon("Imagens/Lápis.png");
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
 		setIconImage(read7.getImage());
 		setBounds(487, 185, 585, 571);
 		setTitle("Read7");

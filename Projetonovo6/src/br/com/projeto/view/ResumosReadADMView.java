@@ -58,12 +58,17 @@ public class ResumosReadADMView extends JFrame {
 	private DefaultTableModel tableModel;
 	private JTable table;
 	private JLabel lblNewLabel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JPanel panel_3;
 
 	public ResumosReadADMView() {
 		inicializaComponentes();
 	}
 
 	public void inicializaComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -98,7 +103,7 @@ public class ResumosReadADMView extends JFrame {
 		image3.setBounds(575, 65, 390, 320);
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
-		sair.setBounds(1400, 0, 130, 113);
+		sair.setBounds(1400, 104, 130, 113);
 		p.add(image2);
 		
 		table = new JTable();
@@ -151,14 +156,25 @@ public class ResumosReadADMView extends JFrame {
 		txtAutor.setBorder(BorderFactory.createEmptyBorder());
 		getContentPane().add(txtAutor);
 		
-		JLabel l1_1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\LogoJO.png"));
-		l1_1.setBounds(10, 270, 234, 213);
-		getContentPane().add(l1_1);
-		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura_de_tela_2023-10-17_17035 (1).png"));
 		lblNewLabel.setBounds(272, 10, 1209, 752);
 		getContentPane().add(lblNewLabel);
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 49, 49));
+		panel_1.setBounds(1503, 10, 27, 24);
+		getContentPane().add(panel_1);
+		
+		panel_2 = new JPanel();
+		panel_2.setBackground(new Color(56, 182, 255));
+		panel_2.setBounds(1477, 10, 27, 24);
+		getContentPane().add(panel_2);
+		
+		panel_3 = new JPanel();
+		panel_3.setBackground(new Color(92, 225, 230));
+		panel_3.setBounds(1450, 10, 27, 24);
+		getContentPane().add(panel_3);
 
 		sair.addMouseListener(new MouseListener() {
 			@Override

@@ -12,7 +12,6 @@ import br.com.projeto.controller.LoginController.cadListener;
 import br.com.projeto.model.bo.LembrarSenhaBO;
 import br.com.projeto.model.vo.LembrarSenhaVO;
 import br.com.projeto.view.ConfiguracoesView;
-import br.com.projeto.view.DataConfigView;
 import br.com.projeto.view.LembrarSenhaView;
 import br.com.projeto.view.TelaPrincipalView;
 

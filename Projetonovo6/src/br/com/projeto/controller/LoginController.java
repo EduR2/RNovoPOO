@@ -47,6 +47,7 @@ public class LoginController {
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					view.dispose();
 					TelaPrincipalView tela2 = new TelaPrincipalView(nome);
+					ManualUserController controlerManual = new ManualUserController(tela2);
 					AcaoView roman = new AcaoView();
 					tela2.setVisible(true);
 					tela2.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -58,6 +59,7 @@ public class LoginController {
 					view.dispose();
 					TelaADMView telaADM = new TelaADMView();
 					ADMController controle = new ADMController(telaADM, conexao);
+					EdicaoTxtReadADMController controle2 = new EdicaoTxtReadADMController(telaADM);
 					telaADM.setVisible(true);
 					telaADM.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				} catch (SQLException e5) {

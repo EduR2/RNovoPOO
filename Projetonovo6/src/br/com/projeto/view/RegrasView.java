@@ -14,6 +14,8 @@ public class RegrasView extends JFrame {
 	}
 
 	public void inicializarComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setTitle("Read7");
 		setBounds(0, 0, 458, 469);
 		setResizable(false);

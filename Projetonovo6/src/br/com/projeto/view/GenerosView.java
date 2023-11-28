@@ -26,6 +26,8 @@ public class GenerosView extends JFrame {
 	}
 
 	public void inicializarComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setBounds(200, 260, 1155, 302);
 		setTitle("Gêneros");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

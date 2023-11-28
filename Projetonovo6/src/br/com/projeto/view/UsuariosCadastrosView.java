@@ -66,6 +66,8 @@ public class UsuariosCadastrosView extends JFrame {
 	}
 
 	public void inicializaComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -100,7 +102,7 @@ public class UsuariosCadastrosView extends JFrame {
 		image3.setBounds(575, 65, 390, 320);
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
-		sair.setBounds(48, 356, 101, 130);
+		sair.setBounds(1429, 55, 101, 130);
 		p.add(image2);
 		
 		table = new JTable();
@@ -156,6 +158,21 @@ public class UsuariosCadastrosView extends JFrame {
 		panel.setBackground(new Color(255, 128, 0));
 		panel.setBounds(196, 0, 2, 845);
 		getContentPane().add(panel);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(255, 49, 49));
+		panel_5.setBounds(1503, 21, 27, 24);
+		getContentPane().add(panel_5);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(56, 182, 255));
+		panel_4.setBounds(1477, 21, 27, 24);
+		getContentPane().add(panel_4);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(92, 225, 230));
+		panel_3.setBounds(1450, 21, 27, 24);
+		getContentPane().add(panel_3);
 		
 		sair.addMouseListener(new MouseListener() {
 			@Override

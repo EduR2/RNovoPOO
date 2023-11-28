@@ -43,7 +43,7 @@ import javax.swing.JTable;
 
 public class PesquisaResumos extends JFrame {
 
-	private JLabel image2, image3, txt1, sair;
+	private JLabel image2, image3, txt1;
 	private JPanel p, p1, p2;
 	private JButton b, btnSalvar, btnLer, btnLimpar, btnTxt1;
 	private Container container;
@@ -59,8 +59,6 @@ public class PesquisaResumos extends JFrame {
 	private DefaultTableModel tableModel;
 	private JTable table;
 	private JLabel salvar;
-	private JLabel salvar_1;
-	private JLabel salvar_2;
 	private JLabel lblNewLabel_1;
 
 	public PesquisaResumos() {
@@ -68,6 +66,8 @@ public class PesquisaResumos extends JFrame {
 	}
 
 	public void inicializaComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
 		//setUndecorated(true);
@@ -93,7 +93,6 @@ public class PesquisaResumos extends JFrame {
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		search = new ImageIcon("Imagens/Lupa.png");
-		sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\livro3.png"));
 		image2 = new JLabel(i2);
 		image3 = new JLabel(i3);
 		p = new JPanel();
@@ -103,7 +102,6 @@ public class PesquisaResumos extends JFrame {
 		image3.setBounds(575, 65, 390, 320);
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
-		sair.setBounds(1399, 155, 83, 90);
 		p.add(image2);
 		
 		table = new JTable();
@@ -139,7 +137,6 @@ public class PesquisaResumos extends JFrame {
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(fonte);
 		senha.setFont(fonte1);
-		getContentPane().add(sair);
 		getContentPane().add(pane);
 
 		JPanel panel = new JPanel();
@@ -161,16 +158,6 @@ public class PesquisaResumos extends JFrame {
 		salvar.setBounds(1447, 0, 83, 97);
 		getContentPane().add(salvar);
 		
-		salvar_1 = new JLabel();
-		salvar_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\livro2.png"));
-		salvar_1.setBounds(1373, 112, 83, 97);
-		getContentPane().add(salvar_1);
-		
-		salvar_2 = new JLabel();
-		salvar_2.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\livro1.png"));
-		salvar_2.setBounds(1350, 60, 83, 97);
-		getContentPane().add(salvar_2);
-		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura_de_tela_2023-10-17_17035 (1).png"));
 		lblNewLabel.setBounds(273, 21, 1209, 752);
@@ -180,6 +167,21 @@ public class PesquisaResumos extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
 		lblNewLabel_1.setBounds(1359, 277, 71, 119);
 		getContentPane().add(lblNewLabel_1);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(255, 49, 49));
+		panel_5.setBounds(1455, 21, 27, 24);
+		getContentPane().add(panel_5);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(56, 182, 255));
+		panel_4.setBounds(1429, 21, 27, 24);
+		getContentPane().add(panel_4);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(92, 225, 230));
+		panel_3.setBounds(1402, 21, 27, 24);
+		getContentPane().add(panel_3);
 
 		lblNewLabel_1.addMouseListener(new MouseListener() {
 			@Override

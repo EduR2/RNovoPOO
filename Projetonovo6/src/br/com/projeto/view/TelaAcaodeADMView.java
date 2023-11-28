@@ -28,6 +28,8 @@ public class TelaAcaodeADMView extends JFrame {
 		inicializarComponentes();
 	}
 	public void inicializarComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		getContentPane().setBackground(new Color(230, 228, 242));
 		setBounds(487, 185, 744, 571);
 		getContentPane().setLayout(null);

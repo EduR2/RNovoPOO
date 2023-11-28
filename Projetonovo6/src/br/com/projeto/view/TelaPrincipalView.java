@@ -25,7 +25,6 @@ import br.com.projeto.controller.SaidaSong;
 import br.com.projeto.controller.TapSong;
 import br.com.projeto.controller.AberturaSong;
 import br.com.projeto.controller.PesquisaResumosController;
-import br.com.projeto.controller.ManualUserController;
 import br.com.projeto.controller.DataConfigController;
 import br.com.projeto.controller.ExclusaoController;
 import br.com.projeto.controller.ConfigSong;
@@ -35,7 +34,7 @@ import br.com.projeto.model.vo.*;
 public class TelaPrincipalView extends JFrame {
 	private String nome;
 	private ImageIcon i1, i2, i3, i4, logo, manual1, Con1, sair1, inf;
-	private JLabel Gêneros, lblLogo, acao, manual2, con2, sair2, lblNewLabel, info;
+	private JLabel Gêneros, lblLogo, acao, manual2, con2, sair2, lblNewLabel, info, Manual;
 	private Container container;
 
 	public TelaPrincipalView(String nome) {
@@ -45,6 +44,8 @@ public class TelaPrincipalView extends JFrame {
 	}
 
 	public void inicializaComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setTitle("Read7");
 		//setUndecorated(true);
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
@@ -69,6 +70,7 @@ public class TelaPrincipalView extends JFrame {
 		Gêneros = new JLabel(
 				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 08523.png"));
 		Gêneros.setBounds(199, 102, 322, 300);
+		Gêneros.setToolTipText("Gêneros Literários");
 		lblLogo = new JLabel(new ImageIcon("C:\\Users\\pwneg\\Downloads\\LogoJO.png"));
 		manual2 = new JLabel(
 				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\RESUMOS2.png"));
@@ -270,51 +272,14 @@ public class TelaPrincipalView extends JFrame {
 
 		});
 		
-		JLabel Manual = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 09000.png"));
+		Manual = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 09000.png"));
 		Manual.setToolTipText("Manual do Usuário");
 		Manual.setBounds(970, 83, 322, 333);
 		getContentPane().add(Manual);
 		
-		Manual.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-				TapSong.getSong();	
-				ManualUserView view2 = new ManualUserView();
-				String url = "jdbc:mysql://localhost:3306/BD";
-				Connection conexao = DriverManager.getConnection(url, "root", "Hr102206");
-				ManualUserController controller = new ManualUserController();
-				view2.setVisible(true);
-				view2.setExtendedState(JFrame.MAXIMIZED_BOTH);
-				}catch(SQLException sqle) {}
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				setForeground(Color.ORANGE);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				setForeground(Color.ORANGE);
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-
 		setVisible(true);
+	}
+	public void addBtnManualUser(MouseListener listener) {
+		Manual.addMouseListener(listener);
 	}
 }

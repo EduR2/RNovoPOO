@@ -16,8 +16,11 @@ import javax.swing.JPanel;
 
 public class EstatisticasView extends JFrame {
 	private int numUsers, numResum;
-	private JTextField textField;
-	private JTextField RF;
+	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JLabel UsuariosCadastrados;
+	private JLabel ResumosFeitos;
 	public EstatisticasView(int numUsers, int numResum) {
 		this.numUsers = numUsers;
 		this.numResum = numResum;
@@ -25,51 +28,51 @@ public class EstatisticasView extends JFrame {
 	}
 
 	public void inicializarComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
+		setTitle("Estatísticas");
+		setBounds(487, 185, 655, 500);
+		setResizable(false);
 		getContentPane().setLayout(null);
-		setBounds(0, 0, 1920, 1080);
 		getContentPane().setBackground(new Color(230, 228, 242));
-		RF = new JTextField();
-		RF.setText(" 0");
-		RF.setFont(new Font("Segoe UI Variable", Font.PLAIN, 23));
-		RF.setOpaque(false);
-		RF.setBorder(BorderFactory.createEmptyBorder());
-		RF.setColumns(10);
-		RF.setText(" " +numResum);
-		RF.setBounds(453, 231, 101, 60);
-		getContentPane().add(RF);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Imagens\\Capturas de tela\\Captura de tela 2023-10-31 183423.png"));
-		lblNewLabel.setBounds(192, 94, 552, 455);
-		getContentPane().add(lblNewLabel);
-		textField = new JTextField();
-		textField.setFont(new Font("Segoe UI Variable", Font.PLAIN, 23));
-		textField.setBounds(993, 231, 101, 60);
-		textField.setOpaque(false);
-		textField.setBorder(BorderFactory.createEmptyBorder());
-		getContentPane().add(textField);
-		textField.setColumns(10);
-		textField.setText(" " +numUsers);
+		ResumosFeitos = new JLabel(" 0");
+		ResumosFeitos.setFont(new Font("Segoe UI Variable", Font.PLAIN, 23));
+		ResumosFeitos.setBounds(472, 249, 76, 60);
+		ResumosFeitos.setText(" " +numResum);
+		getContentPane().add(ResumosFeitos);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Imagens\\Capturas de tela\\Captura de tela 2023-10-31 183451.png"));
-		lblNewLabel_1.setBounds(754, 153, 650, 256);
-		getContentPane().add(lblNewLabel_1);
+		UsuariosCadastrados = new JLabel("");
+		UsuariosCadastrados.setFont(new Font("Segoe UI Variable", Font.PLAIN, 23));
+		UsuariosCadastrados.setText(" " +numUsers);
+		UsuariosCadastrados.setBounds(472, 166, 76, 60);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 128, 64));
-		panel.setBounds(174, 0, 2, 920);
-		getContentPane().add(panel);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 128, 64));
-		panel_1.setBounds(0, 83, 1540, 2);
-		getContentPane().add(panel_1);
+		getContentPane().add(UsuariosCadastrados);
 		
 		JLabel sair = new JLabel("");
 		sair.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Sair.png"));
-		sair.setBounds(791, 384, 76, 101);
+		sair.setBounds(521, 34, 76, 101);
 		getContentPane().add(sair);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Estastísticas.png"));
+		lblNewLabel.setBounds(36, 0, 605, 426);
+		getContentPane().add(lblNewLabel);
+		
+		panel = new JPanel();
+		panel.setBackground(new Color(56, 182, 255));
+		panel.setBounds(578, 10, 27, 24);
+		getContentPane().add(panel);
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 49, 49));
+		panel_1.setBounds(604, 10, 27, 24);
+		getContentPane().add(panel_1);
+		
+		panel_2 = new JPanel();
+		panel_2.setBackground(new Color(92, 225, 230));
+		panel_2.setBounds(551, 10, 27, 24);
+		getContentPane().add(panel_2);
 		sair.addMouseListener(new MouseListener() {
 
 			@Override
@@ -103,7 +106,6 @@ public class EstatisticasView extends JFrame {
 			}
 			
 		});
-		setBounds(487, 185, 1129, 775);
 		setVisible(true);
 		
 		

@@ -11,7 +11,6 @@ import br.com.projeto.model.bo.ADMBO;
 import br.com.projeto.model.dao.ConexaoDAO;
 import br.com.projeto.model.vo.ADMVO;
 import br.com.projeto.view.ConfiguracoesView;
-import br.com.projeto.view.ExclusaoView;
 import br.com.projeto.view.LoginView;
 import br.com.projeto.view.TelaPrincipalView;
 import br.com.projeto.view.TelaAcaodeADMView;

@@ -16,6 +16,8 @@ public class TelaBemVindoView extends JFrame {
 		inicializarComponentes();
 	}
 	public void inicializarComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		setBounds(487, 185, 585, 500);
 		setUndecorated(true);
 		setBackground(Color.ORANGE);

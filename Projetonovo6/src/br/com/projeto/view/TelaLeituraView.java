@@ -22,13 +22,14 @@ import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
+import java.awt.Component;
 
 public class TelaLeituraView extends JFrame {
 	private String Resumo;
 	private String titulo;
 	private String emailtxt;
-	private JTextArea textArea, textArea_1, email;
-	private JLabel download;
+	private JLabel download, Título, Autor;
+	private JTextArea resumoparaleitura;
 
 	public TelaLeituraView(String titulo, String Resumo, String email) {
 		this.titulo = titulo;
@@ -39,38 +40,33 @@ public class TelaLeituraView extends JFrame {
 	}
 
 	public void inicializarComponentes() {
+		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
+		setIconImage(read7.getImage());
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(200, 50, 1150, 750);
 		getContentPane().setLayout(null);
+		
+		JScrollPane pane = new JScrollPane((Component) null);
+		pane.setBorder(BorderFactory.createEmptyBorder());
+		pane.setBackground(new Color(250, 250, 250));
+		pane.setBounds(56, 129, 1070, 445);
+		getContentPane().add(pane);
+		
+		resumoparaleitura = new JTextArea();
+		resumoparaleitura.setText(Resumo);
+		resumoparaleitura.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
+		pane.setViewportView(resumoparaleitura);
+		
+		Título = new JLabel("");
+		Título.setBounds(79, 39, 240, 33);
+		Título.setText(titulo);
+		Título.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
+		getContentPane().add(Título);
 
-		JScrollPane pane1 = new JScrollPane();
-		pane1.setBounds(51, 126, 1075, 445);
-		pane1.setBorder(BorderFactory.createEmptyBorder());
-		pane1.setBackground(new Color(250, 250, 250));
-		pane1.setOpaque(false);
-		getContentPane().add(pane1);
-
-		textArea = new JTextArea();
-		textArea.setBackground(new Color(250, 250, 250));
-		textArea.setText(Resumo);
-		textArea.setBorder(BorderFactory.createEmptyBorder());
-		textArea.setOpaque(false);
-		textArea.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
-		textArea.setLineWrap(true);
-		pane1.setViewportView(textArea);
-
-		JLabel sair2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\SaídaRegras.png"));
+		JLabel sair2 = new JLabel(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\SaídaRegras.png"));
 		sair2.setBounds(780, 10, 94, 89);
 		getContentPane().add(sair2);
-
-		textArea_1 = new JTextArea();
-		textArea_1.setText(titulo);
-		textArea_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
-		textArea_1.setBounds(79, 39, 252, 57);
-		getContentPane().add(textArea_1);
-
-		textArea_1.setOpaque(false);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 128, 0));
@@ -87,40 +83,58 @@ public class TelaLeituraView extends JFrame {
 		lblCliqueAqui.setFont(new Font("Segoe UI Variable", Font.PLAIN, 17));
 		lblCliqueAqui.setBounds(245, 624, 94, 42);
 		getContentPane().add(lblCliqueAqui);
-		
-		download = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Download.png"));
+
+		download = new JLabel(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Download.png"));
 		download.setBounds(708, 26, 77, 51);
+		download.setToolTipText("Baixar resumo em pdf");
 		getContentPane().add(download);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-08 090106.png"));
+		lblNewLabel.setIcon(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-08 090106.png"));
 		lblNewLabel.setBounds(25, 80, 1111, 534);
 		getContentPane().add(lblNewLabel);
-		
-		email = new JTextArea();
-		email.setText(emailtxt);
-		email.setOpaque(false);
-		email.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
-		email.setBounds(341, 39, 252, 57);
-		getContentPane().add(email);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 128, 0));
 		panel_1.setBounds(341, 75, 252, 2);
 		getContentPane().add(panel_1);
+		
+		Autor = new JLabel();
+		Autor.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
+		Autor.setBounds(341, 39, 240, 33);
+		Autor.setText(emailtxt);
+		getContentPane().add(Autor);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(255, 49, 49));
+		panel_5.setBounds(1099, 10, 27, 24);
+		getContentPane().add(panel_5);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(56, 182, 255));
+		panel_4.setBounds(1073, 10, 27, 24);
+		getContentPane().add(panel_4);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(92, 225, 230));
+		panel_3.setBounds(1046, 10, 27, 24);
+		getContentPane().add(panel_3);
 		lblCliqueAqui.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-				dispose();
-				TelaEdicaoResumoView view = new TelaEdicaoResumoView(titulo, Resumo);
-				String url = "jdbc:mysql://localhost:3306/BD";
-				Connection conexao = DriverManager.getConnection(url, "root", "root");
-				EdiçãoResumosController controle = new EdiçãoResumosController(view, conexao);
-				view.setVisible(true);
-				view.setExtendedState(JFrame.MAXIMIZED_BOTH);
-				}catch(SQLException sqle) {}
+					dispose();
+					TelaEdicaoResumoView view = new TelaEdicaoResumoView(titulo, Resumo);
+					String url = "jdbc:mysql://localhost:3306/BD";
+					Connection conexao = DriverManager.getConnection(url, "root", "root");
+					EdiçãoResumosController controle = new EdiçãoResumosController(view, conexao);
+					view.setVisible(true);
+					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				} catch (SQLException sqle) {
+				}
 			}
 
 			@Override
@@ -188,19 +202,21 @@ public class TelaLeituraView extends JFrame {
 	}
 
 	public String pegaTitutlo() {
-		return textArea_1.getText();
+		return Título.getText();
 	}
 
 	public String pegaResumo() {
-		return textArea.getText();
+		return resumoparaleitura.getText();
 	}
+
 	public String pegaAutor() {
-		return email.getText();
+		return Autor.getText();
 	}
 
 	public void mensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem);
 	}
+
 	public void addBtnDownload(MouseListener listener) {
 		download.addMouseListener(listener);
 	}
