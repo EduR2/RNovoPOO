@@ -500,7 +500,7 @@ public class FiccaoView extends JFrame {
 
 		JLabel Rascunho = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-27 184752.png"));
-		Rascunho.setToolTipText("Itálico");
+		Rascunho.setToolTipText("Rascunho");
 		Rascunho.setBounds(1205, 69, 72, 93);
 		Rascunho.addMouseListener(new MouseListener() {
 
