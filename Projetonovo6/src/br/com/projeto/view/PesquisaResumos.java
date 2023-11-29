@@ -70,7 +70,7 @@ public class PesquisaResumos extends JFrame {
 		setIconImage(read7.getImage());
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
-		//setUndecorated(true);
+		setTitle("Pesquisa de resumos");
 		getContentPane().setBackground(new Color(255, 255, 255));
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
 		UIManager.put("ToolTip.font", fontetip);
@@ -137,6 +137,43 @@ public class PesquisaResumos extends JFrame {
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(fonte);
 		senha.setFont(fonte1);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
+		lblNewLabel_1.setBounds(1411, 65, 71, 119);
+		getContentPane().add(lblNewLabel_1);
+		
+				lblNewLabel_1.addMouseListener(new MouseListener() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						dispose();
+		
+					}
+		
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+		
+					}
+		
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+		
+					}
+		
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+		
+					}
+		
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+		
+					}
+				});
 		getContentPane().add(pane);
 
 		JPanel panel = new JPanel();
@@ -145,6 +182,7 @@ public class PesquisaResumos extends JFrame {
 		getContentPane().add(panel);
 
 		txtAutor = new JTextField();
+		txtAutor.setForeground(Color.GRAY);
 		txtAutor.setHorizontalAlignment(SwingConstants.LEFT);
 		txtAutor.setForeground(new Color(0, 0, 0));
 		txtAutor.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
@@ -163,11 +201,6 @@ public class PesquisaResumos extends JFrame {
 		lblNewLabel.setBounds(273, 21, 1209, 752);
 		getContentPane().add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
-		lblNewLabel_1.setBounds(1359, 277, 71, 119);
-		getContentPane().add(lblNewLabel_1);
-		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(new Color(255, 49, 49));
 		panel_5.setBounds(1455, 21, 27, 24);
@@ -182,38 +215,6 @@ public class PesquisaResumos extends JFrame {
 		panel_3.setBackground(new Color(92, 225, 230));
 		panel_3.setBounds(1402, 21, 27, 24);
 		getContentPane().add(panel_3);
-
-		lblNewLabel_1.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose();
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-		});
 		setVisible(true);
 	}
 	

@@ -22,7 +22,6 @@ import br.com.projeto.controller.AcaoController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
-import br.com.projeto.controller.ExclusaoController;
 import br.com.projeto.controller.DataConfigController;
 
 public class ConfiguracoesView extends JFrame {
@@ -96,9 +95,41 @@ public class ConfiguracoesView extends JFrame {
 		emailAlteracao.setBounds(209, 241, 350, 45);
 		getContentPane().add(emailAlteracao);
 
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(357, 399, 150, 50);
-		getContentPane().add(lblNewLabel_2);
+		JLabel Cancelar = new JLabel("");
+		Cancelar.setBounds(357, 399, 150, 50);
+		Cancelar.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtNovoLogin.setText("Novo Login");
+				txtNovoLogin.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
+				txtNovoLogin.setForeground(Color.LIGHT_GRAY);
+				emailAlteracao.setText("E-mail");
+				emailAlteracao.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
+				emailAlteracao.setForeground(Color.LIGHT_GRAY);
+				txtNovaSenha.setText("Nova Senha");	
+				txtNovaSenha.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
+				txtNovaSenha.setForeground(Color.LIGHT_GRAY);
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+			}
+		});
+		getContentPane().add(Cancelar);
 
 		Salvar = new JLabel("");
 		Salvar.setBounds(197, 396, 150, 50);

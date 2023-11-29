@@ -57,35 +57,65 @@ public class CadastroView extends JFrame {
 		email = new JTextField("Registre seu e-mail");
 		email.setOpaque(false);
 		email.setBorder(BorderFactory.createEmptyBorder());
-		btnCadastrar = new JButton("Criar");
 		btnVoltar = new JButton("Voltar");
 		txt1 = new JLabel("Criar Conta");
+		txt1.setForeground(new Color(255, 255, 255));
 		i1 = new ImageIcon("Imagens/Fundo.jpg");
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		image3 = new JLabel(i3);
 		container = getContentPane();
 
-		txt1.setBounds(100, 85, 350, 45);
+		txt1.setBounds(100, 61, 350, 45);
 		email.setBounds(117, 140, 350, 45);
 		nome.setBounds(117, 210, 350, 45);
 		senha.setBounds(117, 280, 350, 45);
-		btnCadastrar.setBounds(215, 340, 152, 45);
-		btnVoltar.setBounds(230, 390, 120, 27);
 		image3.setBounds(95, -60, 390, 320);
-
-		btnCadastrar.setFont(fonte);
-		btnVoltar.setFont(fonte2);
 		nome.setFont(fonte1);
 		senha.setFont(fonte1);
 		email.setFont(fonte1);
-		btnCadastrar.setBackground(Color.BLUE);
-		btnCadastrar.setForeground(Color.WHITE);
-		btnVoltar.setBackground(new Color(227, 227, 227));
 		txt1.setFont(fonte3);
 		nome.setForeground(Color.WHITE);
 		senha.setForeground(Color.WHITE);
 		email.setForeground(Color.WHITE);
+		btnCadastrar = new JButton("");
+		btnCadastrar.setOpaque(false);
+		btnCadastrar.setContentAreaFilled(false);
+		btnCadastrar.setBorderPainted(false);
+		btnCadastrar.setBounds(149, 387, 140, 35);
+		
+				btnCadastrar.setFont(fonte);
+				btnCadastrar.setBackground(Color.BLUE);
+				btnCadastrar.setForeground(Color.WHITE);
+				getContentPane().add(btnCadastrar);
+		btnVoltar = new JButton("");
+		btnVoltar.setOpaque(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setBounds(299, 395, 120, 27);
+		btnVoltar.setFont(fonte2);
+		btnVoltar.setBackground(new Color(227, 227, 227));
+		getContentPane().add(btnVoltar);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(92, 225, 230));
+		panel_3.setBounds(481, 10, 27, 24);
+		getContentPane().add(panel_3);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(255, 49, 49));
+		panel_5.setBounds(534, 10, 27, 24);
+		getContentPane().add(panel_5);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(56, 182, 255));
+		panel_4.setBounds(508, 10, 27, 24);
+		getContentPane().add(panel_4);
 
 		panel_1 = new JPanel();
 		panel_1.setBounds(100, 242, 350, 2);
@@ -102,14 +132,12 @@ public class CadastroView extends JFrame {
 		getContentPane().add(nome);
 		getContentPane().add(senha);
 		getContentPane().add(email);
-		getContentPane().add(btnVoltar);
-		getContentPane().add(btnCadastrar);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Cadastro.png"));
+		lblNewLabel.setBounds(0, 0, 571, 463);
+		getContentPane().add(lblNewLabel);
 		setVisible(true);
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
 		nome.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (nome.getText().equals("Crie um login")) {
@@ -150,7 +178,7 @@ public class CadastroView extends JFrame {
 
 			public void focusLost(FocusEvent e) {
 				if (email.getText().isEmpty()) {
-					email.setText("Registre seu e-   mail");
+					email.setText("Registre seu e-mail");
 					email.setForeground(Color.WHITE);
 				}
 			}
@@ -180,5 +208,4 @@ public class CadastroView extends JFrame {
 	public void addBtnCadastrar(ActionListener cadListener) {
 		btnCadastrar.addActionListener(cadListener);
 	}
-
 }

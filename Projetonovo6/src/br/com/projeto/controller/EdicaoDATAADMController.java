@@ -15,7 +15,6 @@ import br.com.projeto.model.bo.LembrarSenhaBO;
 import br.com.projeto.model.vo.LembrarSenhaVO;
 import br.com.projeto.view.ConfiguracoesADMView;
 import br.com.projeto.view.LembrarSenhaView;
-import br.com.projeto.view.TelaAcaodeADMView;
 import br.com.projeto.view.TelaPrincipalView;
 
 public class EdicaoDATAADMController {

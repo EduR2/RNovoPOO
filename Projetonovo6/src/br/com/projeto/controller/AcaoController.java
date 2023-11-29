@@ -55,7 +55,7 @@ public class AcaoController {
 	class listener implements MouseListener {
 		public void mouseClicked(MouseEvent e) {
 			try {
-				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\O Alienista.pdf";
+				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\O Evangelho Segundo Mateus.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
 					File file = new File(caminhoArq);
@@ -100,14 +100,18 @@ public class AcaoController {
 		public void mouseClicked(MouseEvent e) {
 			ResultSet resultado = acDAO.Leitura2();
 			try {
-				if (resultado.next()) {
-					String texto = resultado.getNString("texto");
-					//view.setTexto(texto);
-					view.setClassificacao("Romance");
+				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\O Alienista.pdf";
+				if (Desktop.isDesktopSupported()) {
+					Desktop desktop = Desktop.getDesktop();
+					File file = new File(caminhoArq);
+					if (file.exists()) {
+						desktop.open(file);
+					} else {
+						System.out.println("O arquivo não existe");
+					}
 				}
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(null, "ERRO");
 			}
 		}		
 		

@@ -36,6 +36,10 @@ public class LembrarSenhaView extends JFrame {
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
+	private JLabel lblNewLabel;
+	private JPanel panel_3;
+	private JPanel panel_4;
+	private JPanel panel_5;
 
 	public LembrarSenhaView() {
 		getContentPane().setBackground(new Color(255, 128, 64));
@@ -60,19 +64,28 @@ public class LembrarSenhaView extends JFrame {
 		email.setBorder(BorderFactory.createEmptyBorder());
 		btnAlterar = new JButton("Alterar");
 		btnVoltar = new JButton("Voltar");
-		txt1 = new JLabel("Mudança de Dados");
+		btnAlterar = new JButton("");
+		btnAlterar.setOpaque(false);
+		btnAlterar.setContentAreaFilled(false);
+		btnAlterar.setBorderPainted(false);
+		btnVoltar = new JButton("Voltar");
+		btnVoltar = new JButton("");
+		btnVoltar.setOpaque(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setBorderPainted(false);
+		txt1 = new JLabel("Alterar Dados");
 		i1 = new ImageIcon("Imagens/Fundo.jpg");
 		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		image3 = new JLabel(i3);
 		container = getContentPane();
 
-		txt1.setBounds(100, 85, 350, 45);
+		txt1.setBounds(117, 68, 350, 45);
 		email.setBounds(117, 140, 350, 45);
 		nome.setBounds(117, 210, 350, 45);
 		senha.setBounds(117, 280, 350, 45);
-		btnAlterar.setBounds(215, 340, 152, 45);
-		btnVoltar.setBounds(230, 390, 120, 27);
+		btnAlterar.setBounds(152, 387, 137, 45);
+		btnVoltar.setBounds(299, 395, 120, 27);
 		image3.setBounds(95, -60, 390, 320);
 
 		btnAlterar.setFont(fonte);
@@ -88,7 +101,22 @@ public class LembrarSenhaView extends JFrame {
 		nome.setForeground(Color.WHITE);
 		senha.setForeground(Color.WHITE);
 		email.setForeground(Color.WHITE);
-		txt1.setForeground(Color.black);
+		
+		panel_4 = new JPanel();
+		panel_4.setBackground(new Color(56, 182, 255));
+		panel_4.setBounds(508, 10, 27, 24);
+		getContentPane().add(panel_4);
+		
+		panel_5 = new JPanel();
+		panel_5.setBackground(new Color(92, 225, 230));
+		panel_5.setBounds(481, 10, 27, 24);
+		getContentPane().add(panel_5);
+		
+		panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 49, 49));
+		panel_3.setBounds(534, 10, 27, 24);
+		getContentPane().add(panel_3);
+		txt1.setForeground(new Color(255, 255, 255));
 		getContentPane().add(txt1);
 		getContentPane().add(email);
 		getContentPane().add(nome);
@@ -107,6 +135,11 @@ public class LembrarSenhaView extends JFrame {
 		panel_2 = new JPanel();
 		panel_2.setBounds(117, 320, 350, 2);
 		getContentPane().add(panel_2);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Alterar Dados.png"));
+		lblNewLabel.setBounds(0, 0, 571, 463);
+		getContentPane().add(lblNewLabel);
 		setVisible(true);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

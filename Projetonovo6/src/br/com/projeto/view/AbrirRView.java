@@ -1,178 +1,141 @@
 package br.com.projeto.view;
 import javax.swing.*;
 import javax.swing.text.*;
+
+import br.com.projeto.controller.LimitadorController;
+
+
 import java.awt.*;
-import java.io.FileOutputStream;
-import com.itextpdf.text.*;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class AbrirRView {
 
-    private static final int MAX_CHARACTERS_PER_LINE = 50;
+public class AbrirRView extends JFrame{
+	
+	public AbrirRView() {
+		createAndShowGUI();
+	}
+	private static final int MAX_CHARACTERS_PER_LINE = 70;
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(AbrirRView::createAndShowGUI);
-    }
 
-    private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Limited Width JTextPane Example");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    public void createAndShowGUI() {
+	        JFrame frame = new JFrame("Rascunho");
+	        frame.getContentPane().setBackground(Color.CYAN);
+	        frame.setResizable(false);
+	        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        JTextPane textPane = new JTextPane();
-        textPane.setEditable(true);
-        LimitedWidthDocument limitedDocument = new LimitedWidthDocument();
-        textPane.setDocument(limitedDocument);
 
-        JButton boldUnderlineButton = new JButton("Negrito Sublinhado");
-        boldUnderlineButton.addActionListener(e -> applyBoldUnderline(textPane));
-        boldUnderlineButton.setFocusPainted(false);
-        boldUnderlineButton.setPreferredSize(new Dimension(120, 25));
+	        JTextPane textPane = new JTextPane();
+	        textPane.setBounds(0, 45, 532, 420);
+	        textPane.setEditable(true);
+	        LimitadorController limitedDocument = new LimitadorController();
+	        textPane.setDocument(limitedDocument);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.add(textPane, BorderLayout.CENTER);
-        panel.add(boldUnderlineButton, BorderLayout.SOUTH);
+	        JButton boldUnderlineButton = new JButton("",new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Imagens\\NegritoRascunho.jpg"));
+	        boldUnderlineButton.setBounds(258, 0, 214, 35);
+	        boldUnderlineButton.setBackground(new Color(255, 255, 255));
+	        boldUnderlineButton.addActionListener(e -> applyBoldUnderline(textPane));
+	        boldUnderlineButton.setFocusPainted(false);
+	        boldUnderlineButton.setPreferredSize(new Dimension(120, 25));
+	        boldUnderlineButton.setBorderPainted(false);
 
-        JScrollPane scrollPane = new JScrollPane(panel);
+	        JPanel panel = new JPanel();
+	        panel.setLayout(null);
+	        
+	        	        JPanel comboBoxPanel = new JPanel(new GridLayout(1, 1));
+	        	        comboBoxPanel.setBounds(482, 0, 50, 35);
+	        	        panel.add(comboBoxPanel);
+	        panel.add(textPane);
+	        panel.add(boldUnderlineButton);
+	        
 
-        frame.getContentPane().setLayout(new BorderLayout());
-        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+	        JScrollPane scrollPane = new JScrollPane(panel);
 
-        JButton underlineOrItalicButton = new JButton("Sublinhado / Itálico");
-        underlineOrItalicButton.addActionListener(e -> applyItalicOrUnderline(textPane));
-        underlineOrItalicButton.setFocusPainted(false);
+	        frame.getContentPane().setLayout(new BorderLayout());
+	        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
-        panel.add(underlineOrItalicButton, BorderLayout.NORTH);
+	        JButton underlineOrItalicButton = new JButton("");
+	        underlineOrItalicButton.setBounds(0, -4, 249, 39);
+	        underlineOrItalicButton.setBackground(new Color(255, 255, 255));
 
-        JComboBox comboBox = new JComboBox();
-        panel.add(comboBox, BorderLayout.EAST);
+	        underlineOrItalicButton.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Imagens\\ItálicoRascunho.jpg"));
+	        underlineOrItalicButton.addActionListener(e -> applyItalicOrUnderline(textPane));
+	        underlineOrItalicButton.setFocusPainted(false);
+	        underlineOrItalicButton.setBorderPainted(false);
+	        
+	        panel.add(underlineOrItalicButton);
+	        
+	        JComboBox comboBox = new JComboBox();
+	        comboBox.setBounds(0, 0, 0, 0);
+	        panel.add(comboBox);
+	        comboBox.setBorder(BorderFactory.createEmptyBorder());
+	        comboBox.setBackground(Color.ORANGE);
+	        
+	        String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+	        
+	        	     JComboBox<String> fontComboBox = new JComboBox<>(fontNames);
+	        	       comboBoxPanel.add(fontComboBox);
+	        	       fontComboBox.setSelectedItem("Arial");
+	        	        
+	        	       fontComboBox.addActionListener(e -> applyFont(textPane, (String) fontComboBox.getSelectedItem()));
+	        	        	       
+	      
+	        fontComboBox.setPreferredSize(new Dimension(50, 10));  
+	        frame.setSize(551, 523);
+	        frame.setLocationRelativeTo(null);
+	        frame.setVisible(true);
+	    }
 
-        String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+	    private static void applyFont(JTextPane textPane, String fontName) {
+	        StyledDocument doc = textPane.getStyledDocument();
+	        int start = textPane.getSelectionStart();
+	        int end = textPane.getSelectionEnd();
 
-        JComboBox<String> fontComboBox = new JComboBox<>(fontNames);
-        fontComboBox.setSelectedItem("Arial");
+	        if (start != end) {
+	            SimpleAttributeSet attrs = new SimpleAttributeSet();
+	            StyleConstants.setFontFamily(attrs, fontName);
+	            doc.setCharacterAttributes(start, end - start, attrs, false);
+	        }
+	    }
 
-        fontComboBox.addActionListener(e -> applyFont(textPane, (String) fontComboBox.getSelectedItem()));
+	    private static void applyItalicOrUnderline(JTextPane textPane) {
+	        int start = textPane.getSelectionStart();
+	        int end = textPane.getSelectionEnd();
 
-        JPanel comboBoxPanel = new JPanel(new GridLayout(1, 1));
-        comboBoxPanel.add(fontComboBox);
-        panel.add(comboBoxPanel, BorderLayout.EAST);
+	        if (start != end) {
+	            StyledDocument doc = textPane.getStyledDocument();
+	            Element element = doc.getCharacterElement(start);
+	            AttributeSet as = element.getAttributes();
 
-        fontComboBox.setPreferredSize(new Dimension(50, 10));
+	            boolean isUnderline = StyleConstants.isUnderline(as);
 
-        JButton saveToPdfButton = new JButton("Salvar em PDF");
-        saveToPdfButton.addActionListener(e -> saveToPdf(textPane));
-        saveToPdfButton.setFocusPainted(false);
-        saveToPdfButton.setPreferredSize(new Dimension(120, 25));
-        panel.add(saveToPdfButton, BorderLayout.WEST);
+	            SimpleAttributeSet attrs = new SimpleAttributeSet();
+	            if (isUnderline) {
+	                StyleConstants.setUnderline(attrs, false);
+	                StyleConstants.setItalic(attrs, true);
+	            } else {
+	                StyleConstants.setUnderline(attrs, true);
+	                StyleConstants.setItalic(attrs, false);
+	            }
 
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
+	            doc.setCharacterAttributes(start, end - start, attrs, false);
+	        }
+	    }
 
-    private static void applyFont(JTextPane textPane, String fontName) {
-        StyledDocument doc = textPane.getStyledDocument();
-        int start = textPane.getSelectionStart();
-        int end = textPane.getSelectionEnd();
+	    private static void applyBoldUnderline(JTextPane textPane) {
+	        int start = textPane.getSelectionStart();
+	        int end = textPane.getSelectionEnd();
 
-        if (start != end) {
-            SimpleAttributeSet attrs = new SimpleAttributeSet();
-            StyleConstants.setFontFamily(attrs, fontName);
-            doc.setCharacterAttributes(start, end - start, attrs, false);
-        }
-    }
+	        if (start != end) {
+	            StyledDocument doc = textPane.getStyledDocument();
+	            SimpleAttributeSet attrs = new SimpleAttributeSet();
 
-    private static void applyItalicOrUnderline(JTextPane textPane) {
-        int start = textPane.getSelectionStart();
-        int end = textPane.getSelectionEnd();
+	            StyleConstants.setBold(attrs, true);
+	            StyleConstants.setUnderline(attrs, true);
 
-        if (start != end) {
-            StyledDocument doc = textPane.getStyledDocument();
-            Element element = (Element) doc.getCharacterElement(start);
-            AttributeSet as = ((javax.swing.text.Element) element).getAttributes();
-
-            boolean isUnderline = StyleConstants.isUnderline(as);
-
-            SimpleAttributeSet attrs = new SimpleAttributeSet();
-            if (isUnderline) {
-                StyleConstants.setUnderline(attrs, false);
-                StyleConstants.setItalic(attrs, true);
-            } else {
-                StyleConstants.setUnderline(attrs, true);
-                StyleConstants.setItalic(attrs, false);
-            }
-
-            doc.setCharacterAttributes(start, end - start, attrs, false);
-        }
-    }
-
-    private static void applyBoldUnderline(JTextPane textPane) {
-        int start = textPane.getSelectionStart();
-        int end = textPane.getSelectionEnd();
-
-        if (start != end) {
-            StyledDocument doc = textPane.getStyledDocument();
-            SimpleAttributeSet attrs = new SimpleAttributeSet();
-
-            StyleConstants.setBold(attrs, true);
-            StyleConstants.setUnderline(attrs, true);
-
-            doc.setCharacterAttributes(start, end - start, attrs, false);
-        }
-    }
-
-    private static void saveToPdf(JTextPane textPane) {
-        Document document = new Document();
-
-        try {
-            // Caminho do arquivo PDF
-            String filePath = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\oasas0iuytrdter9AFDSFGGFHuyfdgfst.pdf";
-            PdfWriter.getInstance(document, new FileOutputStream(filePath));
-            document.open();
-
-            Font font = new Font(Font.FontFamily.TIMES_ROMAN, 12);
-
-            // Adiciona um parágrafo ao documento com a fonte especificada
-            addParagraph(document, textPane.getText(), font);
-
-            JOptionPane.showMessageDialog(null, "PDF gerado com sucesso!");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro ao gerar PDF!");
-        } finally {
-            document.close();
-        }
-    }
-
-    private static void addParagraph(Document document, String text, Font font) throws Exception {
-        Paragraph paragraph = new Paragraph();
-        com.itextpdf.text.Font pdfFont = new com.itextpdf.text.Font(Font.FontFamily.TIMES_ROMAN, font.getSize());
-
-        if (font.isBold() && font.isItalic()) {
-            pdfFont.setStyle(com.itextpdf.text.Font.BOLDITALIC);
-        } else if (font.isBold()) {
-            pdfFont.setStyle(com.itextpdf.text.Font.BOLD);
-        } else if (font.isItalic()) {
-            pdfFont.setStyle(com.itextpdf.text.Font.ITALIC);
-        }
-
-        Chunk chunk = new Chunk(text, pdfFont);
-        paragraph.add(chunk);
-        document.add(paragraph);
-    }
-
-    private static class LimitedWidthDocument extends DefaultStyledDocument {
-        @Override
-        public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-            if (getLength() + str.length() <= MAX_CHARACTERS_PER_LINE) {
-                super.insertString(offs, str, a);
-            }
-        }
-    }
+	            doc.setCharacterAttributes(start, end - start, attrs, false);
+	        }
+	    }        
 }
-

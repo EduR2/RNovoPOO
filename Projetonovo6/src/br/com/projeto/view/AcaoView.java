@@ -58,7 +58,6 @@ public class AcaoView extends JFrame {
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
 	private JTextArea resumo;
 	private JScrollPane pane;
-	private JPasswordField senha;
 	private JButton btnLogin, btnCriarCadastro;
 	private String texto;
 	private JTextField título;
@@ -77,8 +76,9 @@ public class AcaoView extends JFrame {
 	private JTextField fonteEditável;
 	private JButton aumentaFonte;
 	private JButton diminuiFonte;
-	private JCheckBox NegritoBox;
+	private JCheckBox NegritoBox, ItálicoBox;
 	private int tamanho = 20;
+
 	public AcaoView() {
 		inicializaComponentes();
 	}
@@ -102,7 +102,6 @@ public class AcaoView extends JFrame {
 		resumo = new JTextArea();
 		resumo.setLineWrap(true);
 		resumo.setBorder(BorderFactory.createEmptyBorder());
-		senha = new JPasswordField("Senha");
 		pane = new JScrollPane(resumo);
 		pane.setBounds(225, 190, 932, 445);
 		pane.setBorder(BorderFactory.createEmptyBorder());
@@ -123,10 +122,10 @@ public class AcaoView extends JFrame {
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
 		sair.setBounds(1424, 48, 106, 77);
 		salvar = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Imagens\\Capturas de tela\\Captura de tela 2023-11-07 082030.png"));
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-07 082030.png"));
 		salvar.setBounds(911, 664, 224, 102);
 		limpar = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Imagens\\Capturas de tela\\Captura de tela 2023-11-07 082206.png"));
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-07 082206.png"));
 		limpar.setBounds(1145, 664, 197, 102);
 		livro1 = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-07 081407.png"));
@@ -140,7 +139,6 @@ public class AcaoView extends JFrame {
 		image2 = new JLabel(i2);
 		image3 = new JLabel(i3);
 		p = new JPanel();
-		senha.setBounds(597, 395, 350, 45);
 		image3.setBounds(575, 65, 390, 320);
 		txt1.setBounds(740, 537, 125, 20);
 		p.setBounds(575, 250, 390, 315);
@@ -150,9 +148,19 @@ public class AcaoView extends JFrame {
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(fonte);
 		resumo.setFont(new Font("Segoe UI Variable", Font.PLAIN, 20));
-		senha.setFont(fonte1);
 		getContentPane().setLayout(null);
-		
+
+		ItálicoBox = new JCheckBox("");
+		ItálicoBox.setOpaque(false);
+		ItálicoBox.setBounds(1112, 125, 27, 21);
+		getContentPane().add(ItálicoBox);
+
+		JLabel Italic = new JLabel(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-08 082440.png"));
+		Italic.setBounds(1063, 82, 72, 66);
+		Italic.setToolTipText("Itálico");
+		getContentPane().add(Italic);
+
 		NegritoBox = new JCheckBox("");
 		NegritoBox.setBounds(1035, 125, 27, 21);
 		NegritoBox.setOpaque(false);
@@ -162,16 +170,15 @@ public class AcaoView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Font atualFonte = resumo.getFont();
-				if(NegritoBox.isSelected() == true) {
-				resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.BOLD, atualFonte.getSize()));
-				}else 
-				if(NegritoBox.isSelected() == false){
+				if (NegritoBox.isSelected() == true) {
+					resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.BOLD, atualFonte.getSize()));
+				} else if (NegritoBox.isSelected() == false) {
 					resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.PLAIN, atualFonte.getSize()));
 				}
 			}
-			
+
 		});
-		
+
 		fonteEditável = new JTextField();
 		fonteEditável.setBounds(883, 98, 51, 33);
 		String tamanhoString = Integer.toString(tamanho);
@@ -197,9 +204,9 @@ public class AcaoView extends JFrame {
 				String tamanhoString = Integer.toString(tamanho);
 				fonteEditável.setText(tamanhoString);
 				Font atualFonte = resumo.getFont();
-				resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.getStyle(), tamanho));				
+				resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.getStyle(), tamanho));
 			}
-			
+
 		});
 
 		aumentaFonte = new JButton("");
@@ -219,9 +226,9 @@ public class AcaoView extends JFrame {
 				String tamanhoString = Integer.toString(tamanho);
 				fonteEditável.setText(tamanhoString);
 				Font atualFonte = resumo.getFont();
-				resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.getStyle(), tamanho));	
+				resumo.setFont(new Font(atualFonte.getFontName(), atualFonte.getStyle(), tamanho));
 			}
-			
+
 		});
 
 		JLabel Regras = new JLabel(new ImageIcon(
@@ -236,34 +243,33 @@ public class AcaoView extends JFrame {
 				RegrasView view = new RegrasView();
 				view.setVisible(true);
 				view.setResizable(false);
-				
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
-			
+
 		});
 		Bold = new JLabel(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-08 082130.png"));
@@ -377,7 +383,7 @@ public class AcaoView extends JFrame {
 				}
 			}
 		});
-		
+
 		sair.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -462,12 +468,6 @@ public class AcaoView extends JFrame {
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-07 081153.png"));
 		getContentPane().add(lblNewLabel_3_1_1);
 
-		JLabel Italic = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-08 082440.png"));
-		Italic.setBounds(1063, 82, 72, 66);
-		Italic.setToolTipText("Itálico");
-		getContentPane().add(Italic);
-
 		String[] fontNames = { "COURIER", "HELVETICA", "SYMBOL", "TIMES_ROMAN", "UNDEFINED", "ZAPFDINGBATS" };
 		for (String fontName : fontNames) {
 			fonteResumo.addItem(fontName);
@@ -498,18 +498,47 @@ public class AcaoView extends JFrame {
 		lblNewLabel_3_1_2.setIcon(new ImageIcon(
 				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-07 081153.png"));
 		getContentPane().add(lblNewLabel_3_1_2);
-		
-		JLabel Rascunho = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Imagens\\Capturas de tela\\Captura de tela 2023-11-27 184752.png"));
+
+		JLabel Rascunho = new JLabel(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-27 184752.png"));
 		Rascunho.setToolTipText("Itálico");
 		Rascunho.setBounds(1205, 69, 72, 93);
-		getContentPane().add(Rascunho);
-		/*AbrirR.addMouseListener(new MouseAdapter() {
+		Rascunho.addMouseListener(new MouseListener() {
+
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				AbrirRView view2 = new AbrirRView();
 				view2.setVisible(true);
 				view2.setLocationRelativeTo(null);
+
 			}
-		});*/
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+		getContentPane().add(Rascunho);
 	}
 
 	public String getTitulo() {
@@ -531,9 +560,11 @@ public class AcaoView extends JFrame {
 	public void setClassificacao(String classif) {
 		classificação.setText(classif);
 	}
+
 	public Font getFont() {
 		return resumo.getFont();
 	}
+
 	public String getFonteName() {
 		return (String) fonteResumo.getSelectedItem();
 	}
@@ -555,14 +586,15 @@ public class AcaoView extends JFrame {
 	}
 
 	public boolean getSelectNegrito() {
-		if (NegritoBox.isSelected()) {		
+		if (NegritoBox.isSelected()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
+
 	public boolean getSelectItalico() {
-		if (ItálicoBox.isSelected()) {		
+		if (ItálicoBox.isSelected()) {
 			return true;
 		} else {
 			return false;

@@ -32,8 +32,6 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
-import br.com.projeto.controller.EdicaoADMController;
-import br.com.projeto.controller.ExclusaoADMVController;
 import br.com.projeto.model.vo.LoginVO;
 import br.com.projeto.model.vo.TextosVO;
 
@@ -174,11 +172,6 @@ public class EdicaoTextoADMView extends JFrame {
 	public void setTexto(String texto) {
 		text.setText(texto);
 	}
-	/*public String getGen() {
-	}
-	public void addBtnTxtListener(ActionListener listener) {
-		comboBox.addActionListener(listener);
-	}*/
 	public void tabela(List<TextosVO> texto) {
 		tableModel.setRowCount(0);
 		for(TextosVO textos: texto) {

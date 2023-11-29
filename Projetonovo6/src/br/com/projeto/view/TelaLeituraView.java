@@ -42,6 +42,7 @@ public class TelaLeituraView extends JFrame {
 	public void inicializarComponentes() {
 		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
 		setIconImage(read7.getImage());
+		setTitle("Leitura de resumo");
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(200, 50, 1150, 750);
 		getContentPane().setLayout(null);

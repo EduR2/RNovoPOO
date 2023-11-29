@@ -12,7 +12,6 @@ import br.com.projeto.model.vo.ADMVO;
 import br.com.projeto.view.ConfiguracoesView;
 import br.com.projeto.view.LoginView;
 import br.com.projeto.view.TelaPrincipalView;
-import br.com.projeto.view.TelaAcaodeADMView;
 
 public class ExclusaoController {
 	private ConfiguracoesView view;
@@ -44,6 +43,7 @@ public class ExclusaoController {
 	          		 view.mensagemErro("Erro ao remover conta");
 	          	}else if (removidoUsuario == true && removidoResumo == false);
 	          	view.mensagem("Conta Removida");
+	          	view.mensagem("Seus resumos continuarão aqui para que outros leitores possam se inspirar no que você escreveu\nFoi bom ter você conosco.");
           		
 		}
 		

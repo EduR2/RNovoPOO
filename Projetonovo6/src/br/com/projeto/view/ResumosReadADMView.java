@@ -35,6 +35,7 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentListener;
 
 import br.com.projeto.controller.PesquisaResumosController;
+import br.com.projeto.controller.DownloadADMController;
 import br.com.projeto.controller.EdiçãoResumosController;
 import br.com.projeto.model.vo.GenerosVO;
 import javax.swing.table.DefaultTableModel;
@@ -69,6 +70,7 @@ public class ResumosReadADMView extends JFrame {
 	public void inicializaComponentes() {
 		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
 		setIconImage(read7.getImage());
+		setTitle("Pesquisa de resumos");
 		setBounds(0, 0, 1920, 1080);
 		getContentPane().setLayout(null);
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -118,17 +120,14 @@ public class ResumosReadADMView extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount()==1) {
-					try {
 					int linha = table.getSelectedRow();
 					String Email = (String) table.getValueAt(linha, 0);
 					String Título = (String) table.getValueAt(linha, 1);
 					String Resumo = (String) table.getValueAt(linha, 2);
 					String Classificação = (String) table.getValueAt(linha, 3);
-					String url = "jdbc:mysql://localhost:3306/BD";
-					TelaLeituraView view = new TelaLeituraView(Título, Resumo, Email);
-					Connection conexao = DriverManager.getConnection(url, "root", "root");
+					LeituraADMView view = new LeituraADMView(Título, Resumo, Email);
+					DownloadADMController controle = new DownloadADMController(view);
 					view.setVisible(true);
-	       			}catch(SQLException SQLe) {}
 				}
 				
 			}

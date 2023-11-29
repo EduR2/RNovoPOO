@@ -258,9 +258,7 @@ public class TelaADMView extends JFrame {
 					ConfiguracoesADMView view = new ConfiguracoesADMView();
 					String url = "jdbc:mysql://localhost:3306/BD";
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
-					view.setResizable(false);
 					EdicaoDATAADMController controle =  new EdicaoDATAADMController(view, conexao);
-					view.setResizable(true);
 					view.setVisible(true);
 				} catch (SQLException sqle) {
 				}

@@ -37,8 +37,6 @@ import javax.swing.event.DocumentListener;
 
 import br.com.projeto.model.vo.GenerosVO;
 import br.com.projeto.model.vo.LoginVO;
-import br.com.projeto.controller.ExclusaoADMVController;
-import br.com.projeto.controller.EdicaoADMController;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 
@@ -69,6 +67,7 @@ public class UsuariosCadastrosView extends JFrame {
 		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
 		setIconImage(read7.getImage());
 		setBounds(0, 0, 1920, 1080);
+		setTitle("Pesquisa por usuários");
 		getContentPane().setLayout(null);
 		getContentPane().setBackground(new Color(255, 255, 255));
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
@@ -113,25 +112,6 @@ public class UsuariosCadastrosView extends JFrame {
 		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
 		pane.setViewportView(table);
 		
-		table.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount()==1) {
-					try {
-					int linha = table.getSelectedRow();
-					String Nome = (String) table.getValueAt(linha, 0);
-					String Senha = (String) table.getValueAt(linha, 1);
-					String Email = (String) table.getValueAt(linha, 2);
-					TelaAcaodeADMView view = new TelaAcaodeADMView(Nome, Senha, Email);
-					String url = "jdbc:mysql://localhost:3306/BD";
-					Connection conexao = DriverManager.getConnection (url, "root", "root");
-					ExclusaoADMVController control = new ExclusaoADMVController(view, conexao);
-					EdicaoADMController control2 = new EdicaoADMController(view, conexao);
-					view.setVisible(true);
-					}catch(SQLException sqle) {}
-				}
-				
-			}   
-		});
 		btnLogin.setBackground(Color.BLUE);
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(fonte);

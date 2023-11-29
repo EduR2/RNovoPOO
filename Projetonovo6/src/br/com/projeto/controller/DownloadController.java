@@ -28,8 +28,9 @@ public class DownloadController {
 			String titulo = view.pegaTitutlo();
 			String autor = view.pegaAutor();
 			String resumo = view.pegaResumo();
-			generatePDF("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\'" + titulo + "'", "\n" + autor + "\n\n",
-					"Resumo:\n", resumo);
+			generatePDF("\nAutor: " + autor + "\n",
+					"------------------------------------------------------------------------------------------------------------------------------\nResumo:\n\n", resumo);
+			JOptionPane.showMessageDialog(null, "Download Concluído");
 		}
 
 		@Override
@@ -57,7 +58,7 @@ public class DownloadController {
 		}
 	}
 
-	public static void generatePDF(String fileName, String content, String content2, String content3) {
+	public static void generatePDF(String content, String content2, String content3) {
 		Document document = new Document();
 		try {
 			JFileChooser fileChooser = new JFileChooser();

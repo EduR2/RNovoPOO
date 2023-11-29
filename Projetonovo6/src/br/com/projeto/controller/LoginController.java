@@ -58,7 +58,6 @@ public class LoginController {
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					view.dispose();
 					TelaADMView telaADM = new TelaADMView();
-					ADMController controle = new ADMController(telaADM, conexao);
 					EdicaoTxtReadADMController controle2 = new EdicaoTxtReadADMController(telaADM);
 					telaADM.setVisible(true);
 					telaADM.setExtendedState(JFrame.MAXIMIZED_BOTH);
