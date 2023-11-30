@@ -19,7 +19,7 @@ import br.com.projeto.controller.RomanceController;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 
-public class GenerosView extends JFrame {
+public class GenerosView extends JFrame {//Classe view das opções de gêneros literários presente no software
 	public GenerosView() {
 		getContentPane().setBackground(new Color(230, 228, 242));
 		inicializarComponentes();
@@ -34,25 +34,25 @@ public class GenerosView extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel l1 = new JLabel("New label");
-		l1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\acao.png"));
+		l1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\acao.png"));
 		l1.setBounds(21, 10, 218, 205);
 		getContentPane().add(l1);
 
 		JLabel l2 = new JLabel("New label");
 		l2.setIcon(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Terror.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Terror.png"));
 		l2.setBounds(259, 10, 233, 205);
 		getContentPane().add(l2);
 
 		JLabel l3 = new JLabel("New label");
 		l3.setIcon(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Ficção.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Ficção.png"));
 		l3.setBounds(502, 10, 233, 205);
 		getContentPane().add(l3);
 
 		JLabel l4 = new JLabel("New label");
 		l4.setIcon(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Romance.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Romance.png"));
 		l4.setBounds(742, 10, 233, 205);
 		getContentPane().add(l4);
 
@@ -220,7 +220,7 @@ public class GenerosView extends JFrame {
 
 		JLabel sair = new JLabel("");
 		sair.setIcon(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Sair.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		sair.setBounds(1034, 73, 70, 92);
 		getContentPane().add(sair);
 

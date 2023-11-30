@@ -27,20 +27,19 @@ import br.com.projeto.model.bo.LoginBO;
 import br.com.projeto.model.vo.LoginVO;
 import javax.swing.JCheckBox;
 
-public class LoginView extends JFrame {
+public class LoginView extends JFrame {//Classe view do login
 	private JLabel image2, image3, image4, CriarConta, AlterarDados, Sair, Entrar;
-	private JPanel p;
 	private Container container;
-	private ImageIcon i1, i2, i3, i4, i5;
 	private Font fonte = new Font("Verdana", Font.BOLD, 20);
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 10);
 	private JTextField nome;
 	private JPasswordField senha;
 	private JButton btnLogin, btnCriarCadastro, btnLembrarSenha, btnfechar;
-	private JOptionPane JO;
 	private JPanel panel;
 	private JPanel panel_1;
+	private ImageIcon i;
+
 	public LoginView() {
 		inicializaComponentes();
 	}
@@ -63,13 +62,8 @@ public class LoginView extends JFrame {
 		btnCriarCadastro = new JButton("Criar Conta");
 		btnLembrarSenha = new JButton("Alterar Dados");
 		btnfechar = new JButton("Sair");
-		i1 = new ImageIcon("Imagens/Fundo.jpg");
-		i2 = new ImageIcon("Imagens/Fundo1.jpg");
-		i3 = new ImageIcon("Imagens/read.png");
-		i4 = new ImageIcon("Imagens/FundoLogin.png");
-		image2 = new JLabel(i2);
-		image3 = new JLabel(i3);
-		p = new JPanel();
+		i = new ImageIcon("Imagens/read.png");
+		image3 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\rosto.png"));
 		container = getContentPane();
 
 		nome.setBounds(108, 194, 350, 45);
@@ -79,8 +73,7 @@ public class LoginView extends JFrame {
 		btnLembrarSenha.setBounds(222, 437, 120, 27);
 		btnfechar.setBounds(348, 437, 120, 27);
 		image3.setBounds(178, 10, 204, 167);
-		//p.add(image2);
-
+		
 		btnLogin.setBackground(Color.BLUE);
 		btnLogin.setForeground(Color.WHITE);
 		btnCriarCadastro.setForeground(Color.BLACK);
@@ -98,41 +91,41 @@ public class LoginView extends JFrame {
 		btnfechar.setBackground(new Color(227, 227, 227));
 		nome.setForeground(Color.WHITE);
 		senha.setForeground(Color.WHITE);
-		
+
 		Entrar = new JLabel("");
 		Entrar.setBounds(222, 336, 130, 34);
 		getContentPane().add(Entrar);
-		
+
 		AlterarDados = new JLabel("");
 		AlterarDados.setBounds(222, 396, 137, 34);
 		getContentPane().add(AlterarDados);
-		
+
 		Sair = new JLabel("");
 		Sair.setBounds(368, 396, 137, 34);
 		getContentPane().add(Sair);
-		
+
 		CriarConta = new JLabel("");
 		CriarConta.setBounds(70, 396, 137, 34);
 		getContentPane().add(CriarConta);
 		getContentPane().add(nome);
 		getContentPane().add(senha);
 		getContentPane().add(image3);
-		
+
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(104, 237, 354, 2);
 		getContentPane().add(panel);
-		
+
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(104, 316, 354, 2);
 		getContentPane().add(panel_1);
-		
+
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\LoginTela.png"));
+		lblNewLabel.setIcon(new ImageIcon(
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\LoginTela.png"));
 		lblNewLabel.setBounds(-11, 0, 582, 534);
 		getContentPane().add(lblNewLabel);
-		//getContentPane().add(p);
 		nome.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (nome.getText().equals("Login")) {
@@ -169,7 +162,6 @@ public class LoginView extends JFrame {
 				btnfechar.setBackground(Color.red);
 				btnfechar.setForeground(Color.white);
 			}
-			
 
 			public void mousePressed(MouseEvent e) {
 				btnfechar.setBackground(Color.LIGHT_GRAY);
@@ -203,7 +195,7 @@ public class LoginView extends JFrame {
 	public void mensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem, "Erro ao logar", JOptionPane.ERROR_MESSAGE);
 	}
-	
+
 	public void addBtnLoginListener(MouseListener logListener) {
 		Entrar.addMouseListener(logListener);
 	}

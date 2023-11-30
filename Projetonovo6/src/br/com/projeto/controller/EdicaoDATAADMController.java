@@ -9,13 +9,11 @@ import java.sql.Connection;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import br.com.projeto.controller.LoginController.cadListener;
 import br.com.projeto.model.bo.AlteracaoDeDadosADMBO;
-import br.com.projeto.model.bo.LembrarSenhaBO;
 import br.com.projeto.model.vo.LembrarSenhaVO;
 import br.com.projeto.view.ConfiguracoesADMView;
-import br.com.projeto.view.LembrarSenhaView;
-import br.com.projeto.view.TelaPrincipalView;
+
+//Classe responsável pela edição de dados do ADM
 
 public class EdicaoDATAADMController {
 	private ConfiguracoesADMView view;

@@ -14,6 +14,7 @@ import br.com.projeto.view.*;
 import br.com.projeto.model.bo.LoginBO;
 import br.com.projeto.model.vo.LoginVO;
 
+//Classe responsável por efetuar o login do usuário ou admm
 public class LoginController {
 	private LoginView view;
 	private LoginVO vo;
@@ -40,9 +41,9 @@ public class LoginController {
 			LoginVO adm = new LoginVO();
 			adm.setNome(nome);
 			adm.setSenha(senha);
-			boolean logado = loginBO.verificaLogin(login);
+			boolean logado = loginBO.verificaLogin(login); 
 			boolean admLogado = loginBO.verificarLoginAdm(login);
-			if (logado == true) {
+			if (logado == true) { // Verifica se o login é de usuário e abre a tela principal
 				try {
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					view.dispose();
@@ -53,7 +54,7 @@ public class LoginController {
 					tela2.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				} catch (Exception g) {
 				}
-			} else if (admLogado == true) {
+			} else if (admLogado == true) { // Verifica se o login é de adm e abre a tela de adm
 				try {
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					view.dispose();

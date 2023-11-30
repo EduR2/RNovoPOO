@@ -19,11 +19,11 @@ import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class TelaEdicaoResumoView extends JFrame {
+public class TelaEdicaoResumoView extends JFrame {//Classe view da tela de edição de resumos por parte do usuário
 	private String resumo, titulo;
 	private JTextArea titulo_old, titulo_novo;
 	private JLabel salvar, título;
-	private JTextArea textArea, textArea_1;
+	private JTextArea resumoAntigo, resumoNovo;
 	private TelaLeituraView view;
 	public TelaEdicaoResumoView(String titulo, String resumo) {
 		this.resumo = resumo;
@@ -45,14 +45,14 @@ public class TelaEdicaoResumoView extends JFrame {
 		pane1.setBackground(new Color(250, 250, 250));
         getContentPane().add(pane1);
 
-		textArea = new JTextArea();
-		textArea.setText(resumo);
-		textArea.setBorder(BorderFactory.createEmptyBorder());
-		textArea.setBackground(new Color(237, 237, 237));
-		textArea.setFont(new Font("Segoe UI Variable",Font.BOLD,20));textArea.setLineWrap(true);
-		pane1.setViewportView(textArea);
+		resumoAntigo = new JTextArea();
+		resumoAntigo.setText(resumo);
+		resumoAntigo.setBorder(BorderFactory.createEmptyBorder());
+		resumoAntigo.setBackground(new Color(237, 237, 237));
+		resumoAntigo.setFont(new Font("Segoe UI Variable",Font.BOLD,20));resumoAntigo.setLineWrap(true);
+		pane1.setViewportView(resumoAntigo);
 
-		JLabel sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
+		JLabel sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		        sair2.setBounds(1400,0,130,113);
 				getContentPane().add(sair2);
 		
@@ -66,29 +66,29 @@ public class TelaEdicaoResumoView extends JFrame {
 		pane1_1.setBorder(BorderFactory.createEmptyBorder());
 		getContentPane().add(pane1_1);
 		
-		textArea_1 = new JTextArea();
-		textArea_1.setBackground(new Color(237, 237, 237));
-		textArea_1.setLineWrap(true);
-		textArea_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
-		pane1_1.setViewportView(textArea_1);
+		resumoNovo = new JTextArea();
+		resumoNovo.setBackground(new Color(237, 237, 237));
+		resumoNovo.setLineWrap(true);
+		resumoNovo.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
+		pane1_1.setViewportView(resumoNovo);
 		
-		JLabel lblNewLabel = new JLabel("Resumo atual");
-		lblNewLabel.setFont(new Font("Segoe UI Variable", Font.PLAIN, 21));
-		lblNewLabel.setBounds(278, 81, 153, 59);
-		getContentPane().add(lblNewLabel);
+		JLabel resumoAtual = new JLabel("Resumo atual");
+		resumoAtual.setFont(new Font("Segoe UI Variable", Font.PLAIN, 21));
+		resumoAtual.setBounds(278, 81, 153, 59);
+		getContentPane().add(resumoAtual);
 		
-		JLabel lblNovoTexto = new JLabel("Novo Resumo");
-		lblNovoTexto.setFont(new Font("Segoe UI Variable", Font.PLAIN, 21));
-		lblNovoTexto.setBounds(1125, 81, 142, 59);
-		getContentPane().add(lblNovoTexto);
+		JLabel NovoResumoLabel = new JLabel("Novo Resumo");
+		NovoResumoLabel.setFont(new Font("Segoe UI Variable", Font.PLAIN, 21));
+		NovoResumoLabel.setBounds(1125, 81, 142, 59);
+		getContentPane().add(NovoResumoLabel);
 		
 		salvar = new JLabel();
-		salvar.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-07 082030.png"));
+		salvar.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Botão salvar.png"));
 		salvar.setBounds(1101, 701, 209, 97);
 		getContentPane().add(salvar);
 		
 		JLabel borracha = new JLabel("");
-		borracha.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-07 082206.png"));
+		borracha.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Botão Limpar.png"));
 		borracha.setBounds(1320, 701, 209, 97);
 		getContentPane().add(borracha);
 		
@@ -128,12 +128,12 @@ public class TelaEdicaoResumoView extends JFrame {
 		});
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-01 09164.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Campo de resumo antigo.png"));
 		lblNewLabel_1.setBounds(33, 155, 651, 536);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("");
-		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-19 07540.png"));
+		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Campo de escrita de resumo novo.png"));
 		lblNewLabel_1_1.setBounds(779, 155, 769, 536);
 		getContentPane().add(lblNewLabel_1_1);
 		
@@ -164,7 +164,7 @@ public class TelaEdicaoResumoView extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textArea_1.setText("");
+				resumoNovo.setText("");
 				
 			}
 
@@ -200,10 +200,6 @@ public class TelaEdicaoResumoView extends JFrame {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			dispose();
-			String url = "jdbc:mysql://localhost:3306/BD";
-			//String titulo = 
-			//TelaLeituraView view = new TelaLeituraView(Título, Resumo);
-			//Connection conexao = DriverManager.getConnection(url, "root", "root");
 		}
 
 		@Override
@@ -244,10 +240,10 @@ public class TelaEdicaoResumoView extends JFrame {
 		return titulo_novo.getText();
 	}
 	public String getTexto() {
-		return textArea.getText();
+		return resumoAntigo.getText();
 	}
 	public String getNewTexto() {
-		return textArea_1.getText();
+		return resumoNovo.getText();
 	}
 	public void mensagem(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem);

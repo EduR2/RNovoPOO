@@ -12,6 +12,7 @@ import br.com.projeto.model.vo.LembrarSenhaVO;
 import br.com.projeto.view.LembrarSenhaView;
 import br.com.projeto.view.TelaPrincipalView;
 
+//Classe responsável pela alteração de nome (login) e senha de usuário.
 public class LembrarSenhaController {
 		private LembrarSenhaView view;
 		private LembrarSenhaBO lembraBO;

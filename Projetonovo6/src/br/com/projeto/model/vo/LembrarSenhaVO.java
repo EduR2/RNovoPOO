@@ -1,6 +1,6 @@
 package br.com.projeto.model.vo;
 
-public class LembrarSenhaVO {
+public class LembrarSenhaVO {//getters and setters para a alteração de dados
 	private String nome;
 	private String senha;
 	private String email;

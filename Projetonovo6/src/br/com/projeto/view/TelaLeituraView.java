@@ -24,7 +24,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import java.awt.Component;
 
-public class TelaLeituraView extends JFrame {
+public class TelaLeituraView extends JFrame {//Classe view da tela de leitura de resumos por parte do usuário
 	private String Resumo;
 	private String titulo;
 	private String emailtxt;
@@ -64,8 +64,7 @@ public class TelaLeituraView extends JFrame {
 		Título.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
 		getContentPane().add(Título);
 
-		JLabel sair2 = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\SaídaRegras.png"));
+		JLabel sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		sair2.setBounds(780, 10, 94, 89);
 		getContentPane().add(sair2);
 
@@ -92,8 +91,7 @@ public class TelaLeituraView extends JFrame {
 		getContentPane().add(download);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-08 090106.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Campo de escrita de resumos.png"));
 		lblNewLabel.setBounds(25, 80, 1111, 534);
 		getContentPane().add(lblNewLabel);
 

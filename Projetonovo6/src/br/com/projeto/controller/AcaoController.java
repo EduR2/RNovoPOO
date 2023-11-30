@@ -24,28 +24,15 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import br.com.projeto.controller.CadastroController.cadListener;
-import br.com.projeto.model.bo.CadastroBO;
-import br.com.projeto.model.dao.AcaoDAO;
-import br.com.projeto.model.dao.TerrorDAO;
-import br.com.projeto.model.dao.RomanceDAO;
-import br.com.projeto.model.vo.CadastroVO;
 import br.com.projeto.view.AcaoView;
-import br.com.projeto.view.CadastroView;
-import br.com.projeto.view.TerrorView;
-import br.com.projeto.view.FiccaoView;
-import br.com.projeto.view.RomanceView;
-import br.com.projeto.view.TelaADMView;
-
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.model.bo.GenerosBO;
 
-public class AcaoController {
+//Essa classe é responsável por realizar a abertura do pdf que será lido pelo usuário, além de trabalhar com o salvamento do resumo em pdf.
+public class AcaoController { 
 	private AcaoView view;
-	private AcaoDAO acDAO;
 	public AcaoController(AcaoView view, Connection conexao) {
 		this.view = view;
-		this.acDAO = new AcaoDAO();
 		view.addBtnPegaTxt(new listener());
 		view.addBtnPegaTxt2(new listener2());
 		view.addBtnPegaTxt3(new listener3());
@@ -55,6 +42,7 @@ public class AcaoController {
 	class listener implements MouseListener {
 		public void mouseClicked(MouseEvent e) {
 			try {
+				//Aqui, abre-se um livro / texto.
 				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\Cidade sob Cerco.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
@@ -98,9 +86,9 @@ public class AcaoController {
 	class listener2 implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ResultSet resultado = acDAO.Leitura2();
 			try {
-				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\A Última Fronteira.pdf";
+				//Aqui, abre-se um livro / texto.
+				String caminhoArq = "ProjetoNovo6\\Livros\\A Última Fronteira.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
 					File file = new File(caminhoArq);
@@ -143,7 +131,8 @@ public class AcaoController {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			try {
-				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\O Roubo do Século.pdf";
+				//Aqui, abre-se um livro / texto.
+				String caminhoArq = "ProjetoNovo6\\Livros\\O Roubo do Século.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
 					File file = new File(caminhoArq);
@@ -186,11 +175,12 @@ public class AcaoController {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			//Aqui, as variáveis são captadas para serem utilizadas no método generatePDF.
 			String titulo = view.getTitulo();
 			String autor = view.getAutor();
 			String texto = view.getTexto();
 			String classi = view.getClassificacao();
-			GenerosVO acaoVO = new GenerosVO();
+			ResumosVO acaoVO = new ResumosVO();
 			acaoVO.setTitulo(titulo);
 			acaoVO.setAutor(autor);
 			acaoVO.setTexto(texto);
@@ -235,6 +225,7 @@ public class AcaoController {
 			
 		}
 	}
+	//Método que salva o resumo em pdf.
 	public static void generatePDF(String titulo, String content, String content2, String content3, String fonte, int fontesize, boolean Negrito, boolean Itálico) {
 		Document document = new Document();
 		try {

@@ -1,13 +1,14 @@
 package br.com.projeto.controller;
 
 import java.awt.Desktop;
+import java.awt.FontMetrics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.FileOutputStream;
-import java.io.File;
 import java.io.IOException;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,32 +24,15 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import br.com.projeto.controller.CadastroController.cadListener;
-import br.com.projeto.controller.AcaoController.listener;
-import br.com.projeto.controller.AcaoController.listener2;
-import br.com.projeto.controller.AcaoController.listener3;
-import br.com.projeto.controller.AcaoController.salvarListener;
-import br.com.projeto.model.bo.CadastroBO;
-import br.com.projeto.model.dao.AcaoDAO;
-import br.com.projeto.model.dao.TerrorDAO;
-import br.com.projeto.model.vo.CadastroVO;
-import br.com.projeto.view.AcaoView;
-import br.com.projeto.view.CadastroView;
 import br.com.projeto.view.TerrorView;
-import br.com.projeto.view.FiccaoView;
-import br.com.projeto.view.RomanceView;
-import br.com.projeto.view.TelaADMView;
-
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.model.bo.GenerosBO;
 
-public class TerrorController {
+//Essa classe é responsável por realizar a abertura do pdf que será lido pelo usuário, além de trabalhar com o salvamento do resumo em pdf.
+public class TerrorController { 
 	private TerrorView view;
-	private AcaoDAO acDAO;
-
 	public TerrorController(TerrorView view, Connection conexao) {
 		this.view = view;
-		this.acDAO = new AcaoDAO();
 		view.addBtnPegaTxt(new listener());
 		view.addBtnPegaTxt2(new listener2());
 		view.addBtnPegaTxt3(new listener3());
@@ -58,7 +42,8 @@ public class TerrorController {
 	class listener implements MouseListener {
 		public void mouseClicked(MouseEvent e) {
 			try {
-				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\O  Último Andar.pdf";
+				//Aqui, abre-se um livro / texto.
+				String caminhoArq = "ProjetoNovo6\\Livros\\O Último Andar.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
 					File file = new File(caminhoArq);
@@ -102,7 +87,8 @@ public class TerrorController {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			try {
-				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\A Floresta Esquecida.pdf";
+				//Aqui, abre-se um livro / texto.
+				String caminhoArq = "ProjetoNovo6\\Livros\\A Casa do Lago.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
 					File file = new File(caminhoArq);
@@ -145,7 +131,8 @@ public class TerrorController {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			try {
-				String caminhoArq = "C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\ProjetoNovo6\\Livros\\A Casa do Lago.pdf";
+				//Aqui, abre-se um livro / texto.
+				String caminhoArq = "ProjetoNovo6\\Livros\\A Floresta Esquecida.pdf";
 				if (Desktop.isDesktopSupported()) {
 					Desktop desktop = Desktop.getDesktop();
 					File file = new File(caminhoArq);
@@ -188,11 +175,12 @@ public class TerrorController {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			//Aqui, as variáveis são captadas para serem utilizadas no método generatePDF.
 			String titulo = view.getTitulo();
 			String autor = view.getAutor();
 			String texto = view.getTexto();
 			String classi = view.getClassificacao();
-			GenerosVO acaoVO = new GenerosVO();
+			ResumosVO acaoVO = new ResumosVO();
 			acaoVO.setTitulo(titulo);
 			acaoVO.setAutor(autor);
 			acaoVO.setTexto(texto);
@@ -237,6 +225,7 @@ public class TerrorController {
 			
 		}
 	}
+	//Método que salva o resumo em pdf.
 	public static void generatePDF(String titulo, String content, String content2, String content3, String fonte, int fontesize, boolean Negrito, boolean Itálico) {
 		Document document = new Document();
 		try {

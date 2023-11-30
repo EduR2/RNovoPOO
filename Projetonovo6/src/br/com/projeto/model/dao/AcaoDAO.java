@@ -6,46 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 
+//Classe responsável pela lógica de inserção dos resumos do gênero ação no banco de dados
 public class AcaoDAO {
 	private Connection conexao;
-	private String url = "jdbc:mysql://localhost:3306/BD";
-	public ResultSet Leitura() {
-	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
-	    	 String sql = "SELECT texto FROM Texto WHERE ID_TEXTO = 1";
-    		 PreparedStatement statement = conexao.prepareStatement(sql);
-    		 ResultSet resultado = statement.executeQuery();
-    		 return resultado;
-	    } catch (SQLException slcte) {
-	        return null;
-	    }
-	}
-	public ResultSet Leitura2() {
-	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
-	    	 String sql = "SELECT texto FROM Texto WHERE ID_TEXTO = 2";
-    		 PreparedStatement statement = conexao.prepareStatement(sql);
-    		 ResultSet resultado = statement.executeQuery();
-    		 return resultado;
-	    } catch (SQLException slcte) {
-	        return null;
-	    }
-	}
-	public ResultSet Leitura3() {
-	    try {
-	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
-	    	 String sql = "SELECT texto FROM Text WHERE ID_TEXTO = 3";
-    		 PreparedStatement statement = conexao.prepareStatement(sql);
-    		 ResultSet resultado = statement.executeQuery();
-    		 return resultado;
-	    } catch (SQLException slcte) {
-	        return null;
-	    }
-	}
-	
-	public boolean InserirAcao(GenerosVO inserirAcao) {
+	private String url = "jdbc:mysql://localhost:3306/BD";	
+	public boolean InserirAcao(ResumosVO inserirAcao) {
 		try {
 			Connection conexao = DriverManager.getConnection (url, "root", "root");
 			String sql = "INSERT INTO Resumos(emailAutor, Título, TextoUsuario, Classificação_resumo) VALUES (?, ?, ?, ?)";

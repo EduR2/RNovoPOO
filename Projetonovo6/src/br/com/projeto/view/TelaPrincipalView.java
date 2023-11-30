@@ -21,18 +21,16 @@ import br.com.projeto.controller.AcaoController;
 import br.com.projeto.controller.TerrorController;
 import br.com.projeto.controller.FiccaoController;
 import br.com.projeto.controller.RomanceController;
-import br.com.projeto.controller.SaidaSong;
 import br.com.projeto.controller.TapSong;
 import br.com.projeto.controller.AberturaSong;
 import br.com.projeto.controller.PesquisaResumosController;
 import br.com.projeto.controller.DataConfigController;
 import br.com.projeto.controller.ExclusaoController;
 
-import br.com.projeto.controller.ConfigSong;
 import br.com.projeto.model.dao.PesquisaResumosDAO;
 import br.com.projeto.model.vo.*;
 
-public class TelaPrincipalView extends JFrame {
+public class TelaPrincipalView extends JFrame {//Classe view da tela principal
 	private String nome;
 	private ImageIcon i1, i2, i3, i4, logo, manual1, Con1, sair1, inf;
 	private JLabel Gêneros, lblLogo, acao, manual2, con2, sair2, lblNewLabel, info, Manual;
@@ -69,16 +67,16 @@ public class TelaPrincipalView extends JFrame {
 		Con1 = new ImageIcon("Imagens/Config.png");
 		sair1 = new ImageIcon("Imagens/Sair.png");
 		Gêneros = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 08523.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Gêneros literário.png"));
 		Gêneros.setBounds(199, 102, 322, 300);
 		Gêneros.setToolTipText("Gêneros Literários");
 		lblLogo = new JLabel(new ImageIcon("C:\\Users\\pwneg\\Downloads\\LogoJO.png"));
 		manual2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\RESUMOS2.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Resumos.png"));
 		con2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\CONFIGNOVO.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\ConfiguraçõesTP.png"));
 		sair2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SAIRNOVO.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\SaídaTP.png"));
 		getContentPane().setLayout(null);
 
 		JPanel panel_4 = new JPanel();
@@ -238,7 +236,7 @@ public class TelaPrincipalView extends JFrame {
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					PesquisaResumosController controle = new PesquisaResumosController(view, conexao);
 					PesquisaResumosDAO acrDAO = new PesquisaResumosDAO();
-					List<GenerosVO> buscaResumo = acrDAO.buscarGeneros();
+					List<ResumosVO> buscaResumo = acrDAO.buscarGeneros();
 					view.tabela(buscaResumo);
 					view.setVisible(true);
 					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -273,7 +271,7 @@ public class TelaPrincipalView extends JFrame {
 
 		});
 		
-		Manual = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-30 09000.png"));
+		Manual = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Manual do Usuário.png"));
 		Manual.setToolTipText("Manual do Usuário");
 		Manual.setBounds(970, 83, 322, 333);
 		getContentPane().add(Manual);

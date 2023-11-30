@@ -15,19 +15,14 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-
-import br.com.projeto.model.dao.AcaoDAO;
 import br.com.projeto.model.dao.PesquisaResumosDAO;
-import br.com.projeto.model.dao.ConexaoDAO;
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.view.PesquisaResumos;
-import br.com.projeto.view.AcaoView;
 
+//Classe responsável pela pesquisa de resumos por parte do usuário
 public class PesquisaResumosController {
 	private PesquisaResumos view;
 	private PesquisaResumosDAO acrDAO;
-	private ConexaoDAO conexao;
-
 	public PesquisaResumosController(PesquisaResumos view, Connection conexao) {
 		this.view = view;
 		this.acrDAO = new PesquisaResumosDAO();
@@ -38,7 +33,7 @@ public class PesquisaResumosController {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				String email = view.getAutor();
-				List<GenerosVO> generos = acrDAO.buscarGenerosEmail(email);
+				List<ResumosVO> generos = acrDAO.buscarGenerosEmail(email);
 				view.tabela(generos);
 				
 			}
@@ -46,7 +41,7 @@ public class PesquisaResumosController {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				String email = view.getAutor();
-				List<GenerosVO> generos = acrDAO.buscarGenerosEmail(email);
+				List<ResumosVO> generos = acrDAO.buscarGenerosEmail(email);
 				view.tabela(generos);
 				
 			}
@@ -54,7 +49,7 @@ public class PesquisaResumosController {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				String email = view.getAutor();
-				List<GenerosVO> generos = acrDAO.buscarGenerosEmail(email);
+				List<ResumosVO> generos = acrDAO.buscarGenerosEmail(email);
 				view.tabela(generos);
 				
 			}

@@ -6,14 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.projeto.model.vo.TextosVO;
-
+//Classe responsável pelas estatísticas do software
 public class EstastísticasDAO {
-	public int Estatisticas() {
+	public int Estatisticas() { // Quantidade de usuários cadastrados
 		int count = 0;
 		try {
 			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/BD", "root", "root");
-			String sql = "SELECT COUNT(nome)FROM Usuarios";
+			String sql = "SELECT COUNT(nome)FROM Usuarios"; 
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			ResultSet resultado = statement.executeQuery();
 			if (resultado.next()) {
@@ -23,7 +22,7 @@ public class EstastísticasDAO {
 		}
 		return count;
 	}
-	public int EstatisticasResumos() {
+	public int EstatisticasResumos() { // Quantidade de resumos feitos
 		int count = 0;
 		try {
 			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/BD", "root", "root");

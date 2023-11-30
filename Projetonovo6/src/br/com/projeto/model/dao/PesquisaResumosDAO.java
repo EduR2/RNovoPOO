@@ -7,13 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 
-public class PesquisaResumosDAO {
+//Classe responsável pela lógica da pesquisa de resumos em forma de tabela
+public class PesquisaResumosDAO { 
 	private Connection conexao;
 	private String url = "jdbc:mysql://localhost:3306/BD";
-	public List<GenerosVO> buscarGeneros() {
-		List<GenerosVO> resumos = new ArrayList<>();
+	public List<ResumosVO> buscarGeneros() { //Aqui ocorre a filtragem geral dos resumos, em que será mostrado ao usuário todos os resumos feitos
+		List<ResumosVO> resumos = new ArrayList<>();
 		 try {
 	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT emailAutor, Título, TextoUsuario, Classificação_resumo FROM Resumos";
@@ -24,10 +25,10 @@ public class PesquisaResumosDAO {
     			 String coluna2 = resultado.getString("Título");
     			 String coluna3 = resultado.getString("TextoUsuario");
     			 String coluna4 = resultado.getString("Classificação_resumo");
-    			 GenerosVO gvo = new GenerosVO();
-    			 gvo.setId(coluna1);
-    			 gvo.setAutor(coluna2);
-    			 gvo.setTitulo(coluna3);
+    			 ResumosVO gvo = new ResumosVO();
+    			 gvo.setAutor(coluna1);
+    			 gvo.setTitulo(coluna2);
+    			 gvo.setTexto(coluna3);
     			 gvo.setClassificao(coluna4);
     			 resumos.add(gvo);
     		 }
@@ -37,8 +38,8 @@ public class PesquisaResumosDAO {
 		 return resumos;
 	}
 	
-	public List<GenerosVO> buscarGenerosEmail(String email) {
-		List<GenerosVO> resumos = new ArrayList<>();
+	public List<ResumosVO> buscarGenerosEmail(String email) { // Aqui ocorre a pesquisa com filtro, sendo esse o e-mail do usuário
+		List<ResumosVO> resumos = new ArrayList<>();
 		 try {
 	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
 	    	 String sql = "SELECT emailAutor, Título, TextoUsuario, Classificação_resumo FROM Resumos WHERE emailAutor LIKE ?";
@@ -50,10 +51,10 @@ public class PesquisaResumosDAO {
     			 String coluna2 = resultado.getString("Título");
     			 String coluna3 = resultado.getString("TextoUsuario");
     			 String coluna4 = resultado.getString("Classificação_resumo");
-    			 GenerosVO gvo = new GenerosVO();
-    			 gvo.setId(coluna1);
-    			 gvo.setAutor(coluna2);
-    			 gvo.setTitulo(coluna3);
+    			 ResumosVO gvo = new ResumosVO();
+    			 gvo.setAutor(coluna1);
+    			 gvo.setTitulo(coluna2);
+    			 gvo.setTexto(coluna3);
     			 gvo.setClassificao(coluna4);
     			 resumos.add(gvo);
     		 }

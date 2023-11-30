@@ -13,6 +13,7 @@ import br.com.projeto.model.dao.AcaoDAO;
 import br.com.projeto.view.AcaoView;
 import br.com.projeto.view.TelaPrincipalView;
 
+//Classe responsável por abrir o manual do usuário
 public class ManualUserController {
 	private TelaPrincipalView view;
 

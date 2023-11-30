@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//Classe responsável pela lógica de verificação do login
 public class LoginDAO {
 	private Connection conexao;
 
@@ -12,7 +13,7 @@ public class LoginDAO {
 		this.conexao = conexao;
 	}
 
-	public boolean verificaLogin(String nome, String senha) {
+	public boolean verificaLogin(String nome, String senha) { //Responsável por selecionar os elementos nome e senha da tabela Usuarios
 		try {
 			String sql = "SELECT * FROM Usuarios WHERE nome = ? AND senha = ?";
 			PreparedStatement statement = conexao.prepareStatement(sql);
@@ -24,7 +25,7 @@ public class LoginDAO {
 			return false;
 		}
 	}
-	public boolean verificaLoginADM(String nome, String senha) {
+	public boolean verificaLoginADM(String nome, String senha) {//Responsável por selecionar os elementos nome e senha da tabela ADM
 		try {
 			String sql = "SELECT * FROM ADM WHERE nome = ? AND senha = ?";
 			PreparedStatement statement = conexao.prepareStatement(sql);

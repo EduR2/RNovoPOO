@@ -30,14 +30,17 @@ import javax.swing.table.DefaultTableModel;
 import br.com.projeto.model.bo.LoginBO;
 import br.com.projeto.model.dao.PesquisaResumosDAO;
 import br.com.projeto.model.dao.EstastísticasDAO;
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.model.vo.LoginVO;
-import br.com.projeto.controller.*;
+import br.com.projeto.controller.TapSong;
+import br.com.projeto.controller.UsuariosCadastrosController;
+import br.com.projeto.controller.EdicaoDATAADMController;
 import br.com.projeto.view.ConfiguracoesADMView;
 import javax.swing.Icon;
 import br.com.projeto.model.dao.UsuariosCadastrosDAO;
+import br.com.projeto.controller.TabelaControllerReadResumoADM;
 
-public class TelaADMView extends JFrame {
+public class TelaADMView extends JFrame {//Classe view da tela de ADM
 	private JLabel image2, image3;
 	private JPanel p, p2, p3;
 	private Container container;
@@ -89,8 +92,7 @@ public class TelaADMView extends JFrame {
 		panel_1.setBounds(0, 90, 1540, 2);
 		getContentPane().add(panel_1);
 
-		JLabel Resumos = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 160935.png"));
+		JLabel Resumos = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Resumos tela adm.png"));
 		Resumos.setBounds(133, 105, 322, 300);
 		getContentPane().add(Resumos);
 		Resumos.addMouseListener(new MouseListener() {
@@ -104,7 +106,7 @@ public class TelaADMView extends JFrame {
 					Connection conexao = DriverManager.getConnection(url, "root", "root");
 					TabelaControllerReadResumoADM controle = new TabelaControllerReadResumoADM(view, conexao);
 					PesquisaResumosDAO acrDAO = new PesquisaResumosDAO();
-					List<GenerosVO> buscaResumo = acrDAO.buscarGeneros();
+					List<ResumosVO> buscaResumo = acrDAO.buscarGeneros();
 					view.tabela(buscaResumo);
 					view.setVisible(true);
 					view.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -139,8 +141,7 @@ public class TelaADMView extends JFrame {
 		});
 		setVisible(true);
 
-		JLabel l1 = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 152752.png"));
+		JLabel l1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Usuários tela adm.png"));
 		l1.setBounds(476, 105, 322, 300);
 		getContentPane().add(l1);
 
@@ -189,8 +190,7 @@ public class TelaADMView extends JFrame {
 			}
 		});
 
-		Estatisticas = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-25 08113 (1).png"));
+		Estatisticas = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Estatísticas tela adm.png"));
 		Estatisticas.setBounds(1133, 102, 333, 300);
 		getContentPane().add(Estatisticas);
 		Estatisticas.addMouseListener(new MouseListener() {
@@ -231,8 +231,7 @@ public class TelaADMView extends JFrame {
 
 		});
 
-		Add = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 154100.png"));
+		Add = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Textos tela adm.png"));
 		Add.setBounds(832, 113, 291, 292);
 		getContentPane().add(Add);
 
@@ -241,12 +240,11 @@ public class TelaADMView extends JFrame {
 		lblNewLabel.setBounds(134, 26, 215, 54);
 		getContentPane().add(lblNewLabel);
 
-		JLabel Sair_1 = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-17 164626.png"));
+		JLabel Sair_1 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Sair tela adm.png"));
 		Sair_1.setBounds(465, 445, 333, 300);
 		getContentPane().add(Sair_1);
 
-		JLabel Con = new JLabel(new ImageIcon("C:\\Users\\pwneg\\Downloads\\Captura de tela 2023-11-02 10141 (2).png"));
+		JLabel Con = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Configurações.png"));
 		Con.setBounds(122, 445, 333, 300);
 		getContentPane().add(Con);
 		Con.addMouseListener(new MouseListener() {

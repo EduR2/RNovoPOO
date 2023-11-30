@@ -22,8 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import br.com.projeto.view.TelaADMView;
 
-
-
+//Classe responsável por adicionar um arquivo a pasta Livros do projeto, em que é possível 
 public class EdicaoTxtReadADMController {
 	private TelaADMView view;
 

@@ -1,6 +1,6 @@
 package br.com.projeto.model.vo;
 
-public class CadastroVO {
+public class CadastroVO { //getters and setters para o cadastro
 	private String nome;
 	private String senha;
 	private String email;

@@ -35,29 +35,21 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.model.vo.LoginVO;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 
-public class UsuariosCadastrosView extends JFrame {
+public class UsuariosCadastrosView extends JFrame {//Classe view para pesquisa de usuários cadastros por parte do ADM
 
-	private JLabel image2, image3, txt1, sair;
-	private JPanel p, p1, p2;
-	private JButton b, btnSalvar, btnLer, btnLimpar, btnTxt1;
-	private Container container;
-	private ImageIcon i1, i2, i3, i, save, clean, book1, search;
+	private JLabel sair;
 	private Font fonte = new Font("Verdana", Font.BOLD, 20);
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
 	private JScrollPane pane;
-	private JPasswordField senha;
-	private JButton btnLogin, btnCriarCadastro;
-	private String texto;
 	private DefaultTableModel tableModel;
 	private JTable table;
 	private JTextField txtAutor;
-	private JLabel exclusao;
 
 	public UsuariosCadastrosView() {
 		inicializaComponentes();
@@ -73,36 +65,11 @@ public class UsuariosCadastrosView extends JFrame {
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
 		UIManager.put("ToolTip.font", fontetip);
 		UIManager.put("ToolTip.background", (new Color(230, 228, 242)));
-		b = new JButton("Voltar");
-		btnSalvar = new JButton("Salvar");
-		btnLer = new JButton("Ler");
-		btnLimpar = new JButton("Limpar");
-		btnTxt1 = new JButton("Texto 1");
-		senha = new JPasswordField("Senha");
 		pane = new JScrollPane();
-		btnLogin = new JButton("Login");
-		btnCriarCadastro = new JButton("Criar");
-		txt1 = new JLabel("Não possui cadastro?");
-		i = new ImageIcon("Imagens/SairTR.png");
-		save = new ImageIcon("Imagens/Salvar.png");
-		clean = new ImageIcon("Imagens/Borracha.png");
-		book1 = new ImageIcon("Imagens/manual.png");
-		i1 = new ImageIcon("Imagens/Fundo2.jpg");
-		i2 = new ImageIcon("Imagens/Fundo1.jpg");
-		i3 = new ImageIcon("Imagens/read.png");
-		search = new ImageIcon("Imagens/Lupa.png");
-		sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
-		image2 = new JLabel(i2);
-		image3 = new JLabel(i3);
-		p = new JPanel();
+		sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		
 		pane.setBounds(424, 213, 717, 433);
-		senha.setBounds(597, 395, 350, 45);
-		image3.setBounds(575, 65, 390, 320);
-		txt1.setBounds(740, 537, 125, 20);
-		p.setBounds(575, 250, 390, 315);
 		sair.setBounds(1429, 55, 101, 130);
-		p.add(image2);
 		
 		table = new JTable();
 		tableModel = new DefaultTableModel(new Object[] {"Nome", "Senha", "E-mail"}, 0);
@@ -112,10 +79,6 @@ public class UsuariosCadastrosView extends JFrame {
 		table.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
 		pane.setViewportView(table);
 		
-		btnLogin.setBackground(Color.BLUE);
-		btnLogin.setForeground(Color.WHITE);
-		btnLogin.setFont(fonte);
-		senha.setFont(fonte1);
 		getContentPane().add(sair);
 		getContentPane().add(pane);
 		
@@ -129,10 +92,10 @@ public class UsuariosCadastrosView extends JFrame {
 		txtAutor.setBorder(BorderFactory.createEmptyBorder());
 		getContentPane().add(txtAutor);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura_de_tela_2023-10-17_17035 (1).png"));
-		lblNewLabel.setBounds(273, 21, 1209, 752);
-		getContentPane().add(lblNewLabel);
+		JLabel pesquisa = new JLabel("");
+		pesquisa.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Pesquisa de resumos.png"));
+		pesquisa.setBounds(273, 21, 1209, 752);
+		getContentPane().add(pesquisa);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 128, 0));

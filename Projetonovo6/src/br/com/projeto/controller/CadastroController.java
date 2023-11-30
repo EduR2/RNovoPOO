@@ -6,18 +6,15 @@ import java.sql.Connection;
 
 import javax.swing.JOptionPane;
 
-import br.com.projeto.controller.LembrarSenhaController.lembraListener;
 import br.com.projeto.model.bo.CadastroBO;
 import br.com.projeto.model.bo.LembrarSenhaBO;
 import br.com.projeto.model.vo.CadastroVO;
 import br.com.projeto.model.vo.LembrarSenhaVO;
 import br.com.projeto.view.CadastroView;
-import br.com.projeto.view.LembrarSenhaView;
-import br.com.projeto.view.TelaADMView;
 
+//Classe responsável por efetuar o cadastro do usuário
 public class CadastroController {
 	private CadastroView view;
-	private TelaADMView view2;
 	private CadastroBO cadastroBO;
 	public CadastroController (CadastroView view, Connection conexao) {
 		this.view = view;

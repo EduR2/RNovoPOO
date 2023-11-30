@@ -5,6 +5,7 @@ import javax.swing.JButton;
 
 import java.io.File;
 
+//Classe responsável pelo som padrão do sistema
 public class TapSong { 
     public static void getSong() { 
         new Thread(() -> {

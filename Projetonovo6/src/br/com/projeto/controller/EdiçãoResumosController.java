@@ -8,26 +8,17 @@ import java.sql.Connection;
 
 import javax.swing.JOptionPane;
 
-import br.com.projeto.controller.LembrarSenhaController.lembraListener;
-import br.com.projeto.model.bo.CadastroBO;
-import br.com.projeto.model.bo.LembrarSenhaBO;
-import br.com.projeto.model.bo.ResumosBO;
-import br.com.projeto.model.vo.CadastroVO;
-import br.com.projeto.model.vo.LembrarSenhaVO;
-import br.com.projeto.view.CadastroView;
-import br.com.projeto.view.LembrarSenhaView;
-import br.com.projeto.view.TelaADMView;
+import br.com.projeto.model.bo.EdicaodeResumosBO;
 import br.com.projeto.view.TelaEdicaoResumoView;
-import br.com.projeto.view.TelaLeituraView;
-import br.com.projeto.model.vo.ResumosVO;
+import br.com.projeto.model.vo.ResumosEdicaoVO;
 
+//Responsável por efetuar a edição dos resumos do usuário
 public class EdiçãoResumosController {
 	private TelaEdicaoResumoView view;
-	private TelaADMView view2;
-	private ResumosBO resumosBO;
+	private EdicaodeResumosBO resumosBO;
 	public EdiçãoResumosController (TelaEdicaoResumoView view, Connection conexao) {
 		this.view = view;
-		resumosBO = new ResumosBO ();
+		resumosBO = new EdicaodeResumosBO ();
 		view.addBtnSalvar(new listener());
 	}
 	class listener implements MouseListener{
@@ -38,7 +29,7 @@ public class EdiçãoResumosController {
 			String titulo_novo = view.getNewTitulo();
 			String oldResumo = view.getTexto();
 			String resumo = view.getNewTexto();
-			ResumosVO resumos = new ResumosVO();
+			ResumosEdicaoVO resumos = new ResumosEdicaoVO();
 			resumos.setTitulo(titulo_novo);
 			resumos.setOldTitulo(titulo_old);
 			resumos.setOldResumo(oldResumo);

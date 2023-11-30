@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import br.com.projeto.model.vo.CadastroVO;
 
+//Classe responsável pela lógica do cadastro do usuário
 public class CadastroDAO {
 	private String url = "jdbc:mysql://localhost:3306/BD";
 	public boolean novocad (CadastroVO novologin) {

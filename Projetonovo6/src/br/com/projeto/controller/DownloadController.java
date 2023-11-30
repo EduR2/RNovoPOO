@@ -13,6 +13,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import br.com.projeto.view.TelaLeituraView;
 
+//Classe responsável pelo downlaod de um resumo em pdf por parte do usuário
 public class DownloadController {
 	private TelaLeituraView view;
 
@@ -62,7 +63,7 @@ public class DownloadController {
 		Document document = new Document();
 		try {
 			JFileChooser fileChooser = new JFileChooser();
-			fileChooser.setDialogTitle("Salvar PDF");
+			fileChooser.setDialogTitle("Salvar Resumo");
 			int userSelection = fileChooser.showSaveDialog(fileChooser);
 			if (userSelection == JFileChooser.APPROVE_OPTION) {
 				String filePath = fileChooser.getSelectedFile().getAbsolutePath() + ".pdf";

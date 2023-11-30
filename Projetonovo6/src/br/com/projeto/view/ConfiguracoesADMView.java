@@ -20,22 +20,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ConfiguracoesADMView extends JFrame {
-	private JLabel image3;
+	private JLabel save, Sair;
 	private Container container;
-	private ImageIcon i1, i2, i3;
-	private Font fonte = new Font("Verdana", Font.BOLD, 20);
-	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
-	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
-	private Font fonte3 = new Font("Calibri", Font.BOLD, 35);
 	private JTextField nome, senha;
-	private JLabel save;
-	private JLabel Sair;
 
 	public ConfiguracoesADMView() {
 		inicializaComponentes();
 	}
 
-	public void inicializaComponentes() {
+	public void inicializaComponentes() {//Classe view da configurações de dados de usuários
 		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
 		setIconImage(read7.getImage());
 		setTitle("Configurações de dados de ADM");
@@ -43,29 +36,56 @@ public class ConfiguracoesADMView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		getContentPane().setBackground(new Color(230, 228, 242));
-		setBounds(487, 185, 594, 500);
+		setBounds(487, 185, 613, 500);
+		container = getContentPane();
 		nome = new JTextField("Crie um login");
 		nome.setOpaque(false);
 		nome.setBorder(BorderFactory.createEmptyBorder());
+		nome.setBounds(37, 90, 493, 45);
+		nome.setFont(new Font("Segoe UI Variable", Font.PLAIN, 22));
+		nome.setForeground(Color.LIGHT_GRAY);
+		getContentPane().add(nome);
+		nome.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				if (nome.getText().equals("Crie um login")) {
+					nome.setText("");
+					nome.setForeground(Color.black);
+				}
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (nome.getText().isEmpty()) {
+					nome.setText("Crie um login");
+					nome.setForeground(Color.LIGHT_GRAY);
+				}
+			}
+		});
 		senha = new JTextField("Crie uma senha");
 		senha.setOpaque(false);
 		senha.setBorder(BorderFactory.createEmptyBorder());
-		i1 = new ImageIcon("Imagens/Fundo.jpg");
-		i2 = new ImageIcon("Imagens/Fundo1.jpg");
-		i3 = new ImageIcon("Imagens/read.png");
-		image3 = new JLabel(i3);
-		container = getContentPane();
-		nome.setBounds(54, 88, 493, 45);
-		senha.setBounds(54, 237, 493, 45);
-		image3.setBounds(95, -60, 390, 320);
-		nome.setFont(new Font("Calibri", Font.BOLD, 22));
-		senha.setFont(new Font("Calibri", Font.BOLD, 22));
-		nome.setForeground(Color.WHITE);
-		senha.setForeground(Color.WHITE);
+		senha.setBounds(37, 238, 493, 45);
+		senha.setFont(new Font("Segoe UI Variable", Font.PLAIN, 22));
+		senha.setForeground(Color.LIGHT_GRAY);
+		getContentPane().add(senha);
+		senha.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent g) {
+				if (senha.getText().equals("Crie uma senha")) {
+					senha.setText("");
+					senha.setForeground(Color.black);
+				}
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (senha.getText().isEmpty()) {
+					senha.setText("Crie uma senha");
+					senha.setForeground(Color.LIGHT_GRAY);
+				}
+			}
+		});
 
 		Sair = new JLabel("");
 		Sair.setIcon(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Sair.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		Sair.setBounds(513, 0, 67, 67);
 		getContentPane().add(Sair);
 		Sair.addMouseListener(new MouseListener() {
@@ -142,44 +162,17 @@ public class ConfiguracoesADMView extends JFrame {
 		save = new JLabel("");
 		save.setBounds(37, 343, 206, 67);
 		getContentPane().add(save);
-		getContentPane().add(nome);
-		getContentPane().add(senha);
 
 		save = new JLabel("");
 		save.setIcon(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-11-06 123450.png"));
+				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-06 123450.png"));
 		save.setBounds(22, 27, 539, 406);
 		getContentPane().add(save);
-		nome.addFocusListener(new FocusListener() {
-			public void focusGained(FocusEvent e) {
-				if (nome.getText().equals("Crie um login")) {
-					nome.setText("");
-					nome.setForeground(Color.black);
-				}
-			}
-
-			public void focusLost(FocusEvent e) {
-				if (nome.getText().isEmpty()) {
-					nome.setText("Crie um login");
-					nome.setForeground(Color.WHITE);
-				}
-			}
-		});
-		senha.addFocusListener(new FocusListener() {
-			public void focusGained(FocusEvent g) {
-				if (senha.getText().equals("Crie uma senha")) {
-					senha.setText("");
-					senha.setForeground(Color.black);
-				}
-			}
-
-			public void focusLost(FocusEvent e) {
-				if (senha.getText().isEmpty()) {
-					senha.setText("Crie uma senha");
-					senha.setForeground(Color.WHITE);
-				}
-			}
-		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\ConfiguraçõesADM.png"));
+		lblNewLabel.setBounds(0, 0, 599, 463);
+		getContentPane().add(lblNewLabel);
 	}
 
 	public String getNome() {

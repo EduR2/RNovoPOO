@@ -24,7 +24,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import java.awt.Component;
 
-public class LeituraADMView extends JFrame {
+public class LeituraADMView extends JFrame {//Classe view de leitura dos resumos, feitos pelos usuários, por parte do adm
 	private String Resumo;
 	private String titulo;
 	private String emailtxt;
@@ -64,8 +64,7 @@ public class LeituraADMView extends JFrame {
 		Título.setFont(new Font("Segoe UI Variable", Font.BOLD, 17));
 		getContentPane().add(Título);
 
-		JLabel sair2 = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\SaídaRegras.png"));
+		JLabel sair2 = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		sair2.setBounds(780, 10, 94, 89);
 		getContentPane().add(sair2);
 
@@ -74,15 +73,13 @@ public class LeituraADMView extends JFrame {
 		panel.setBounds(69, 75, 252, 2);
 		getContentPane().add(panel);
 
-		download = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Download.png"));
+		download = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Download.png"));
 		download.setBounds(708, 26, 77, 51);
 		download.setToolTipText("Baixar resumo em pdf");
 		getContentPane().add(download);
 
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Captura de tela 2023-11-08 090106.png"));
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Campo de escrita de resumos.png"));
 		lblNewLabel.setBounds(25, 80, 1111, 534);
 		getContentPane().add(lblNewLabel);
 

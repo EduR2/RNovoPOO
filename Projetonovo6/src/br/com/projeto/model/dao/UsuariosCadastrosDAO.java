@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.model.vo.LoginVO;
 
+//Classe responsável pela lógica de pesquisas de usuários em forma de tabela
 public class UsuariosCadastrosDAO {
 	private Connection conexao;
 	private String url = "jdbc:mysql://localhost:3306/BD";
-	public List<LoginVO> buscaUsuarios() {
+	public List<LoginVO> buscaUsuarios() { //Aqui ocorre a pesquisa geral, mostrando pro ADM todos os usuários
 		List<LoginVO> usuarios = new ArrayList<>();
 		 try {
 	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");
@@ -36,7 +37,7 @@ public class UsuariosCadastrosDAO {
 	    }
 		 return usuarios;
 	}
-	public List<LoginVO> buscaUsuariosEmail(String email) {
+	public List<LoginVO> buscaUsuariosEmail(String email) { //Aqui ocorre a filtragem específica, a partir do e-mail que o adm colocar do usuário
 		List<LoginVO> usuarios = new ArrayList<>();
 		 try {
 	    	 Connection conexao = DriverManager.getConnection(url, "root", "root");

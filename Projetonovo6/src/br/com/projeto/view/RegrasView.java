@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class RegrasView extends JFrame {
+public class RegrasView extends JFrame {//Classe view da tela de regras para os resumos
 	public RegrasView() {
 		inicializarComponentes();
 	}
@@ -19,12 +19,11 @@ public class RegrasView extends JFrame {
 		setTitle("Read7");
 		setBounds(0, 0, 458, 469);
 		setResizable(false);
-		// setUndecorated(true);
 		getContentPane().setLayout(null);
 		getContentPane().setBackground(new Color(230, 228, 242));
 		
 		JLabel Saída = new JLabel("");
-		Saída.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SaídaRegras.png"));
+		Saída.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		Saída.setBounds(372, 24, 64, 56);
 		getContentPane().add(Saída);
 		Saída.addMouseListener(new MouseListener() {
@@ -62,7 +61,7 @@ public class RegrasView extends JFrame {
 		});
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\REGRAS.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\REGRAS.png"));
 		lblNewLabel.setBounds(0, 0, 445, 443);
 		getContentPane().add(lblNewLabel);
 	}

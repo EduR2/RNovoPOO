@@ -1,9 +1,8 @@
 package br.com.projeto.model.vo;
 
-public class EstasticasVO {
+public class EstasticasVO { // getters and setters para as estatísticas
 	private int qtdusuarios;
 	private int qtdresumos;
-	private int qtdusuarioremovidos;
 	public int getQtdusuarios() {
 		return qtdusuarios;
 	}
@@ -16,12 +15,5 @@ public class EstasticasVO {
 	public void setQtdresumos(int qtdresumos) {
 		this.qtdresumos = qtdresumos;
 	}
-	public int getQtdusuarioremovidos() {
-		return qtdusuarioremovidos;
-	}
-	public void setQtdusuarioremovidos(int qtdusuarioremovidos) {
-		this.qtdusuarioremovidos = qtdusuarioremovidos;
-	}
-	
 
 }

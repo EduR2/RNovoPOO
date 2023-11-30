@@ -33,32 +33,23 @@ import javax.swing.Icon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.event.DocumentListener;
-
-import br.com.projeto.controller.PesquisaResumosController;
 import br.com.projeto.controller.DownloadADMController;
-import br.com.projeto.controller.EdiçãoResumosController;
-import br.com.projeto.model.vo.GenerosVO;
+import br.com.projeto.model.vo.ResumosVO;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 
-public class ResumosReadADMView extends JFrame {
+public class ResumosReadADMView extends JFrame {//Classe view da tela de leitura de resumos por parte do ADM
 
-	private JLabel image2, image3, txt1, sair;
-	private JPanel p, p1, p2;
-	private JButton b, btnSalvar, btnLer, btnLimpar, btnTxt1;
-	private Container container;
-	private ImageIcon i1, i2, i3, i, save, clean, book1, search;
+	private JLabel sair;
 	private Font fonte = new Font("Verdana", Font.BOLD, 20);
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
 	private JScrollPane pane;
-	private JPasswordField senha;
-	private JButton btnLogin, btnCriarCadastro;
 	private String texto;
-	private JTextField txtAutor;
+	private JTextField emailAutor;
 	private DefaultTableModel tableModel;
 	private JTable table;
-	private JLabel lblNewLabel;
+	private JLabel pesquisa;
 	private JPanel panel_1;
 	private JPanel panel_2;
 	private JPanel panel_3;
@@ -77,36 +68,11 @@ public class ResumosReadADMView extends JFrame {
 		Font fontetip = new Font("Segoe UI Variable", Font.BOLD, 17);
 		UIManager.put("ToolTip.font", fontetip);
 		UIManager.put("ToolTip.background", (new Color(230, 228, 242)));
-		b = new JButton("Voltar");
-		btnSalvar = new JButton("Salvar");
-		btnLer = new JButton("Ler");
-		btnLimpar = new JButton("Limpar");
-		btnTxt1 = new JButton("Texto 1");
-		senha = new JPasswordField("Senha");
 		pane = new JScrollPane();
-		btnLogin = new JButton("Login");
-		btnCriarCadastro = new JButton("Criar");
-		txt1 = new JLabel("Não possui cadastro?");
-		i = new ImageIcon("Imagens/SairTR.png");
-		save = new ImageIcon("Imagens/Salvar.png");
-		clean = new ImageIcon("Imagens/Borracha.png");
-		book1 = new ImageIcon("Imagens/manual.png");
-		i1 = new ImageIcon("Imagens/Fundo2.jpg");
-		i2 = new ImageIcon("Imagens/Fundo1.jpg");
-		i3 = new ImageIcon("Imagens/read.png");
-		search = new ImageIcon("Imagens/Lupa.png");
-		sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\SairTRNew.png"));
-		image2 = new JLabel(i2);
-		image3 = new JLabel(i3);
-		p = new JPanel();
+		sair = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		
 		pane.setBounds(414, 190, 717, 433);
-		senha.setBounds(597, 395, 350, 45);
-		image3.setBounds(575, 65, 390, 320);
-		txt1.setBounds(740, 537, 125, 20);
-		p.setBounds(575, 250, 390, 315);
 		sair.setBounds(1400, 104, 130, 113);
-		p.add(image2);
 		
 		table = new JTable();
 		tableModel = new DefaultTableModel(new Object[] {"E-mail", "Título", "Resumo", "Classificação"}, 0);
@@ -133,10 +99,6 @@ public class ResumosReadADMView extends JFrame {
 			}
 		});
 		
-		btnLogin.setBackground(Color.BLUE);
-		btnLogin.setForeground(Color.WHITE);
-		btnLogin.setFont(fonte);
-		senha.setFont(fonte1);
 		getContentPane().add(sair);
 		getContentPane().add(pane);
 
@@ -145,20 +107,20 @@ public class ResumosReadADMView extends JFrame {
 		panel.setBounds(242, 0, 2, 845);
 		getContentPane().add(panel);
 
-		txtAutor = new JTextField();
-		txtAutor.setHorizontalAlignment(SwingConstants.LEFT);
-		txtAutor.setForeground(new Color(0, 0, 0));
-		txtAutor.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		txtAutor.setColumns(10);
-		txtAutor.setBounds(359, 63, 769, 50);
-		txtAutor.setOpaque(false);
-		txtAutor.setBorder(BorderFactory.createEmptyBorder());
-		getContentPane().add(txtAutor);
+		emailAutor = new JTextField();
+		emailAutor.setHorizontalAlignment(SwingConstants.LEFT);
+		emailAutor.setForeground(new Color(0, 0, 0));
+		emailAutor.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		emailAutor.setColumns(10);
+		emailAutor.setBounds(359, 63, 769, 50);
+		emailAutor.setOpaque(false);
+		emailAutor.setBorder(BorderFactory.createEmptyBorder());
+		getContentPane().add(emailAutor);
 		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura_de_tela_2023-10-17_17035 (1).png"));
-		lblNewLabel.setBounds(272, 10, 1209, 752);
-		getContentPane().add(lblNewLabel);
+		pesquisa = new JLabel("");
+		pesquisa.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Pesquisa de resumos.png"));
+		pesquisa.setBounds(272, 10, 1209, 752);
+		getContentPane().add(pesquisa);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 49, 49));
@@ -214,22 +176,18 @@ public class ResumosReadADMView extends JFrame {
 		return tableModel;
 	}
 	
-	public void tabela(List<GenerosVO> generos) {
+	public void tabela(List<ResumosVO> generos) {
 		tableModel.setRowCount(0);
-		for(GenerosVO genero: generos) {
-			tableModel.addRow(new Object[] {genero.getId(), genero.getAutor(), genero.getTitulo(), genero.getClassificao()});
+		for(ResumosVO genero: generos) {
+			tableModel.addRow(new Object[] {genero.getAutor(), genero.getTexto(), genero.getTitulo(), genero.getClassificao()});
 		}
 	}
-
 	public String getAutor() {
-		return txtAutor.getText();
+		return emailAutor.getText();
 	}
-	/*public void addBtnPegaTxtGeral(MouseListener listener) {
-		l1.addMouseListener(listener);
-	}*/
 	
 	public void addtxtAutor (DocumentListener listener) {
-		txtAutor.getDocument().addDocumentListener(listener);
+		emailAutor.getDocument().addDocumentListener(listener);
 	}
 
 	public void mensagem(String mensagem) {

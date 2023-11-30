@@ -15,6 +15,7 @@ import br.com.projeto.view.ConfiguracoesView;
 import br.com.projeto.view.LembrarSenhaView;
 import br.com.projeto.view.TelaPrincipalView;
 
+//Classe responsável pelas configurações de dados do usuário, neste caso, responsável pela alteração de dados
 public class DataConfigController {
 		private ConfiguracoesView view;
 		private LembrarSenhaBO lembraBO;

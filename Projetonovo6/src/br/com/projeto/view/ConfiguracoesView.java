@@ -18,18 +18,8 @@ import javax.swing.*;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 
-import br.com.projeto.controller.AcaoController;
-import br.com.projeto.controller.TerrorController;
-import br.com.projeto.controller.FiccaoController;
-import br.com.projeto.controller.RomanceController;
-import br.com.projeto.controller.DataConfigController;
-
-public class ConfiguracoesView extends JFrame {
-	private String nome1;
-	private ImageIcon i1, i2, i3, i4, logo, manual1, Con1, sair1, fundocon, excluir, lápis;
+public class ConfiguracoesView extends JFrame {//Classe view da configurações de dados de usuários
 	private JLabel acao, sair2, log;
-	private Container container;
-	TelaPrincipalView login;
 	private JTextField emailAlteracao;
 	private JTextField txtNovaSenha;
 	private JTextField txtNovoLogin;
@@ -40,23 +30,11 @@ public class ConfiguracoesView extends JFrame {
 		ImageIcon read7 = new ImageIcon("Imagens/LOGOBRANCAnova.png");
 		setIconImage(read7.getImage());
 		setTitle("Configurações");
-		this.nome1 = nome;
-		this.login = login;
 		setBounds(0, 0, 1900, 1080);
-		container = getContentPane();
 		getContentPane().setBackground(new Color(230, 228, 242));
-		logo = new ImageIcon("Imagens/LogoTela.png");
-		i1 = new ImageIcon("Imagens/read.png");
-		manual1 = new ImageIcon("Imagens/Manual.png");
-		Con1 = new ImageIcon("Imagens/Config.png");
-		sair1 = new ImageIcon("Imagens/Sair.png");
-		fundocon = new ImageIcon("Imagens/FundoCon.png");
-		excluir = new ImageIcon("Imagens/Excluir.png");
-		lápis = new ImageIcon("Imagens/Lápis.png");
 		sair2 = new JLabel(
-				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo\\Imagens\\Sair.png"));
-		log = new JLabel(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-31 103059.png"));
+				new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
+		log = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Boneco configurações.png"));
 		getContentPane().setLayout(null);
 
 		Deletar = new JLabel("");
@@ -164,16 +142,15 @@ public class ConfiguracoesView extends JFrame {
 		getContentPane().add(sair2);
 		getContentPane().add(log);
 
-		String log = nome1;
+		String log = nome;
 		JLabel lblNewLabel_1 = new JLabel(log);
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 33));
-		lblNewLabel_1.setBounds(1197, 339, 184, 63);
+		lblNewLabel_1.setBounds(1169, 340, 184, 63);
 		getContentPane().add(lblNewLabel_1);
 
 		JLabel Usuários = new JLabel("");
-		Usuários.setIcon(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-31 090638.png"));
+		Usuários.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Configurações de usuário - alteração.png"));
 		Usuários.setBounds(186, 96, 446, 365);
 		getContentPane().add(Usuários);
 
@@ -183,8 +160,7 @@ public class ConfiguracoesView extends JFrame {
 		getContentPane().add(panel_2);
 
 		JLabel Usuários_1 = new JLabel("");
-		Usuários_1.setIcon(new ImageIcon(
-				"C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Captura de tela 2023-10-31 090708.png"));
+		Usuários_1.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Exclusão de conta de usuário.png"));
 		Usuários_1.setBounds(186, 497, 446, 168);
 		getContentPane().add(Usuários_1);
 

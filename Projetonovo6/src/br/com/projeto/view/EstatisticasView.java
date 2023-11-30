@@ -14,11 +14,9 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
-public class EstatisticasView extends JFrame {
+public class EstatisticasView extends JFrame {//Classe view das estatísticas do software
 	private int numUsers, numResum;
-	private JPanel panel;
-	private JPanel panel_1;
-	private JPanel panel_2;
+	private JPanel panel, panel_1, panel_2;
 	private JLabel UsuariosCadastrados;
 	private JLabel ResumosFeitos;
 	public EstatisticasView(int numUsers, int numResum) {
@@ -50,7 +48,7 @@ public class EstatisticasView extends JFrame {
 		getContentPane().add(UsuariosCadastrados);
 		
 		JLabel sair = new JLabel("");
-		sair.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo3\\Imagens\\Sair.png"));
+		sair.setIcon(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\Saída.png"));
 		sair.setBounds(521, 34, 76, 101);
 		getContentPane().add(sair);
 		

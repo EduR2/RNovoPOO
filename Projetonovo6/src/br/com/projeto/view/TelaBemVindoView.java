@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class TelaBemVindoView extends JFrame {
+public class TelaBemVindoView extends JFrame {//Classe view da tela de splash 
 	private ImageIcon image, image2;
-	private JLabel i, i2;
+	private JLabel i;
 	private Container container;
 	public TelaBemVindoView() {
 		inicializarComponentes();
@@ -23,8 +23,7 @@ public class TelaBemVindoView extends JFrame {
 		setBackground(Color.ORANGE);
 		container = getContentPane();
 		image = new ImageIcon("Imagens/LogoJO.png");
-		image2 = new ImageIcon("Imagens/FundoBemVindo.png");
-		i = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo2\\Imagens\\LogoJO.png"));
+		i = new JLabel(new ImageIcon("C:\\Users\\pwneg\\OneDrive\\Área de Trabalho\\MVC\\Projetonovo6\\Imagens\\LogoJO.png"));
 		i.setBackground(new Color(230, 228, 242));
 		getContentPane().add(i);
 		setVisible(true);

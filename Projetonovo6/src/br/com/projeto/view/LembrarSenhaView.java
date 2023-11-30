@@ -23,10 +23,10 @@ import br.com.projeto.model.vo.CadastroVO;
 import br.com.projeto.model.vo.LembrarSenhaVO;
 import br.com.projeto.model.bo.LembrarSenhaBO;
 
-public class LembrarSenhaView extends JFrame {
+public class LembrarSenhaView extends JFrame {//Classe view da alteração de dados do usuário
 	private JLabel image3, txt1;
 	private Container container;
-	private ImageIcon i1, i2, i3;
+	private ImageIcon i2, i3;
 	private Font fonte = new Font("Verdana", Font.BOLD, 20);
 	private Font fonte1 = new Font("Calibri", Font.BOLD, 15);
 	private Font fonte2 = new Font("Verdana", Font.BOLD, 9);
@@ -74,8 +74,6 @@ public class LembrarSenhaView extends JFrame {
 		btnVoltar.setContentAreaFilled(false);
 		btnVoltar.setBorderPainted(false);
 		txt1 = new JLabel("Alterar Dados");
-		i1 = new ImageIcon("Imagens/Fundo.jpg");
-		i2 = new ImageIcon("Imagens/Fundo1.jpg");
 		i3 = new ImageIcon("Imagens/read.png");
 		image3 = new JLabel(i3);
 		container = getContentPane();
@@ -88,15 +86,11 @@ public class LembrarSenhaView extends JFrame {
 		btnVoltar.setBounds(299, 395, 120, 27);
 		image3.setBounds(95, -60, 390, 320);
 
-		btnAlterar.setFont(fonte);
-		btnVoltar.setFont(fonte2);
 		nome.setFont(fonte1);
 		senha.setFont(fonte1);
 		email.setFont(fonte1);
 		btnAlterar.setBackground(Color.BLUE);
 		btnAlterar.setForeground(Color.WHITE);
-		btnVoltar.setForeground(Color.BLACK);
-		btnVoltar.setBackground(new Color(227, 227, 227));
 		txt1.setFont(fonte3);
 		nome.setForeground(Color.WHITE);
 		senha.setForeground(Color.WHITE);

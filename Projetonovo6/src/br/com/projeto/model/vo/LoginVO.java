@@ -1,6 +1,6 @@
 package br.com.projeto.model.vo;
 
-	public class LoginVO {
+	public class LoginVO {//getters and setters para o login
 		String nome, senha, email;
 		public void Logar (String nome, String senha, String email) {
 			this.nome = nome;

@@ -18,10 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import br.com.projeto.model.bo.CadastroBO;
-import br.com.projeto.model.vo.CadastroVO;
 
-public class CadastroView extends JFrame {
+
+public class CadastroView extends JFrame {//Classe view do cadastro
 	private JLabel image3, txt1;
 	private Container container;
 	private ImageIcon i1, i2, i3;
@@ -31,9 +30,7 @@ public class CadastroView extends JFrame {
 	private Font fonte3 = new Font("Calibri", Font.BOLD, 35);
 	private JTextField nome, senha, email;
 	private JButton btnCadastrar, btnVoltar;
-	private JPanel panel;
-	private JPanel panel_1;
-	private JPanel panel_2;
+	private JPanel panel, panel_1, panel_2;
 
 	public CadastroView() {
 		getContentPane().setBackground(new Color(255, 128, 64));

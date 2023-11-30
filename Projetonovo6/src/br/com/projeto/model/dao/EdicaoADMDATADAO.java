@@ -5,13 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.com.projeto.model.vo.LembrarSenhaVO;
-import br.com.projeto.view.ConfiguracoesView;
 import br.com.projeto.view.LembrarSenhaView;
 
+//Classe responsável pela lógica de edição dos dados do adm
 public class EdicaoADMDATADAO {
 	private String url = "jdbc:mysql://localhost:3306/BD";
 	private LembrarSenhaView view;
-	private ConfiguracoesView view2;
 	private Connection conexao;
 	public boolean alterarSenha (LembrarSenhaVO lembraVO) {
 		try{

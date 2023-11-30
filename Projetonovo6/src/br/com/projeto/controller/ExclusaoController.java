@@ -6,20 +6,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
 
-import br.com.projeto.model.bo.ADMBO;
-import br.com.projeto.model.dao.ConexaoDAO;
-import br.com.projeto.model.vo.ADMVO;
+import br.com.projeto.model.bo.ExclusãoBO;
+import br.com.projeto.model.vo.GerenciamentodeContaVO;
 import br.com.projeto.view.ConfiguracoesView;
-import br.com.projeto.view.LoginView;
-import br.com.projeto.view.TelaPrincipalView;
 
+//Classe responsável pela exclusão de conta do usuário
 public class ExclusaoController {
 	private ConfiguracoesView view;
-	private ADMBO admBO;
-	private ConexaoDAO conexao;
+	private ExclusãoBO exBO;
 	public ExclusaoController(ConfiguracoesView view, Connection conexao) {
 		this.view = view;
-		admBO = new ADMBO();
+		exBO = new ExclusãoBO();
 		view.addBtnExcluir(new excluirListener());
 	}
 	class excluirListener implements MouseListener{
@@ -28,23 +25,22 @@ public class ExclusaoController {
 		public void mouseClicked
 		(MouseEvent e) {
 			 	 String email = view.getEmailDel();
-	          	 ADMVO removeLogin = new ADMVO();
-	          	 ADMVO removeLogin2 = new ADMVO();
+	          	 GerenciamentodeContaVO removeLogin = new GerenciamentodeContaVO();
+	          	 GerenciamentodeContaVO removeLogin2 = new GerenciamentodeContaVO();
 	          	 removeLogin.setEmail(email);
 	          	 removeLogin2.setEmail(email);
-	          	 boolean removidoUsuario = admBO.removeLogin(removeLogin);
-	          	 boolean removidoResumo = admBO.removeLogin2(removeLogin2);
+	          	 boolean removidoUsuario = exBO.removeLogin(removeLogin);
+	          	 boolean removidoResumo = exBO.removeResumos(removeLogin2);
 	          	 if (removidoUsuario == true && removidoResumo == true) {
 	          		view.mensagem("Conta Removida");
 	          		view.mensagem("Seus dados foram removidos juntamente com o seus resumos\nFoi bom ter você conosco.");
 	          		System.exit(0);
-	          	 	 
 	          	 } else if (removidoUsuario == false && removidoResumo == false){
 	          		 view.mensagemErro("Erro ao remover conta");
 	          	}else if (removidoUsuario == true && removidoResumo == false);
 	          	view.mensagem("Conta Removida");
 	          	view.mensagem("Seus resumos continuarão aqui para que outros leitores possam se inspirar no que você escreveu\nFoi bom ter você conosco.");
-          		
+          		System.exit(0);
 		}
 		
 

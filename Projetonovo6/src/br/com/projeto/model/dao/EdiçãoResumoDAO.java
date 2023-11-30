@@ -6,10 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.projeto.model.vo.CadastroVO;
-import br.com.projeto.model.vo.ResumosVO;
 import br.com.projeto.view.LembrarSenhaView;
 
+//Classe responsável pela lógica de atualização dos resumos feitos pelo usuário
 public class EdiçãoResumoDAO  {
 	private String url = "jdbc:mysql://localhost:3306/BD";
 	private LembrarSenhaView view;
